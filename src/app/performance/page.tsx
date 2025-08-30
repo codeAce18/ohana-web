@@ -1,70 +1,120 @@
+import { Monitor, Smartphone, Zap } from "lucide-react"
+
 export default function PerformancePage() {
   return (
-    <section className="py-16 sm:py-24 bg-white">
-      <div className="mx-auto w-full max-w-7xl px-6 sm:px-10">
-        <div className="max-w-4xl">
-          <h1 className="text-3xl sm:text-4xl font-bold text-slate-900">Performance Comparison</h1>
-          <p className="mt-3 text-slate-600">Compare old with new</p>
-
-          <p className="mt-6 text-slate-700">
+    <section
+      className="relative py-16 sm:py-24 bg-cover "
+      style={{ backgroundImage: "url('/Section.jpg')" }}
+    >
+      <div className="mx-auto w-full max-w-6xl px-6 sm:px-10">
+        <div className="text-center mb-16">
+          <p className="text-blue-200 text-sm font-medium mb-2">PERFORMANCE COMPARISON</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Compare old with new</h1>
+          <p className="text-blue-100 max-w-3xl mx-auto text-lg">
             As consumers, we now all demand ultra-fast internet speeds on our mobile devices, intuitive search results
-            and less hassle. Let's look at the difference between traditional builds vs Skyline Digital.
+            and want less hassle. Let's look at the difference between traditional builds vs Ohanaweb Digital.
           </p>
+        </div>
 
-          {/* Comparison blocks */}
-          <div className="mt-10 space-y-8">
-            {/* Speed */}
-            <div className="border rounded-md p-6">
-              <h2 className="text-xl font-semibold text-slate-900">Speed</h2>
-              <div className="mt-4 grid gap-6 sm:grid-cols-2">
-                <div className="bg-slate-50 p-4 rounded">
-                  <div className="text-sm font-medium text-slate-500">Traditional Website</div>
-                  <p className="mt-2 text-slate-800">
-                    Traditional HTML build using WordPress and multiple tracking installs.
-                  </p>
+        {/* Comparison blocks */}
+        <div className="space-y-12">
+          {/* Traditional Website vs Ohanaweb Digital */}
+          <div className="flex items-center justify-between">
+            <div className="flex-1">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-16 h-16 bg-white/10 rounded-lg flex-shrink-0">
+                  <Monitor className="w-8 h-8 text-white" />
                 </div>
-                <div className="bg-emerald-50 p-4 rounded">
-                  <div className="text-sm font-medium text-emerald-700">Skyline Digital</div>
-                  <p className="mt-2 text-emerald-900">
-                    Ultra-fast loading time with page speed below 4s.
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-1">Traditional Website</h3>
+                  <p className="text-blue-100 text-sm max-w-[374px]">
+                    Traditional HTML build using WordPress and multiple tracking installs
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Responsiveness */}
-            <div className="border rounded-md p-6">
-              <h2 className="text-xl font-semibold text-slate-900">User Responsiveness</h2>
-              <div className="mt-4 grid gap-6 sm:grid-cols-2">
-                <div className="bg-slate-50 p-4 rounded">
-                  <div className="text-sm font-medium text-slate-500">Traditional Website</div>
-                  <p className="mt-2 text-slate-800">
-                    Pages provide personalized content but require a page reload for every user action.
-                  </p>
+            <div className="px-8">
+              <span className="text-white/60 font-medium text-lg">vs</span>
+            </div>
+
+            <div className="flex-1">
+              <div className="flex items-center gap-4 flex-row-reverse">
+                <div className="flex items-center justify-center w-16 h-16 bg-white/10 rounded-lg flex-shrink-0">
+                  <Monitor className="w-8 h-8 text-white" />
                 </div>
-                <div className="bg-emerald-50 p-4 rounded">
-                  <div className="text-sm font-medium text-emerald-700">Skyline Digital</div>
-                  <p className="mt-2 text-emerald-900">
-                    Dynamically loads new content as users interact — no page reload needed.
+                <div className="text-right">
+                  <h3 className="text-xl font-semibold text-white mb-1">Ohanaweb Digital</h3>
+                  <p className="text-blue-100 text-sm max-w-[374px] ml-auto">Ultra-fast loading time with page speed below 4s</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* User Responsiveness vs Ohanaweb Digital Responsiveness */}
+          <div className="flex items-center justify-between">
+            <div className="flex-1">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-16 h-16 bg-white/10 rounded-lg flex-shrink-0">
+                  <Smartphone className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-1">User Responsiveness</h3>
+                  <p className="text-blue-100 text-sm max-w-[374px]">
+                    Pages provide personalized content but require a page reload for every user action
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Native feel */}
-            <div className="border rounded-md p-6">
-              <h2 className="text-xl font-semibold text-slate-900">Native Experience</h2>
-              <div className="mt-4 grid gap-6 sm:grid-cols-2">
-                <div className="bg-slate-50 p-4 rounded">
-                  <div className="text-sm font-medium text-slate-500">Traditional Website</div>
-                  <p className="mt-2 text-slate-800">
-                    Traditional builds try to emulate a native experience but generally fail.
+            <div className="px-8">
+              <span className="text-white/60 font-medium text-lg">vs</span>
+            </div>
+
+            <div className="flex-1">
+              <div className="flex items-center gap-4 flex-row-reverse">
+                <div className="flex items-center justify-center w-16 h-16 bg-white/10 rounded-lg flex-shrink-0">
+                  <Smartphone className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-right">
+                  <h3 className="text-xl font-semibold text-white mb-1">Ohanaweb Digital Responsiveness</h3>
+                  <p className="text-blue-100 text-sm max-w-[374px] ml-auto">
+                    Dynamically loads new content as the page as they surf and interact on their device
                   </p>
                 </div>
-                <div className="bg-emerald-50 p-4 rounded">
-                  <div className="text-sm font-medium text-emerald-700">Skyline Digital</div>
-                  <p className="mt-2 text-emerald-900">
-                    Our websites feel like native applications on both desktop and mobile.
+              </div>
+            </div>
+          </div>
+
+          {/* Native Experience vs Ohanaweb Digital Experience */}
+          <div className="flex items-center justify-between">
+            <div className="flex-1">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-16 h-16 bg-white/10 rounded-lg flex-shrink-0">
+                  <Zap className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-1">Native Experience</h3>
+                  <p className="text-blue-100 text-sm max-w-[374px]">
+                    Traditional builds try to emulate a native experience but generally fail
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="px-8">
+              <span className="text-white/60 font-medium text-lg">vs</span>
+            </div>
+
+            <div className="flex-1">
+              <div className="flex items-center gap-4 flex-row-reverse">
+                <div className="flex items-center justify-center w-16 h-16 bg-white/10 rounded-lg flex-shrink-0">
+                  <Zap className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-right">
+                  <h3 className="text-xl font-semibold text-white mb-1">Ohanaweb Digital Experience</h3>
+                  <p className="text-blue-100 text-sm max-w-[374px] ml-auto">
+                    Our websites feel like native applications on both desktop and mobile
                   </p>
                 </div>
               </div>
