@@ -10,6 +10,7 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import AboutPage from "./about/page"
 import PerformancePage from "./performance/page"
+import Portfolio from "./portfolio/page"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -320,6 +321,7 @@ export default function Home() {
         </div>
       </section>
       <PerformancePage/>
+      <Portfolio/>
     </>
   )
 }
