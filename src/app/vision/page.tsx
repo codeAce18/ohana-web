@@ -1,0 +1,173 @@
+"use client"
+
+import { useEffect, useRef } from "react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Heart, Users, Lightbulb } from "lucide-react"
+
+gsap.registerPlugin(ScrollTrigger)
+
+export default function VisionPage() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const heroRef = useRef<HTMLDivElement>(null)
+  const principlesRef = useRef<HTMLDivElement>(null)
+  const goalRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Hero section animation
+      gsap.fromTo(
+        heroRef.current?.children || [],
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power2.out" },
+      )
+
+      // Principles cards animation
+      gsap.fromTo(
+        principlesRef.current?.querySelectorAll(".principle-card") || [],
+        { opacity: 0, y: 60, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: principlesRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      )
+
+      // Goal section animation
+      gsap.fromTo(
+        goalRef.current?.children || [],
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: goalRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      )
+
+      // Floating animation for decorative elements
+      gsap.to(".floating-element", {
+        y: -10,
+        duration: 2,
+        ease: "power1.inOut",
+        yoyo: true,
+        repeat: -1,
+        stagger: 0.3,
+      })
+    }, containerRef)
+
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+      {/* Hero Section */}
+      <section ref={heroRef} className="relative py-20 px-4 text-center overflow-hidden">
+        {/* Decorative floating elements (light theme) */}
+        <div className="absolute top-20 left-10 w-16 h-16 bg-blue-100 rounded-full opacity-60 floating-element" />
+        <div className="absolute top-40 right-20 w-12 h-12 bg-purple-100 rounded-full opacity-60 floating-element" />
+        <div className="absolute bottom-20 left-1/4 w-8 h-8 bg-cyan-100 rounded-full opacity-60 floating-element" />
+
+        <div className="max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full mb-8 border border-blue-100 shadow-sm">
+            <Heart className="w-5 h-5 text-blue-600" />
+            <span className="text-sm font-medium text-slate-700">OHANA-WEB Vision</span>
+          </div>
+
+          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6 text-balance">
+            "A human-friendly web, <br />
+            <span className="text-blue-600">for everyone.</span>"
+          </h1>
+
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed text-pretty">
+            Just like ohana = family in Hawaiian, we want to continue being a reassuring presence that stays close to
+            each individual client.
+          </p>
+        </div>
+      </section>
+
+      {/* Three Principles Section */}
+      <section ref={principlesRef} className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Friendliness */}
+            <div className="principle-card bg-white rounded-2xl p-8 shadow-sm border border-blue-100 hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
+                <Users className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Friendliness</h3>
+              <p className="text-slate-700 leading-relaxed">
+                We avoid technical jargon as much as possible and explain things in a way that's easy for anyone to
+                understand.
+              </p>
+            </div>
+
+            {/* Trust and Reassurance */}
+            <div className="principle-card bg-white rounded-2xl p-8 shadow-sm border border-blue-100 hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-6">
+                <Heart className="w-8 h-8 text-purple-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Trust and Reassurance</h3>
+              <p className="text-slate-700 leading-relaxed">
+                Our relationship doesn't end at delivery—we support you as a long-term partner.
+              </p>
+            </div>
+
+            {/* Human-friendly Design */}
+            <div className="principle-card bg-white rounded-2xl p-8 shadow-sm border border-blue-100 hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-cyan-50 rounded-2xl flex items-center justify-center mb-6">
+                <Lightbulb className="w-8 h-8 text-cyan-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Human-friendly Design</h3>
+              <p className="text-slate-700 leading-relaxed">
+                We prioritize the user's perspective, creating simple, clear, and easy-to-use websites.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Goal Section */}
+      <section ref={goalRef} className="py-20 px-4 text-center bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-12 border border-blue-100">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Our goal is simple:</h2>
+            <blockquote className="text-2xl md:text-3xl font-medium text-purple-700 mb-8 text-balance">
+              "Through web development, bring warmth and peace of mind into daily life."
+            </blockquote>
+            <p className="text-lg text-slate-600 leading-relaxed text-pretty">
+              OHANA-WEB will continue to deliver gentle web experiences that naturally blend into people's lives.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom decorative section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="w-12 h-0.5 bg-blue-600" />
+            <Heart className="w-6 h-6 text-blue-600" />
+            <div className="w-12 h-0.5 bg-blue-600" />
+          </div>
+          <p className="text-slate-600 italic">Creating connections, one website at a time.</p>
+        </div>
+      </section>
+    </div>
+  )
+}
