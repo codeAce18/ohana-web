@@ -17,7 +17,7 @@ export default function PerformancePage() {
         </div>
 
         {/* Comparison blocks */}
-        <div className="space-y-12">
+        <div className="space-y-28">
           {/* Traditional Website vs Ohanaweb Digital */}
           <div className="flex items-center justify-between">
             <div className="flex-1">
