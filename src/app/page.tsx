@@ -12,6 +12,7 @@ import AboutPage from "./about/page"
 import PerformancePage from "./performance/page"
 import Portfolio from "./portfolio/page"
 import VisionPage from "./vision/page"
+import StatsPage from "./stats/page"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -135,10 +136,13 @@ export default function Home() {
         onUpdate: (self) => {
           const progress = self.progress
 
-          // Parallax background
+          // Parallax background + move gradient together to avoid top gap
           gsap.set(bgImageRef.current, {
             yPercent: progress * 30,
             scale: 1.15 - progress * 0.1,
+          })
+          gsap.set(gradientRef.current, {
+            yPercent: progress * 30,
           })
 
           // Parallax overlay
@@ -231,11 +235,10 @@ export default function Home() {
         <div
           aria-hidden
           ref={slantRef}
-          className="absolute left-0 top-0 h-full w-[80%] sm:w-[60%] md:w-[50%] lg:w-[60%] bg-[#134a8b]/90 z-0 pointer-events-none"
-          style={{
-            clipPath: "polygon(0 0, 100% 0, calc(100% - 6vw) 100%, 0 100%)",
-          }}
+          className="absolute left-0 top-0 hidden xl:block h-full w-[60%] bg-[#134a8b]/90 z-0 pointer-events-none"
+          style={{ clipPath: "polygon(0 0, 100% 0, calc(100% - 6vw) 100%, 0 100%)" }}
         />
+        <div aria-hidden className="absolute inset-0 bg-[#134a8b]/90 z-0 xl:hidden" />
 
         <div
           ref={floatingElement1Ref}
@@ -259,10 +262,10 @@ export default function Home() {
             className="absolute inset-0 bg-[length:cover] bg-center"
             style={{ backgroundImage: `url('${HERO_BG_URL}')` }}
           />
-          <div ref={cyanOverlayRef} className="" />
+          <div ref={cyanOverlayRef} className="absolute inset-0 bg-[#134a8b]/40" />
           <div
             ref={gradientRef}
-            className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40"
+            className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40 will-change-transform"
           />
         </div>
 
@@ -301,6 +304,7 @@ export default function Home() {
         </div>
       </section>
 
+      <StatsPage/>
       <AboutPage/>
        <section id="approach" className="py-16 sm:py-24 bg-white">
         <div className="mx-auto w-full max-w-7xl px-6 sm:px-10">
