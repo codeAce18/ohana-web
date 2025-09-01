@@ -14,6 +14,7 @@ import Portfolio from "./portfolio/page"
 import VisionPage from "./vision/page"
 import StatsPage from "./stats/page"
 import Testimonials from "./testimonials/page"
+import SuccessfulProjectsPage from "./successful-projects/page"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -330,6 +331,7 @@ export default function Home() {
       <VisionPage/>
       <Portfolio/>
       <Testimonials/>
+      <SuccessfulProjectsPage/>
     </>
   )
 }
