@@ -1,5 +1,3 @@
-import { Rocket, BarChart3, Briefcase, FileText } from "lucide-react"
-
 export default function WhyChooseUsPage() {
   return (
     <div
@@ -27,48 +25,42 @@ export default function WhyChooseUsPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-7xl mx-auto">
           <div className="space-y-8">
-            <div className=" ">
-              <div className="flex items-start gap-4">
-                <div className="flex-1 text-left">
-                  <h3 className="text-xl font-semibold text-white mb-2">14-day risk-free trial</h3>
-                  <p className="text-blue-100 text-sm leading-relaxed">
-                    You can experience our services without any financial risk before signing any formal contract.
-                  </p>
-                </div>
-                <div className="bg-blue-500 p-3 rounded-lg">
-                  <Rocket className="w-6 h-6 text-white" />
-                </div>
+            {/* 14-day risk-free trial */}
+            <div className="">
+              <div className="text-left">
+                <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                  14-day risk-free trial
+                  <img src="/Component-86.png" alt="rocket icon" className="w-10 h-10" />
+                </h3>
+                <p className="text-blue-100 text-sm leading-relaxed">
+                  You can experience our services without any financial risk before signing any formal contract.
+                </p>
               </div>
             </div>
 
-            {/* Flexible Recruitment Models */}
             <div className="">
-              <div className="flex items-start gap-4">
-                <div className="flex-1 text-left">
-                  <h3 className="text-xl font-semibold text-white mb-2">Flexible Recruitment Models</h3>
-                  <p className="text-blue-100 text-sm leading-relaxed">
-                    You can choose the model that best suits your business from flat rate, extended fee, or time and
-                    materials.
-                  </p>
-                </div>
-                <div className="bg-yellow-500 p-3 rounded-lg">
-                  <Briefcase className="w-6 h-6 text-white" />
-                </div>
+              <div className="text-left">
+                <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                  Flexible Recruitment Models
+                  <img src="/box.png" alt="box icon" className="w-10 h-10" />
+                </h3>
+                <p className="text-blue-100 text-sm leading-relaxed">
+                  You can choose the model that best suits your business from flat rate, extended fee, or time and
+                  materials.
+                </p>
               </div>
             </div>
 
             {/* Start your trial within 2 business days */}
             <div className="">
-              <div className="flex items-start gap-4">
-                <div className="flex-1 text-left">
-                  <h3 className="text-xl font-semibold text-white mb-2">Start your trial within 2 business days</h3>
-                  <p className="text-blue-100 text-sm leading-relaxed">
-                    Not only does this save you a lot of opportunity cost, it also eliminates unnecessary waiting time.
-                  </p>
-                </div>
-                <div className="bg-yellow-500 p-3 rounded-lg">
-                  <Briefcase className="w-6 h-6 text-white" />
-                </div>
+              <div className="text-left">
+                <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                  Start your trial within 2 business days
+                  <img src="/dollar.png" alt="dollar icon" className="w-10 h-10" />
+                </h3>
+                <p className="text-blue-100 text-sm leading-relaxed">
+                  Not only does this save you a lot of opportunity cost, it also eliminates unnecessary waiting time.
+                </p>
               </div>
             </div>
           </div>
@@ -108,6 +100,7 @@ export default function WhyChooseUsPage() {
                   </div>
                 </div>
 
+                {/* Animated glow rings */}
                 <div className="absolute -inset-4 rounded-full border border-cyan-300/30 animate-pulse"></div>
                 <div
                   className="absolute -inset-8 rounded-full border border-blue-300/20 animate-pulse"
@@ -117,51 +110,45 @@ export default function WhyChooseUsPage() {
             </div>
           </div>
 
+          {/* Right column - icons inline to the LEFT of title */}
           <div className="space-y-8">
             {/* 480-hour warranty */}
             <div className="">
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-500 p-3 rounded-lg">
-                  <BarChart3 className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">480-hour warranty</h3>
-                  <p className="text-blue-100 text-sm leading-relaxed">
-                    We ensure the success of your product even after the project is over.
-                  </p>
-                </div>
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                  <img src="/graph.png" alt="graph icon" className="w-10 h-10" />
+                  480-hour warranty
+                </h3>
+                <p className="text-blue-100 text-sm leading-relaxed">
+                  We ensure the success of your product even after the project is over.
+                </p>
               </div>
             </div>
 
             {/* 100% NDA protection */}
             <div className="">
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-500 p-3 rounded-lg">
-                  <div className="w-6 h-6 text-white flex items-center justify-center font-bold">%</div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">100% NDA protection</h3>
-                  <p className="text-blue-100 text-sm leading-relaxed">
-                    Before starting your ISMS - ISO 27001:2013 certification project, we will sign an NDA to keep all
-                    your information confidential.
-                  </p>
-                </div>
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                  <img src="/puzzle.png" alt="puzzle icon" className="w-10 h-10" />
+                  100% NDA protection
+                </h3>
+                <p className="text-blue-100 text-sm leading-relaxed">
+                  Before starting your ISMS - ISO 27001:2013 certification project, we will sign an NDA to keep all your
+                  information confidential.
+                </p>
               </div>
             </div>
 
             {/* Project Status Updates */}
             <div className="">
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-500 p-3 rounded-lg">
-                  <FileText className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Project Status Updates</h3>
-                  <p className="text-blue-100 text-sm leading-relaxed">
-                    We provide project progress reports in the form of daily, weekly, monthly reports, or whenever
-                    requested by the client.
-                  </p>
-                </div>
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
+                  <img src="/handtake.png" alt="handshake icon" className="w-10 h-10" />
+                  Project Status Updates
+                </h3>
+                <p className="text-blue-100 text-sm leading-relaxed">
+                  We provide project progress reports in the form of daily, weekly, monthly reports, or whenever requested by the client.
+                </p>
               </div>
             </div>
           </div>

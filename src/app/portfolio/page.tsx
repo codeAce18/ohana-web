@@ -20,119 +20,119 @@ const projects = {
     {
       id: 1,
       title: "Brand Identity Design",
-      image: "/brand-identity-design-mockups-and-logos.png",
+      image: "/one.png",
     },
     {
       id: 2,
       title: "Mobile App UI Design",
-      image: "/mobile-app-mockups-with-orange-branding-blockchain.png",
+      image: "/two.png",
     },
     {
       id: 3,
       title: "Web Interface Design",
-      image: "/clean-blue-and-white-internal-communication-interf.png",
+      image: "/three.png",
     },
   ],
   Blockchain: [
     {
       id: 4,
       title: "PoC blockchain app",
-      image: "/mobile-app-mockups-with-orange-branding-blockchain.png",
+      image: "/three.png",
     },
     {
       id: 5,
       title: "Digital Wallet App",
-      image: "/purple-themed-digital-wallet-app-on-laptop-screens.png",
+      image: "/two.png",
     },
     {
       id: 6,
       title: "Crypto Trading Platform",
-      image: "/task-management-web-application-interface.png",
+      image: "/one.png",
     },
   ],
   "Website creation": [
     {
       id: 7,
       title: "E-commerce Website",
-      image: "/modern-ecommerce-website.png",
+      image: "/two.png",
     },
     {
       id: 8,
       title: "Corporate Website",
-      image: "/clean-blue-and-white-internal-communication-interf.png",
+      image: "/three.png",
     },
     {
       id: 9,
       title: "Portfolio Website",
-      image: "/brand-identity-design-mockups-and-logos.png",
+      image: "/one.png",
     },
   ],
   "Mobile App Development": [
     {
       id: 10,
       title: "Food Delivery App",
-      image: "/mobile-app-mockups-with-orange-branding-blockchain.png",
+      image: "/three.png",
     },
     {
       id: 11,
       title: "Fitness Tracking App",
-      image: "/task-management-web-application-interface.png",
+      image: "/one.png",
     },
     {
       id: 12,
       title: "Social Media App",
-      image: "/purple-themed-digital-wallet-app-on-laptop-screens.png",
+      image: "/three.png",
     },
   ],
   "Web App": [
     {
       id: 13,
       title: "Task Management System",
-      image: "/task-management-web-application-interface.png",
+      image: "/two.png",
     },
     {
       id: 14,
       title: "Internal communication system",
-      image: "/clean-blue-and-white-internal-communication-interf.png",
+      image: "/three.png",
     },
     {
       id: 15,
       title: "Project Management Tool",
-      image: "/modern-ecommerce-website.png",
+      image: "/two.png",
     },
   ],
   "System Development": [
     {
       id: 16,
       title: "CRM System",
-      image: "/clean-blue-and-white-internal-communication-interf.png",
+      image: "/one.png",
     },
     {
       id: 17,
       title: "Inventory Management",
-      image: "/task-management-web-application-interface.png",
+      image: "/two.png",
     },
     {
       id: 18,
       title: "Analytics Dashboard",
-      image: "/purple-themed-digital-wallet-app-on-laptop-screens.png",
+      image: "/three.png",
     },
   ],
   "AI/ML Solutions": [
     {
       id: 19,
       title: "Machine Learning Platform",
-      image: "/task-management-web-application-interface.png",
+      image: "/two.png",
     },
     {
       id: 20,
       title: "AI Chatbot System",
-      image: "/clean-blue-and-white-internal-communication-interf.png",
+      image: "/three.png",
     },
     {
       id: 21,
       title: "Predictive Analytics Tool",
-      image: "/purple-themed-digital-wallet-app-on-laptop-screens.png",
+      image: "/three.png",
     },
   ],
 }
@@ -300,7 +300,7 @@ export default function Portfolio() {
 
   return (
     <section
-      className="min-h-screen relative py-20 px-4"
+      className="min-h-[70vh] relative py-20 px-4"
       ref={containerRef}
       style={{
         backgroundImage: "url('/S5.jpg')",
@@ -366,7 +366,7 @@ export default function Portfolio() {
         {/* Portfolio Grid with Navigation */}
         <div className="relative">
           {/* Navigation Arrows */}
-          <button
+          {/* <button
             onClick={handlePrevious}
             disabled={currentIndex === 0}
             className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full transition-all duration-300 ${
@@ -376,9 +376,9 @@ export default function Portfolio() {
             }`}
           >
             <ChevronLeft size={24} />
-          </button>
+          </button> */}
 
-          <button
+          {/* <button
             onClick={handleNext}
             disabled={currentIndex + 3 >= currentProjects.length}
             className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full transition-all duration-300 ${
@@ -388,7 +388,7 @@ export default function Portfolio() {
             }`}
           >
             <ChevronRight size={24} />
-          </button>
+          </button> */}
 
           {/* Projects Grid */}
           <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-16">
