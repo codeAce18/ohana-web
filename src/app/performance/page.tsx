@@ -4,7 +4,7 @@ export default function PerformancePage() {
   return (
     <section
       className="relative py-16 sm:py-24 bg-cover "
-      style={{ backgroundImage: "url('/Section.jpg')" }}
+      style={{ backgroundImage: "url('/S5.jpg')" }}
     >
       <div className="mx-auto w-full max-w-6xl px-6 sm:px-10">
         <div className="text-center mb-16">
