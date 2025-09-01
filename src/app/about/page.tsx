@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export default function AboutPage() {
   return (
-    <section className="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <section className="py-16 sm:py-20 bg-white relative overflow-hidden">
       <div className="absolute top-20 right-20 w-32 h-32 bg-blue-100 rounded-full opacity-30"></div>
       <div className="absolute bottom-20 left-20 w-24 h-24 bg-purple-100 rounded-full opacity-40"></div>
       <div className="absolute top-1/2 right-1/3 w-16 h-16 bg-cyan-100 rounded-full opacity-25"></div>

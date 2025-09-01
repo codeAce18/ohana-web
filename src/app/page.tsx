@@ -13,6 +13,7 @@ import PerformancePage from "./performance/page"
 import Portfolio from "./portfolio/page"
 import VisionPage from "./vision/page"
 import StatsPage from "./stats/page"
+import Testimonials from "./testimonials/page"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -328,6 +329,7 @@ export default function Home() {
       <PerformancePage/>
       <VisionPage/>
       <Portfolio/>
+      <Testimonials/>
     </>
   )
 }

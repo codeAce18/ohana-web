@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 // Simple count-up hook for smooth animation
 function useCountUp(target: number, durationMs = 1200) {
@@ -35,24 +36,36 @@ export default function StatsPage() {
     <section className="bg-white py-16 sm:py-24">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <StatCard label="Yearly performance" value={years} suffix="+" />
-          <StatCard label="Project successes" value={projects} suffix="+" />
-          <StatCard label="Active Customers" value={customers} suffix="+" />
-          <StatCard label="professional teams" value={teams} suffix="+" />
+          <StatCard label="Yearly performance" value={years} suffix="+" image="/portfolio.png" />
+          <StatCard label="Project successes" value={projects} suffix="+" image="/rocket.png" />
+          <StatCard label="Active Customers" value={customers} suffix="+" image="/scan.png" />
+          <StatCard label="professional teams" value={teams} suffix="+" image="/tv.png" />
         </div>
       </div>
     </section>
   )
 }
 
-function StatCard({ label, value, suffix = "" }: { label: string; value: number; suffix?: string }) {
+function StatCard({ label, value, suffix = "", image }: { label: string; value: number; suffix?: string; image: string }) {
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-      <div className="text-4xl sm:text-5xl font-extrabold text-[#00c7f1] ">
-        {value}
-        {suffix}
+    <div className="rounded-lg bg-white p-6 shadow-sm">
+      <div className="flex items-center gap-4 mb-4">
+        <Image
+          src={image}
+          alt={label}
+          width={48}
+          height={48}
+          className="w-14 h-14 object-contain"
+        />
+      <div className="">
+          <div className="text-3xl font-bold text-[#00c7f1]">
+          {value}
+          {suffix}
+        </div>
+        <div className=" text-[#0A2349] font-medium">{label}</div>
       </div>
-      <div className="mt-2 text-slate-700 font-medium">{label}</div>
+      </div>
+      
     </div>
   )
 }
