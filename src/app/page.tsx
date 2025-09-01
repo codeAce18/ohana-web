@@ -233,6 +233,7 @@ export default function Home() {
     <>
       <Navbar />
       <section
+        id="home"
         ref={sectionRef as any}
         className="relative isolate min-h-[75vh] sm:min-h-[100vh] flex items-center overflow-hidden"
       >
@@ -308,8 +309,8 @@ export default function Home() {
         </div>
       </section>
 
-      <StatsPage/>
-      <AboutPage/>
+      <section id="stats"><StatsPage/></section>
+      <section id="about"><AboutPage/></section>
        <section id="approach" className="py-16 sm:py-24 bg-white">
         <div className="mx-auto w-full max-w-7xl px-6 sm:px-10">
           <div className="max-w-3xl">
@@ -329,12 +330,20 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <PerformancePage/>
-      <VisionPage/>
-      <Portfolio/>
-      <Testimonials/>
-      <SuccessfulProjectsPage/>
-      <WhyChooseUsPage/>
+      <section id="performance"><PerformancePage/></section>
+      <section id="vision"><VisionPage/></section>
+      <section id="portfolio"><Portfolio/></section>
+      {/* <section id="testimonials"><Testimonials/></section> */}
+      <section id="successful-projects"><SuccessfulProjectsPage/></section>
+      <section id="why-choose-us"><WhyChooseUsPage/></section>
+      {/* Scroll-to-top button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Scroll to top"
+        className="fixed bottom-6 right-6 z-50 rounded-full bg-[#00c7f1] text-white shadow-lg hover:shadow-xl w-12 h-12 flex items-center justify-center transition transform hover:scale-105"
+      >
+        ↑
+      </button>
       <Footer/>
     </>
   )

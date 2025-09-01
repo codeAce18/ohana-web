@@ -42,39 +42,34 @@ const Navbar: React.FC = () => {
               </div>
             </div>
 
-            <ul className="hidden lg:flex items-center gap-8 text-sm font-medium">
-              <li>
-                <a 
-                  href="#" 
-                  className="relative text-gray-700 hover:text-[#00c7f1] transition-all duration-300 hover:scale-105 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#00c7f1] after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="relative text-gray-700 hover:text-[#00c7f1] transition-all duration-300 hover:scale-105 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#00c7f1] after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="relative text-gray-700 hover:text-[#00c7f1] transition-all duration-300 hover:scale-105 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#00c7f1] after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="relative text-gray-700 hover:text-[#00c7f1] transition-all duration-300 hover:scale-105 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#00c7f1] after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  Contact
-                </a>
-              </li>
+            <ul className="hidden lg:flex items-center gap-6 text-sm font-medium">
+              {[
+                { href: "#home", label: "Home" },
+                { href: "#stats", label: "Stats" },
+                { href: "#about", label: "About" },
+                { href: "#approach", label: "Approach" },
+                { href: "#performance", label: "Performance" },
+                { href: "#vision", label: "Vision" },
+                { href: "#portfolio", label: "Portfolio" },
+                // { href: "#testimonials", label: "Testimonials" },
+                { href: "#successful-projects", label: "Successful Projects" },
+                { href: "#why-choose-us", label: "Why Choose Us" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const id = item.href.replace('#', '');
+                      const el = document.getElementById(id);
+                      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }}
+                    className="relative text-gray-700 hover:text-[#00c7f1] transition-all duration-300 hover:scale-105 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-[#00c7f1] after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
 
             <div className="flex items-center gap-3">
@@ -132,34 +127,38 @@ const Navbar: React.FC = () => {
             } overflow-hidden`}
           >
             <div className="px-2 pt-2 pb-6 space-y-1 bg-white border-t border-gray-100">
-              <a
-                href="#"
-                className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-[#00c7f1] hover:bg-gray-50 rounded-md transition-all duration-300"
-              >
-                Home
-              </a>
-              <a
-                href="#"
-                className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-[#00c7f1] hover:bg-gray-50 rounded-md transition-all duration-300"
-              >
-                About
-              </a>
-              <a
-                href="#"
-                className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-[#00c7f1] hover:bg-gray-50 rounded-md transition-all duration-300"
-              >
-                Services
-              </a>
-              <a
-                href="#"
-                className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-[#00c7f1] hover:bg-gray-50 rounded-md transition-all duration-300"
-              >
-                Contact
-              </a>
+              {[
+                { href: "#home", label: "Home" },
+                { href: "#stats", label: "Stats" },
+                { href: "#about", label: "About" },
+                { href: "#approach", label: "Approach" },
+                { href: "#performance", label: "Performance" },
+                { href: "#vision", label: "Vision" },
+                { href: "#portfolio", label: "Portfolio" },
+                // { href: "#testimonials", label: "Testimonials" },
+                { href: "#successful-projects", label: "Successful Projects" },
+                { href: "#why-choose-us", label: "Why Choose Us" },
+              ].map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-[#00c7f1] hover:bg-gray-50 rounded-md transition-all duration-300"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const id = item.href.replace('#', '');
+                    const el = document.getElementById(id);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  {item.label}
+                </a>
+              ))}
               <div className="pt-4">
                 <a
-                  href="#"
+                  href="#home"
                   className="block w-full text-center py-3 px-6 rounded-lg text-white bg-gradient-to-r from-[#00c7f1] to-[#00a8d1] hover:from-[#043e7e] hover:to-[#032d5a] transition-all duration-300 font-semibold shadow-lg glow-animation"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Get Started
                 </a>

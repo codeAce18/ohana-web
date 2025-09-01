@@ -17,68 +17,68 @@ export default function PerformancePage() {
         </div>
 
         {/* Comparison blocks */}
-        <div className="space-y-28">
+        <div className="space-y-16 md:space-y-28">
           {/* Traditional Website vs Ohanaweb Digital */}
-          <div className="flex items-center justify-between">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start md:items-center gap-6 md:gap-8">
             <div className="flex-1">
-              <div className="flex items-center gap-4">
-                <div className="flex items-center justify-center w-16 h-16 bg-white/10 rounded-lg flex-shrink-0">
-                  <Monitor className="w-8 h-8 text-white" />
+              <div className="flex items-start md:items-center gap-4">
+                <div className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-lg flex-shrink-0">
+                  <Monitor className="w-7 h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-1">Traditional Website</h3>
-                  <p className="text-blue-100 text-sm max-w-[374px]">
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-1">Traditional Website</h3>
+                  <p className="text-blue-100 text-sm md:text-base max-w-[374px]">
                     Traditional HTML build using WordPress and multiple tracking installs
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="px-8">
+            <div className="hidden md:flex px-4 justify-center">
               <span className="text-white/60 font-medium text-lg">vs</span>
             </div>
 
             <div className="flex-1">
-              <div className="flex items-center gap-4 flex-row-reverse">
-                <div className="flex items-center justify-center w-16 h-16 bg-white/10 rounded-lg flex-shrink-0">
-                  <Monitor className="w-8 h-8 text-white" />
+              <div className="flex items-start md:items-center gap-4 md:flex-row-reverse">
+                <div className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-lg flex-shrink-0">
+                  <Monitor className="w-7 h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <div className="text-right">
-                  <h3 className="text-xl font-semibold text-white mb-1">Ohanaweb Digital</h3>
-                  <p className="text-blue-100 text-sm max-w-[374px] ml-auto">Ultra-fast loading time with page speed below 4s</p>
+                <div className="md:text-right">
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-1">Ohanaweb Digital</h3>
+                  <p className="text-blue-100 text-sm md:text-base max-w-[374px] md:ml-auto">Ultra-fast loading time with page speed below 4s</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* User Responsiveness vs Ohanaweb Digital Responsiveness */}
-          <div className="flex items-center justify-between">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start md:items-center gap-6 md:gap-8">
             <div className="flex-1">
-              <div className="flex items-center gap-4">
-                <div className="flex items-center justify-center w-16 h-16 bg-white/10 rounded-lg flex-shrink-0">
-                  <Smartphone className="w-8 h-8 text-white" />
+              <div className="flex items-start md:items-center gap-4">
+                <div className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-lg flex-shrink-0">
+                  <Smartphone className="w-7 h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-1">User Responsiveness</h3>
-                  <p className="text-blue-100 text-sm max-w-[374px]">
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-1">User Responsiveness</h3>
+                  <p className="text-blue-100 text-sm md:text-base max-w-[374px]">
                     Pages provide personalized content but require a page reload for every user action
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="px-8">
+            <div className="hidden md:flex px-4 justify-center">
               <span className="text-white/60 font-medium text-lg">vs</span>
             </div>
 
             <div className="flex-1">
-              <div className="flex items-center gap-4 flex-row-reverse">
-                <div className="flex items-center justify-center w-16 h-16 bg-white/10 rounded-lg flex-shrink-0">
-                  <Smartphone className="w-8 h-8 text-white" />
+              <div className="flex items-start md:items-center gap-4 md:flex-row-reverse">
+                <div className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-lg flex-shrink-0">
+                  <Smartphone className="w-7 h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <div className="text-right">
-                  <h3 className="text-xl font-semibold text-white mb-1">Ohanaweb Digital Responsiveness</h3>
-                  <p className="text-blue-100 text-sm max-w-[374px] ml-auto">
+                <div className="md:text-right">
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-1">Ohanaweb Digital Responsiveness</h3>
+                  <p className="text-blue-100 text-sm md:text-base max-w-[374px] md:ml-auto">
                     Dynamically loads new content as the page as they surf and interact on their device
                   </p>
                 </div>
@@ -87,33 +87,33 @@ export default function PerformancePage() {
           </div>
 
           {/* Native Experience vs Ohanaweb Digital Experience */}
-          <div className="flex items-center justify-between">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start md:items-center gap-6 md:gap-8">
             <div className="flex-1">
-              <div className="flex items-center gap-4">
-                <div className="flex items-center justify-center w-16 h-16 bg-white/10 rounded-lg flex-shrink-0">
-                  <Zap className="w-8 h-8 text-white" />
+              <div className="flex items-start md:items-center gap-4">
+                <div className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-lg flex-shrink-0">
+                  <Zap className="w-7 h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-1">Native Experience</h3>
-                  <p className="text-blue-100 text-sm max-w-[374px]">
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-1">Native Experience</h3>
+                  <p className="text-blue-100 text-sm md:text-base max-w-[374px]">
                     Traditional builds try to emulate a native experience but generally fail
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="px-8">
+            <div className="hidden md:flex px-4 justify-center">
               <span className="text-white/60 font-medium text-lg">vs</span>
             </div>
 
             <div className="flex-1">
-              <div className="flex items-center gap-4 flex-row-reverse">
-                <div className="flex items-center justify-center w-16 h-16 bg-white/10 rounded-lg flex-shrink-0">
-                  <Zap className="w-8 h-8 text-white" />
+              <div className="flex items-start md:items-center gap-4 md:flex-row-reverse">
+                <div className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-lg flex-shrink-0">
+                  <Zap className="w-7 h-7 md:w-8 md:h-8 text-white" />
                 </div>
-                <div className="text-right">
-                  <h3 className="text-xl font-semibold text-white mb-1">Ohanaweb Digital Experience</h3>
-                  <p className="text-blue-100 text-sm max-w-[374px] ml-auto">
+                <div className="md:text-right">
+                  <h3 className="text-lg md:text-xl font-semibold text-white mb-1">Ohanaweb Digital Experience</h3>
+                  <p className="text-blue-100 text-sm md:text-base max-w-[374px] md:ml-auto">
                     Our websites feel like native applications on both desktop and mobile
                   </p>
                 </div>
