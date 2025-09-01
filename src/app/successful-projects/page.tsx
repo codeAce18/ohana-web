@@ -73,13 +73,13 @@ export default function SuccessfulProjectsPage() {
     const base = "relative rounded-xl overflow-hidden border will-change-transform transition-[transform,opacity,filter] duration-500 ease-out"
     const size =
       emphasis === "center"
-        ? "w-[92vw] sm:w-[520px] md:w-[640px] lg:w-[720px] aspect-[16/10] z-20 scale-100"
+        ? "w-[92vw] sm:w-[520px] md:w-[640px] lg:w-[720px] lg:h-[700px] aspect-[16/10] z-20 scale-100"
         : "w-[300px] md:w-[360px] lg:w-[420px] aspect-[16/10] z-10 scale-90"
     const pos =
       emphasis === "left"
-        ? "opacity-90 -translate-x-2 md:-translate-x-4"
+        ? "opacity-90 -translate-x-2 md:-translate-x-4 lg:h-[580px] lg:w-[580px]"
         : emphasis === "right"
-        ? "opacity-90 translate-x-2 md:translate-x-4"
+        ? "opacity-90 translate-x-2 md:translate-x-4 lg:h-[580px] lg:w-[580px]"
         : "opacity-100 shadow-2xl"
 
     return (
@@ -102,14 +102,14 @@ export default function SuccessfulProjectsPage() {
           {emphasis === "center" && (
             <p className="mt-2 text-sm md:text-base text-white/90 line-clamp-3">{project.description}</p>
           )} */}
-          <div className="mt-3">
+          {/* <div className="mt-3">
             <a
               href={project.link}
               className="inline-flex items-center gap-2 text-sm md:text-base font-semibold text-cyan-300 hover:text-cyan-200"
             >
               View Project
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     )
@@ -117,14 +117,14 @@ export default function SuccessfulProjectsPage() {
 
   return (
     <section className="min-h-screen bg-[#fff] py-16 px-0 overflow-x-hidden" ref={containerRef}>
-      <div className="max-w-[100vw] mx-auto px-4">
+      <div className="max-w-[100vw] mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-bold text-[#00c7f1]">Successful Projects</h1>
         </div>
 
         {/* Controls */}
-        <div className="flex items-center justify-between mb-6 px-2 md:px-6">
+        {/* <div className="flex items-center justify-between mb-6 px-2 md:px-6">
           <button
             onClick={goPrev}
             aria-label="Previous"
@@ -144,10 +144,10 @@ export default function SuccessfulProjectsPage() {
           >
             <ChevronRight size={20} />
           </button>
-        </div>
+        </div> */}
 
         {/* Carousel (center bigger, sides smaller) */}
-        <div className="relative flex items-center justify-center gap-3 md:gap-6 lg:gap-8 px-2 md:px-6 overflow-x-hidden">
+        <div className="relative flex items-center justify-center gap-3 md:gap-6 lg:gap-12 px-2 md:px-6 overflow-x-hidden pt-10">
           {/* Left */}
           <div className="hidden sm:block">
             <Card project={projects[leftIndex]} emphasis="left" />
@@ -171,8 +171,8 @@ export default function SuccessfulProjectsPage() {
               key={i}
               onClick={() => setActive(i)}
               aria-label={`Go to ${i + 1}`}
-              className={`h-2.5 w-2.5 rounded-full transition-all ${
-                i === active ? "bg-cyan-400 scale-110" : "bg-gray-300 hover:bg-gray-400"
+              className={`h-2.5 w-2.5 rounded-sm transition-all ${
+                i === active ? "border-2 border-cyan-400 scale-110" : "bg-gray-300 hover:bg-gray-400"
               }`}
             />
           ))}
