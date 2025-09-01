@@ -82,13 +82,13 @@ export default function VisionPage() {
         <div className="absolute bottom-20 left-1/4 w-8 h-8 bg-cyan-100 rounded-full opacity-60 floating-element" />
 
         <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full mb-8 border border-blue-100 shadow-sm">
-            <span className="text-sm font-medium text-slate-800">OHANA-WEB Vision</span>
+          <div className="">
+            <span className="inline-block rounded-full bg-[#00c7f1] px-4 py-2 text-sm font-bold text-white mb-2">OHANA-WEB Vision</span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-white lg:text-slate-900 mb-6 text-balance">
-            "A human-friendly web, <br />
-            <span className="text-cyan-300 lg:text-blue-600">for everyone.</span>"
+          <h1 className="text-5xl md:text-6xl font-bold text-[#00c7f1] mb-6 text-balance">
+            A human-friendly web for everyone.
+     
           </h1>
 
           <p className="text-xl text-slate-100 lg:text-slate-600 max-w-3xl mx-auto leading-relaxed text-pretty">
@@ -136,7 +136,7 @@ export default function VisionPage() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-12 border border-blue-100">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Our goal is simple:</h2>
-            <blockquote className="text-2xl md:text-3xl font-medium text-purple-700 mb-8 text-balance">
+            <blockquote className="text-2xl md:text-3xl font-medium text-[#00c7f1] mb-8 text-balance">
               "Through web development, bring warmth and peace of mind into daily life."
             </blockquote>
             <p className="text-lg text-slate-600 leading-relaxed text-pretty">

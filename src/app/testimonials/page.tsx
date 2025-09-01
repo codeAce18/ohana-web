@@ -151,25 +151,24 @@ export default function Testimonials() {
 
   return (
     <section
-      className="min-h-screen relative py-20 px-4"
+      className="min-h-screen relative py-20 px-4 bg-[#fff]"
       ref={containerRef}
-      style={{
-        backgroundImage: "url('/S5.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed"
-      }}
+      // style={{
+      //   backgroundImage: "url('/S5.jpg')",
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundAttachment: "fixed"
+      // }}
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
-      <div className="absolute inset-0 bg-black/60 z-0"></div>
       
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className=" mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-white mb-6">Customer Testimonials</h1>
-          <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+          <h1 className="text-5xl font-bold text-[#00c7f1] mb-6">Customer Testimonials</h1>
+          <p className="text-lg text-[#0A2349]  max-w-4xl mx-auto leading-relaxed">
             At Ohana, we always strive to continually deliver the best products. These efforts are rewarded by the kind words, feedback, and reviews from our customers. Here are some of the kind words we have received from our customers:
           </p>
         </div>
@@ -209,33 +208,18 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials Grid */}
-        <div ref={testimonialsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={testimonialsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {currentTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white/10 backdrop-blur-md rounded-2xl p-8 hover:bg-white/15 transition-all duration-300 hover:transform hover:scale-105 border border-white/20"
+              className="bg-white/10 backdrop-blur-md rounded-sm p-8 hover:bg-white/15 transition-all duration-300 hover:transform hover:scale-105 border border-white/20"
             >
-              {/* Quote Icon */}
-              <div className="flex justify-center mb-6">
-                <div className="w-12 h-12 bg-cyan-400/20 rounded-full flex items-center justify-center">
-                  <Quote className="w-6 h-6 text-cyan-400" />
-                </div>
-              </div>
-
-              {/* Rating */}
-              <div className="flex justify-center mb-6">
-                {Array.from({ length: testimonial.rating }).map((_, index) => (
-                  <Star
-                    key={index}
-                    className="w-5 h-5 text-yellow-400 fill-current"
-                  />
-                ))}
-              </div>
-
               {/* Content */}
-              <blockquote className="text-gray-200 text-center mb-8 leading-relaxed italic">
-                "{testimonial.content}"
-              </blockquote>
+              <div className="border border-[#00c7f1] ">
+                <p className="text-[#0A2349] text-center leading-relaxed px-4 py-3">
+                {testimonial.content}
+              </p>
+              </div>
 
               {/* Author Info */}
               <div className="text-center">

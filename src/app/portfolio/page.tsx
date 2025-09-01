@@ -12,6 +12,7 @@ const categories = [
   "Mobile App Development",
   "Web App",
   "System Development",
+  "AI/ML Solutions",
 ]
 
 const projects = {
@@ -117,16 +118,88 @@ const projects = {
       image: "/purple-themed-digital-wallet-app-on-laptop-screens.png",
     },
   ],
+  "AI/ML Solutions": [
+    {
+      id: 19,
+      title: "Machine Learning Platform",
+      image: "/task-management-web-application-interface.png",
+    },
+    {
+      id: 20,
+      title: "AI Chatbot System",
+      image: "/clean-blue-and-white-internal-communication-interf.png",
+    },
+    {
+      id: 21,
+      title: "Predictive Analytics Tool",
+      image: "/purple-themed-digital-wallet-app-on-laptop-screens.png",
+    },
+  ],
 }
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("UI/UX Design")
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [categoryStartIndex, setCategoryStartIndex] = useState(0)
   const projectsRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
+  const categoriesRef = useRef<HTMLDivElement>(null)
+
+  const categoriesPerView = 6
+  const visibleCategories = categories.slice(categoryStartIndex, categoryStartIndex + categoriesPerView)
 
   const currentProjects = projects[activeCategory as keyof typeof projects]
   const visibleProjects = currentProjects.slice(currentIndex, currentIndex + 3)
+
+  const handleCategoryPrevious = () => {
+    if (categoryStartIndex > 0) {
+      gsap.to(categoriesRef.current?.children || [], {
+        x: 50,
+        opacity: 0,
+        duration: 0.2,
+        stagger: 0.05,
+        onComplete: () => {
+          setCategoryStartIndex(categoryStartIndex - 1)
+          gsap.fromTo(
+            categoriesRef.current?.children || [],
+            { x: -50, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.2,
+              stagger: 0.05,
+              ease: "power2.out",
+            }
+          )
+        },
+      })
+    }
+  }
+
+  const handleCategoryNext = () => {
+    if (categoryStartIndex + categoriesPerView < categories.length) {
+      gsap.to(categoriesRef.current?.children || [], {
+        x: -50,
+        opacity: 0,
+        duration: 0.2,
+        stagger: 0.05,
+        onComplete: () => {
+          setCategoryStartIndex(categoryStartIndex + 1)
+          gsap.fromTo(
+            categoriesRef.current?.children || [],
+            { x: 50, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.2,
+              stagger: 0.05,
+              ease: "power2.out",
+            }
+          )
+        },
+      })
+    }
+  }
 
   const handleCategoryChange = (category: string) => {
     if (category === activeCategory) return
@@ -243,21 +316,51 @@ export default function Portfolio() {
         {/* Header */}
         <h2 className="text-5xl font-bold text-white text-center mb-16">Our Portfolio</h2>
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-16">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => handleCategoryChange(category)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                activeCategory === category
-                  ? "bg-cyan-400 text-blue-900"
-                  : "bg-blue-700/50 text-white hover:bg-blue-600/70"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+        {/* Category Tabs with Navigation */}
+    <div className="flex items-center justify-center mb-8">
+          {/* Left Arrow */}
+          <button
+            onClick={handleCategoryPrevious}
+            disabled={categoryStartIndex === 0}
+            className={`px-4 py-10 rounded-sm mr-1 transition-all duration-300 bg-[#345b95] ${
+              categoryStartIndex === 0
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:bg-[#00c7f1]"
+            }`}
+          >
+            <ChevronLeft size={20} className="text-[#00c7f1]" />
+          </button>
+
+          {/* Category Buttons - Joined Together */}
+          <div ref={categoriesRef} className="flex bg-blue-700/30 rounded-sm overflow-hidden backdrop-blur-sm border border-white/20">
+            {visibleCategories.map((category, index) => (
+              <button
+                key={category}
+                onClick={() => handleCategoryChange(category)}
+                className={`px-8 py-10 font-medium transition-all duration-300 whitespace-nowrap ${
+                  activeCategory === category
+                    ? "bg-[#00c7f1] text-white"
+                    : "text-white hover:bg-[#00c7f1] bg-[#345b95]"
+                } ${index !== visibleCategories.length - 1 ? "border-r border-[#013878]" : ""}`}
+              >
+
+                {category}
+              </button>
+            ))}
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={handleCategoryNext}
+            disabled={categoryStartIndex + categoriesPerView >= categories.length}
+            className={`px-4 py-10 rounded-sm ml-1 transition-all duration-300 bg-[#345b95] ${
+              categoryStartIndex + categoriesPerView >= categories.length
+                ? "opacity-50 cursor-not-allowed"
+                : ""
+            }`}
+          >
+            <ChevronRight size={20} className="text-[#00c7f1]" />
+          </button>
         </div>
 
         {/* Portfolio Grid with Navigation */}
@@ -292,9 +395,9 @@ export default function Portfolio() {
             {visibleProjects.map((project) => (
               <div
                 key={project.id}
-                className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer group"
+                className=" rounded-sm overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer group"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-44 overflow-hidden">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
@@ -303,7 +406,7 @@ export default function Portfolio() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
+                  <h3 className="text-xl font-semibold text-white">{project.title}</h3>
                 </div>
               </div>
             ))}
