@@ -48,7 +48,7 @@ export default function StatsPage() {
 function StatCard({ label, value, suffix = "" }: { label: string; value: number; suffix?: string }) {
   return (
     <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-      <div className="text-4xl sm:text-5xl font-extrabold text-[#134a8b]">
+      <div className="text-4xl sm:text-5xl font-extrabold text-[#00c7f1] ">
         {value}
         {suffix}
       </div>

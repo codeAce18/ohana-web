@@ -227,10 +227,19 @@ export default function Portfolio() {
 
   return (
     <section
-      className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 py-20 px-4"
+      className="min-h-screen relative py-20 px-4"
       ref={containerRef}
+      style={{
+        backgroundImage: "url('/S5.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed"
+      }}
     >
-      <div className="max-w-7xl mx-auto">
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0  z-0"></div>
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <h2 className="text-5xl font-bold text-white text-center mb-16">Our Portfolio</h2>
 
