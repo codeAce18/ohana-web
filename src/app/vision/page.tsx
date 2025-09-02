@@ -75,11 +75,8 @@ export default function VisionPage() {
   }, [])
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
-      <section ref={heroRef} className="relative py-20 px-4 text-center bg-[#134a8b]/90 lg:bg-transparent">
-        <div className="absolute top-20 left-10 w-16 h-16 bg-blue-100 rounded-full opacity-60 floating-element" />
-        <div className="absolute top-40 right-20 w-12 h-12 bg-purple-100 rounded-full opacity-60 floating-element" />
-        <div className="absolute bottom-20 left-1/4 w-8 h-8 bg-cyan-100 rounded-full opacity-60 floating-element" />
+    <div  className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+      <section  className="relative py-20 px-4 text-center bg-[#134a8b]/90 lg:bg-transparent">
 
         <div className="max-w-4xl mx-auto">
           <div className="">
@@ -98,7 +95,7 @@ export default function VisionPage() {
         </div>
       </section>
 
-      <section ref={principlesRef} className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
 
@@ -132,7 +129,7 @@ export default function VisionPage() {
       </section>
 
       {/* Goal Section */}
-      <section ref={goalRef} className="py-20 px-4 text-center bg-white">
+      <section  className="py-20 px-4 text-center bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-12 border border-blue-100">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Our goal is simple:</h2>

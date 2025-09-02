@@ -17,6 +17,7 @@ import Testimonials from "./testimonials/page"
 import SuccessfulProjectsPage from "./successful-projects/page"
 import WhyChooseUsPage from "./choose/page"
 import Footer from "./footer/page"
+import Image from "next/image"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -35,9 +36,7 @@ export default function Home() {
   const paragraphRef = useRef<HTMLParagraphElement | null>(null)
   const ctasRef = useRef<HTMLDivElement | null>(null)
 
-  const floatingElement1Ref = useRef<HTMLDivElement | null>(null)
-  const floatingElement2Ref = useRef<HTMLDivElement | null>(null)
-  const floatingElement3Ref = useRef<HTMLDivElement | null>(null)
+
 
   // Entrance animations on mount
   useEffect(() => {
@@ -119,18 +118,7 @@ export default function Home() {
         )
       }
 
-      tl.from(
-        [floatingElement1Ref.current, floatingElement2Ref.current, floatingElement3Ref.current],
-        {
-          scale: 0,
-          opacity: 0,
-          rotation: 180,
-          stagger: 0.2,
-          duration: 1.0,
-          ease: "back.out(1.7)",
-        },
-        0.8,
-      )
+
 
       ScrollTrigger.create({
         trigger: sectionRef.current,
@@ -154,57 +142,14 @@ export default function Home() {
             yPercent: progress * 20,
           })
 
-          // Floating elements parallax
-          gsap.set(floatingElement1Ref.current, {
-            yPercent: progress * -40,
-            rotation: progress * 360,
-          })
 
-          gsap.set(floatingElement2Ref.current, {
-            yPercent: progress * -60,
-            rotation: progress * -180,
-          })
-
-          gsap.set(floatingElement3Ref.current, {
-            yPercent: progress * -30,
-            rotation: progress * 270,
-          })
         },
       })
 
-      const handleMouseMove = (e: MouseEvent) => {
-        const { clientX, clientY } = e
-        const { innerWidth, innerHeight } = window
-
-        const xPercent = (clientX / innerWidth - 0.5) * 2
-        const yPercent = (clientY / innerHeight - 0.5) * 2
-
-        gsap.to(floatingElement1Ref.current, {
-          x: xPercent * 20,
-          y: yPercent * 15,
-          duration: 0.5,
-          ease: "power2.out",
-        })
-
-        gsap.to(floatingElement2Ref.current, {
-          x: xPercent * -15,
-          y: yPercent * -10,
-          duration: 0.7,
-          ease: "power2.out",
-        })
-
-        gsap.to(floatingElement3Ref.current, {
-          x: xPercent * 25,
-          y: yPercent * -20,
-          duration: 0.3,
-          ease: "power2.out",
-        })
-      }
-
-      window.addEventListener("mousemove", handleMouseMove)
+      // No floating element mousemove interactions
 
       return () => {
-        window.removeEventListener("mousemove", handleMouseMove)
+        // cleanup
       }
     }, sectionRef)
 
@@ -245,21 +190,7 @@ export default function Home() {
         />
         <div aria-hidden className="absolute inset-0 bg-[#134a8b]/90 z-0 xl:hidden" />
 
-        <div
-          ref={floatingElement1Ref}
-          className="absolute top-20 right-20 w-16 h-16 bg-white/10 rounded-full backdrop-blur-sm z-10 pointer-events-none"
-          aria-hidden
-        />
-        <div
-          ref={floatingElement2Ref}
-          className="absolute top-1/3 right-1/4 w-8 h-8 bg-[#1abddd]/30 rounded-full backdrop-blur-sm z-10 pointer-events-none"
-          aria-hidden
-        />
-        <div
-          ref={floatingElement3Ref}
-          className="absolute bottom-1/4 right-10 w-12 h-12 bg-white/5 rounded-full backdrop-blur-sm z-10 pointer-events-none"
-          aria-hidden
-        />
+
 
         <div aria-hidden className="absolute inset-0 -z-10">
           <div
@@ -313,27 +244,49 @@ export default function Home() {
       <section id="about"><AboutPage/></section>
        <section id="approach" className="py-16 sm:py-24 bg-white">
         <div className="mx-auto w-full max-w-7xl px-6 sm:px-10">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Our Approach</h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left image, similar to About page but mirrored */}
+            <div className="lg:pr-8 self-stretch order-1 lg:order-none">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden h-full">
+                <div className="relative w-full aspect-[3/4] lg:h-full">
+                  <Image
+                    src="/tech.jpg"
+                    alt="Our Approach"
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
 
-            <p className="mt-4 text-slate-700">
-              Creating a website is not just about making designs. It’s about asking: “Who do we want to reach?” and
-              “Who do we want to connect with?” We value these client perspectives, and we propose web designs that are
-              gentle and user-friendly.
-            </p>
+            {/* Right text content */}
+            <div className="max-w-2xl">
+              <span className="inline-block rounded-full bg-[#00c7f1] px-4 py-2 text-sm font-bold text-white mb-2">
+                OUR APPROACH
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Our Approach</h2>
 
-            <ul className="mt-6 list-disc pl-5 space-y-2 text-slate-700">
-              <li>We provide clear explanations so that even first-time clients can feel at ease.</li>
-              <li>Even after delivery, we aim to remain someone you can casually reach out to for advice.</li>
-              <li>We offer strong after-support so that we can continue walking alongside you in the long term.</li>
-            </ul>
+              <p className="mt-4 text-slate-700">
+                Creating a website is not just about making designs. It’s about asking: “Who do we want to reach?” and
+                “Who do we want to connect with?” We value these client perspectives, and we propose web designs that are
+                gentle and user-friendly.
+              </p>
+
+              <ul className="mt-6 list-disc pl-5 space-y-2 text-slate-700">
+                <li>We provide clear explanations so that even first-time clients can feel at ease.</li>
+                <li>Even after delivery, we aim to remain someone you can casually reach out to for advice.</li>
+                <li>We offer strong after-support so that we can continue walking alongside you in the long term.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
       <section id="performance"><PerformancePage/></section>
       <section id="vision"><VisionPage/></section>
       <section id="portfolio"><Portfolio/></section>
-      {/* <section id="testimonials"><Testimonials/></section> */}
+      <section id="testimonials"><Testimonials/></section>
       <section id="successful-projects"><SuccessfulProjectsPage/></section>
       <section id="why-choose-us"><WhyChooseUsPage/></section>
       {/* Scroll-to-top button */}
