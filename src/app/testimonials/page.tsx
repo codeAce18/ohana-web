@@ -1,264 +1,130 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react"
-import Image from "next/image"
+import { useState, useEffect } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 const testimonials = [
   {
     id: 1,
+    text: "Newwave Solutions' development team performed admirably to meet the mutually agreed deadlines. Our project was under strict time constraints, but they completed all work on schedule and delivered a superior quality product that exceeded our expectations. The precision and thoroughness of Newwave Solutions' development team at each stage of the project demonstrated their high level of professionalism.",
     name: "Andrew Che",
-    position: "CEO",
-    company: "Morning Geek Technology Pte, Ltd.",
-    content: "Ohana's development team performed admirably to meet the mutually agreed deadlines. Our project was under strict time constraints, but they completed all work on schedule and delivered a superior quality product that exceeded our expectations. The precision and thoroughness of Ohana's development team at each stage of the project demonstrated their high level of professionalism.",
-    rating: 5,
-    avatar: "/testimonial-1.jpg"
+    title: "CEO - Morning Geek Technology Pte. Ltd.",
+    avatar: "/professional-asian-man.png",
   },
   {
     id: 2,
+    text: "Newwave Solutions' development team performed admirably to meet the mutually agreed deadlines. Our project was under strict time constraints, but they completed all work on schedule and delivered a superior quality product that exceeded our expectations. The precision and thoroughness of Newwave Solutions' development team at each stage of the project demonstrated their high level of professionalism.",
     name: "Mr. Tomoyuki Miyamoto",
-    position: "CEO",
-    company: "Marui Textile Co., Ltd.",
-    content: "Ohana's development team performed admirably to meet the mutually agreed deadlines. Our project was under strict time constraints, but they completed all work on schedule and delivered a superior quality product that exceeded our expectations. The precision and thoroughness of Ohana's development team at each stage of the project demonstrated their high level of professionalism.",
-    rating: 5,
-    avatar: "/testimonial-2.jpg"
+    title: "CEO - Marui Textile Co., Ltd.",
+    avatar: "/professional-japanese-businessman.png",
   },
   {
     id: 3,
+    text: "They provide support according to peace of mind. Newwave Solutions' work attitude. If there is an opportunity, choosing Newwave Solutions professionally.",
     name: "Mr. Yasuo Sakai",
-    position: "CEO",
-    company: "Native Creation Inc.",
-    content: "They provide support according to the situation, so we can build a partnership with peace of mind. Ohana has met my expectations with a very professional work attitude. If there is an opportunity in the future, I would have no hesitation in choosing Ohana and continuing to work with them.",
-    rating: 5,
-    avatar: "/testimonial-3.jpg"
+    title: "CEO - Native Creation",
+    avatar: "/professional-asian-executive.png",
   },
-  {
-    id: 4,
-    name: "Mr. Mikiharu Matsuura",
-    position: "Director",
-    company: "Nippon Express Systems Co., Ltd.",
-    content: "Ohana has been working with us on system development since 2015. They have provided us with generous support in the area of development technology, an area in which we have little development experience, and have worked with us on the project. They have also provided on-site development for a long period of time, and have responded flexibly to changes in the development situation. We feel reassured by the fact that they also place great importance on quality.",
-    rating: 5,
-    avatar: "/testimonial-4.jpg"
-  },
-  {
-    id: 5,
-    name: "Sarah Johnson",
-    position: "CTO",
-    company: "TechFlow Solutions",
-    content: "Working with Ohana has been an exceptional experience. Their team's expertise in modern web technologies and their commitment to delivering high-quality solutions on time has made them our go-to development partner. The communication throughout the project was seamless and professional.",
-    rating: 5,
-    avatar: "/testimonial-5.jpg"
-  },
-  {
-    id: 6,
-    name: "David Chen",
-    position: "Product Manager",
-    company: "InnovateLab Inc.",
-    content: "Ohana's attention to detail and innovative approach to problem-solving impressed us from day one. They not only delivered what we asked for but also provided valuable insights that improved our overall product strategy. Their post-launch support has been outstanding.",
-    rating: 5,
-    avatar: "/testimonial-6.jpg"
-  }
 ]
 
-export default function Testimonials() {
+export default function TestimonialsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const testimonialsRef = useRef<HTMLDivElement>(null)
 
-  const itemsPerPage = 3
-  const totalPages = Math.ceil(testimonials.length / itemsPerPage)
-  const currentTestimonials = testimonials.slice(currentIndex, currentIndex + itemsPerPage)
-
-  const handleNext = () => {
-    if (currentIndex + itemsPerPage < testimonials.length) {
-      animateTransition(() => setCurrentIndex(currentIndex + itemsPerPage))
-    } else {
-      animateTransition(() => setCurrentIndex(0))
-    }
-  }
-
-  const handlePrevious = () => {
-    if (currentIndex > 0) {
-      animateTransition(() => setCurrentIndex(currentIndex - itemsPerPage))
-    } else {
-      animateTransition(() => setCurrentIndex(testimonials.length - itemsPerPage))
-    }
-  }
-
-  const animateTransition = (callback: () => void) => {
-    gsap.to(testimonialsRef.current?.children || [], {
-      opacity: 0,
-      y: 30,
-      duration: 0.3,
-      stagger: 0.1,
-      onComplete: () => {
-        callback()
-        gsap.fromTo(
-          testimonialsRef.current?.children || [],
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.4,
-            stagger: 0.1,
-            ease: "power2.out"
-          }
-        )
-      }
-    })
-  }
-
-  const goToPage = (pageIndex: number) => {
-    const newIndex = pageIndex * itemsPerPage
-    if (newIndex !== currentIndex) {
-      animateTransition(() => setCurrentIndex(newIndex))
-    }
-  }
-
+  // Auto-slide functionality
   useEffect(() => {
-    gsap.fromTo(
-      containerRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
-    )
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1))
+    }, 5000) // Change slide every 5 seconds
 
-    gsap.fromTo(
-      testimonialsRef.current?.children || [],
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.4,
-        stagger: 0.1,
-        delay: 0.3,
-        ease: "power2.out"
-      }
-    )
+    return () => clearInterval(interval)
   }, [])
 
-  useEffect(() => {
-    let interval: NodeJS.Timeout
-    if (isAutoPlaying) {
-      interval = setInterval(() => {
-        handleNext()
-      }, 5000)
-    }
-    return () => clearInterval(interval)
-  }, [currentIndex, isAutoPlaying])
+  const goToPrevious = () => {
+    setCurrentIndex(currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1)
+  }
+
+  const goToNext = () => {
+    setCurrentIndex(currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1)
+  }
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index)
+  }
 
   return (
-    <section
-      className="min-h-screen relative py-20 px-4 bg-[#fff]"
-      ref={containerRef}
-      // style={{
-      //   backgroundImage: "url('/S5.jpg')",
-      //   backgroundSize: "cover",
-      //   backgroundPosition: "center",
-      //   backgroundRepeat: "no-repeat",
-      //   backgroundAttachment: "fixed"
-      // }}
-      onMouseEnter={() => setIsAutoPlaying(false)}
-      onMouseLeave={() => setIsAutoPlaying(true)}
-    >
-      
-      <div className=" mx-auto relative z-10">
+    <section className="py-16 px-4 bg-white">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-[#00c7f1] mb-6">Customer Testimonials</h1>
-          <p className="text-lg text-[#0A2349]  max-w-4xl mx-auto leading-relaxed">
-            At Ohana, we always strive to continually deliver the best products. These efforts are rewarded by the kind words, feedback, and reviews from our customers. Here are some of the kind words we have received from our customers:
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-cyan-400 mb-6">Customer testimonials</h2>
+          <p className="text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            At Newwave Solutions Japan, we always strive to continually deliver the best products. These efforts are
+            rewarded by the kind words, feedback, and reviews from our customers. Here are some of the kind words we
+            have received from our customers:
           </p>
         </div>
 
-        {/* Navigation Controls */}
-        <div className="flex justify-between items-center mb-12">
-          <button
-            onClick={handlePrevious}
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-white/20 text-white hover:bg-white/30 transition-all duration-300 backdrop-blur-sm"
-            aria-label="Previous testimonials"
+        {/* Carousel Container */}
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-white shadow-lg hover:bg-gray-50"
+            onClick={goToPrevious}
           >
-            <ChevronLeft size={24} />
-          </button>
+            <ChevronLeft className="h-6 w-6 text-gray-600" />
+          </Button>
 
-          <div className="flex gap-2">
-            {Array.from({ length: totalPages }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToPage(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  Math.floor(currentIndex / itemsPerPage) === index
-                    ? "bg-cyan-400 scale-125"
-                    : "bg-white/30 hover:bg-white/50"
-                }`}
-                aria-label={`Go to page ${index + 1}`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={handleNext}
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-white/20 text-white hover:bg-white/30 transition-all duration-300 backdrop-blur-sm"
-            aria-label="Next testimonials"
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-white shadow-lg hover:bg-gray-50"
+            onClick={goToNext}
           >
-            <ChevronRight size={24} />
-          </button>
-        </div>
+            <ChevronRight className="h-6 w-6 text-gray-600" />
+          </Button>
 
-        {/* Testimonials Grid */}
-        <div ref={testimonialsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {currentTestimonials.map((testimonial) => (
+          {/* Testimonials */}
+          <div className="overflow-hidden mx-16">
             <div
-              key={testimonial.id}
-              className="bg-white/10 backdrop-blur-md rounded-sm p-8 hover:bg-white/15 transition-all duration-300 hover:transform hover:scale-105 border border-white/20"
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {/* Content */}
-              <div className="border border-[#00c7f1] ">
-                <p className="text-[#0A2349] text-center leading-relaxed px-4 py-3">
-                {testimonial.content}
-              </p>
-              </div>
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
+                  <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm">
+                    <p className="text-gray-700 leading-relaxed mb-6 text-sm">{testimonial.text}</p>
 
-              {/* Author Info */}
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden bg-gradient-to-r from-cyan-400 to-blue-500 p-0.5">
-                  <div className="w-full h-full rounded-full bg-gray-300 flex items-center justify-center">
-                    <span className="text-gray-600 font-semibold text-lg">
-                      {testimonial.name.split(' ').map(n => n[0]).join('')}
-                    </span>
+                    <div className="flex items-center gap-4">
+                      <img
+                        src={testimonial.avatar || "/placeholder.svg"}
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full object-cover"
+                      />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                        <p className="text-cyan-400 text-sm font-medium">{testimonial.title}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <h3 className="text-white font-semibold text-lg mb-1">
-                  {testimonial.name}
-                </h3>
-                <p className="text-cyan-400 font-medium mb-1">
-                  {testimonial.position}
-                </p>
-                <p className="text-gray-300 text-sm">
-                  {testimonial.company}
-                </p>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-2xl mx-auto border border-white/20">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Join Our Success Stories?
-            </h3>
-            <p className="text-gray-200 mb-6">
-              Let us help you achieve your goals with our professional development services.
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center py-3 px-8 rounded-lg text-white bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
-            >
-              Get Started Today
-            </a>
+          {/* Dot Indicators */}
+          <div className="flex justify-center gap-2 mt-8">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentIndex ? "bg-cyan-400" : "bg-gray-300"
+                }`}
+                onClick={() => goToSlide(index)}
+              />
+            ))}
           </div>
         </div>
       </div>

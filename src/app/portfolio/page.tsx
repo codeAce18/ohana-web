@@ -6,17 +6,18 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 
 const categories = [
-  "UI/UX Design",
-  "Blockchain",
-  "Website creation",
-  "Mobile App Development",
-  "Web App",
-  "System Development",
-  "AI/ML Solutions",
+  "Corporate-related",
+  "Real estate-related",
+  "Education-related",
+  "Beauty-related",
+  "Medical-related",
+  "Food-related",
+  "E-commerce-related",
+  "Others (Pets, Animation)"
 ]
 
 const projects = {
-  "UI/UX Design": [
+  "Corporate-related": [
     {
       id: 1,
       title: "Brand Identity Design",
@@ -33,7 +34,7 @@ const projects = {
       image: "/three.png",
     },
   ],
-  Blockchain: [
+  "Real estate-related": [
     {
       id: 4,
       title: "PoC blockchain app",
@@ -50,7 +51,7 @@ const projects = {
       image: "/one.png",
     },
   ],
-  "Website creation": [
+  "Education-related": [
     {
       id: 7,
       title: "E-commerce Website",
@@ -67,7 +68,7 @@ const projects = {
       image: "/one.png",
     },
   ],
-  "Mobile App Development": [
+  "Beauty-related": [
     {
       id: 10,
       title: "Food Delivery App",
@@ -84,7 +85,7 @@ const projects = {
       image: "/three.png",
     },
   ],
-  "Web App": [
+  "Medical-related": [
     {
       id: 13,
       title: "Task Management System",
@@ -101,7 +102,7 @@ const projects = {
       image: "/two.png",
     },
   ],
-  "System Development": [
+  "Food-related": [
     {
       id: 16,
       title: "CRM System",
@@ -118,7 +119,24 @@ const projects = {
       image: "/three.png",
     },
   ],
-  "AI/ML Solutions": [
+  "E-commerce-related": [
+    {
+      id: 19,
+      title: "Machine Learning Platform",
+      image: "/two.png",
+    },
+    {
+      id: 20,
+      title: "AI Chatbot System",
+      image: "/three.png",
+    },
+    {
+      id: 21,
+      title: "Predictive Analytics Tool",
+      image: "/three.png",
+    },
+  ],
+  "Others (Pets, Animation)": [
     {
       id: 19,
       title: "Machine Learning Platform",
@@ -138,7 +156,7 @@ const projects = {
 }
 
 export default function Portfolio() {
-  const [activeCategory, setActiveCategory] = useState("UI/UX Design")
+  const [activeCategory, setActiveCategory] = useState(categories[0])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [categoryStartIndex, setCategoryStartIndex] = useState(0)
   const projectsRef = useRef<HTMLDivElement>(null)
@@ -148,7 +166,7 @@ export default function Portfolio() {
   const categoriesPerView = 6
   const visibleCategories = categories.slice(categoryStartIndex, categoryStartIndex + categoriesPerView)
 
-  const currentProjects = projects[activeCategory as keyof typeof projects]
+  const currentProjects = (projects[activeCategory as keyof typeof projects] || []) as { id: number; title: string; image: string }[]
   const visibleProjects = currentProjects.slice(currentIndex, currentIndex + 3)
 
   const handleCategoryPrevious = () => {
@@ -310,15 +328,10 @@ export default function Portfolio() {
         backgroundAttachment: "fixed"
       }}
     >
-      {/* Dark overlay for better text readability */}
       <div className="absolute inset-0  z-0"></div>
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
         <h2 className="text-5xl font-bold text-white text-center mb-16">Our Portfolio</h2>
-
-        {/* Category Tabs with Navigation */}
     <div className="flex items-center justify-center mb-8">
-          {/* Left Arrow */}
           <button
             onClick={handleCategoryPrevious}
             disabled={categoryStartIndex === 0}
@@ -328,10 +341,8 @@ export default function Portfolio() {
                 : "hover:bg-[#00c7f1]"
             }`}
           >
-            <ChevronLeft size={20} className="text-[#00c7f1]" />
+            <ChevronLeft size={24} className="text-[#00c7f1]" />
           </button>
-
-          {/* Category Buttons - Joined Together */}
           <div ref={categoriesRef} className="flex bg-blue-700/30 rounded-sm overflow-hidden backdrop-blur-sm border border-white/20">
             {visibleCategories.map((category, index) => (
               <button
@@ -343,13 +354,10 @@ export default function Portfolio() {
                     : "text-white hover:bg-[#00c7f1] bg-[#345b95]"
                 } ${index !== visibleCategories.length - 1 ? "border-r border-[#013878]" : ""}`}
               >
-
                 {category}
               </button>
             ))}
           </div>
-
-          {/* Right Arrow */}
           <button
             onClick={handleCategoryNext}
             disabled={categoryStartIndex + categoriesPerView >= categories.length}
@@ -359,45 +367,18 @@ export default function Portfolio() {
                 : ""
             }`}
           >
-            <ChevronRight size={20} className="text-[#00c7f1]" />
+            <ChevronRight size={24} className="text-[#00c7f1]" />
           </button>
         </div>
 
-        {/* Portfolio Grid with Navigation */}
         <div className="relative">
-          {/* Navigation Arrows */}
-          {/* <button
-            onClick={handlePrevious}
-            disabled={currentIndex === 0}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full transition-all duration-300 ${
-              currentIndex === 0
-                ? "bg-gray-600/50 text-gray-400 cursor-not-allowed"
-                : "bg-white/20 text-white hover:bg-white/30"
-            }`}
-          >
-            <ChevronLeft size={24} />
-          </button> */}
-
-          {/* <button
-            onClick={handleNext}
-            disabled={currentIndex + 3 >= currentProjects.length}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full transition-all duration-300 ${
-              currentIndex + 3 >= currentProjects.length
-                ? "bg-gray-600/50 text-gray-400 cursor-not-allowed"
-                : "bg-white/20 text-white hover:bg-white/30"
-            }`}
-          >
-            <ChevronRight size={24} />
-          </button> */}
-
-          {/* Projects Grid */}
           <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-16">
             {visibleProjects.map((project) => (
               <div
                 key={project.id}
                 className=" rounded-sm overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer group"
               >
-                <div className="relative h-44 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
@@ -412,8 +393,7 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Dots Indicator */}
-          <div className="flex justify-center mt-8 gap-2">
+          {/* <div className="flex justify-center mt-8 gap-2">
             {Array.from({ length: Math.ceil(currentProjects.length / 3) }).map((_, index) => (
               <button
                 key={index}
@@ -447,7 +427,7 @@ export default function Portfolio() {
                 }`}
               />
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
