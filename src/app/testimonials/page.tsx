@@ -119,8 +119,8 @@ export default function TestimonialsCarousel() {
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? "bg-cyan-400" : "bg-gray-300"
+                className={`w-3 h-3 rounded-sm transition-colors ${
+                  index === currentIndex ? " border-2 border-cyan-400" : "bg-gray-300"
                 }`}
                 onClick={() => goToSlide(index)}
               />
