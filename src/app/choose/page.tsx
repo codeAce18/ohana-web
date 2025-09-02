@@ -94,7 +94,7 @@ export default function WhyChooseUsPage() {
                       <div className="w-8 h-8 bg-white rounded-sm"></div>
                     </div>
                     <div className="text-white">
-                      <div className="text-2xl font-bold">NEWWAVE</div>
+                      <div className="text-2xl font-bold">OHANA WEB</div>
                       <div className="text-lg font-light">Solutions</div>
                     </div>
                   </div>
