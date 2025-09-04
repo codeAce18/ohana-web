@@ -299,7 +299,7 @@ export default function Portfolio() {
   const visibleCategories = categories.slice(categoryStartIndex, categoryStartIndex + categoriesPerView)
 
   const currentProjects = (projects[activeCategory as keyof typeof projects] || []) as { id: number; title: string; image: string }[]
-  const visibleProjects = currentProjects.slice(currentIndex, currentIndex + 3)
+  const visibleProjects = currentProjects.slice(currentIndex, currentIndex + 6)
 
   const handleCategoryPrevious = () => {
     if (categoryStartIndex > 0) {
@@ -389,7 +389,7 @@ export default function Portfolio() {
         duration: 0.3,
         stagger: 0.05,
         onComplete: () => {
-          setCurrentIndex(currentIndex - 3)
+          setCurrentIndex(currentIndex - 6)
           gsap.fromTo(
             projectsRef.current?.children || [],
             { x: -100, opacity: 0 },
@@ -407,14 +407,14 @@ export default function Portfolio() {
   }
 
   const handleNext = () => {
-    if (currentIndex + 3 < currentProjects.length) {
+    if (currentIndex + 6 < currentProjects.length) {
       gsap.to(projectsRef.current?.children || [], {
         x: -100,
         opacity: 0,
         duration: 0.1,
         stagger: 0.05,
         onComplete: () => {
-          setCurrentIndex(currentIndex + 3)
+          setCurrentIndex(currentIndex + 6)
           gsap.fromTo(
             projectsRef.current?.children || [],
             { x: 100, opacity: 0 },
@@ -523,7 +523,7 @@ export default function Portfolio() {
             onClick={handlePrevious}
             disabled={currentIndex === 0}
             aria-label="Previous projects"
-            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 p-3 rounded-sm transition-all duration-300 bg-[#345b95] ${
+            className={`absolute left-2 top-1/2 lg:translate-x-[-30px] -translate-y-1/2 z-20 p-3 rounded-sm transition-all  duration-300 bg-[#345b95] ${
               currentIndex === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-[#00c7f1]"
             }`}
           >
@@ -532,17 +532,17 @@ export default function Portfolio() {
 
           <button
             onClick={handleNext}
-            disabled={currentIndex + 3 >= currentProjects.length}
+            disabled={currentIndex + 6 >= currentProjects.length}
             aria-label="Next projects"
-            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 p-3 rounded-sm transition-all duration-300 bg-[#345b95] ${
-              currentIndex + 3 >= currentProjects.length ? "opacity-50 cursor-not-allowed" : "hover:bg-[#00c7f1]"
+            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 lg:translate-x-[30px]  p-3 rounded-sm transition-all duration-300 bg-[#345b95] ${
+              currentIndex + 6 >= currentProjects.length ? "opacity-50 cursor-not-allowed" : "hover:bg-[#00c7f1]"
             }`}
           >
             <ChevronRight size={24} className="text-[#00c7f1]" />
           </button>
 
           <div ref={projectsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mx-4 sm:mx-8 lg:mx-16">
-            {visibleProjects.map((project) => (
+            {visibleProjects.slice(0, 6).map((project) => (
               <div
                 key={project.id}
                 className=" rounded-sm overflow-hidden hover:transform hover:scale-105 transition-all duration-300 cursor-pointer group"
@@ -564,11 +564,11 @@ export default function Portfolio() {
 
           {/* Pagination dots */}
           <div className="flex justify-center mt-8 gap-2">
-            {Array.from({ length: Math.ceil(currentProjects.length / 3) }).map((_, index) => (
+            {Array.from({ length: Math.ceil(currentProjects.length / 6) }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => {
-                  const newIndex = index * 3
+                  const newIndex = index * 6
                   if (newIndex !== currentIndex) {
                     gsap.to(projectsRef.current?.children || [], {
                       x: newIndex > currentIndex ? -100 : 100,
@@ -593,7 +593,7 @@ export default function Portfolio() {
                   }
                 }}
                 className={`w-3 h-3 rounded-sm transition-all duration-300 ${
-                  Math.floor(currentIndex / 3) === index ? "border-2 border-cyan-400" : "bg-white/30 hover:bg-white/50"
+                  Math.floor(currentIndex / 6) === index ? "border-2 border-cyan-400" : "bg-white/30 hover:bg-white/50"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
