@@ -30,9 +30,9 @@ const Navbar: React.FC = () => {
         <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <div className="flex items-center gap-2 select-none">
-              <div className="h-10 sm:h-12 md:h-14 lg:h-16 flex items-center">
+              <div className="h-10 sm:h-12 md:h-14 lg:h-20 flex items-center">
                 <Image
-                  src="/logo.jpg"
+                  src="/logo/OhanaBlack.png"
                   alt="Ohanaweb"
                   width={120}
                   height={70}
