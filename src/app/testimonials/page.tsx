@@ -10,21 +10,21 @@ const testimonials = [
     text: "Newwave Solutions' development team performed admirably to meet the mutually agreed deadlines. Our project was under strict time constraints, but they completed all work on schedule and delivered a superior quality product that exceeded our expectations. The precision and thoroughness of Newwave Solutions' development team at each stage of the project demonstrated their high level of professionalism.",
     name: "Andrew Che",
     title: "CEO - Morning Geek Technology Pte. Ltd.",
-    avatar: "/professional-asian-man.png",
+    avatar: "/userOne.png",
   },
   {
     id: 2,
     text: "Newwave Solutions' development team performed admirably to meet the mutually agreed deadlines. Our project was under strict time constraints, but they completed all work on schedule and delivered a superior quality product that exceeded our expectations. The precision and thoroughness of Newwave Solutions' development team at each stage of the project demonstrated their high level of professionalism.",
     name: "Mr. Tomoyuki Miyamoto",
     title: "CEO - Marui Textile Co., Ltd.",
-    avatar: "/professional-japanese-businessman.png",
+    avatar: "/UserTwo.png",
   },
   {
     id: 3,
     text: "They provide support according to peace of mind. Newwave Solutions' work attitude. If there is an opportunity, choosing Newwave Solutions professionally.",
     name: "Mr. Yasuo Sakai",
     title: "CEO - Native Creation",
-    avatar: "/professional-asian-executive.png",
+    avatar: "/UserThree.png",
   },
 ]
 
