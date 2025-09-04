@@ -36,6 +36,12 @@ export default function Home() {
   const paragraphRef = useRef<HTMLParagraphElement | null>(null)
   const ctasRef = useRef<HTMLDivElement | null>(null)
 
+  // Approach section refs
+  const approachSectionRef = useRef<HTMLElement | null>(null)
+  const approachTextRef = useRef<HTMLDivElement | null>(null)
+  const approachListRef = useRef<HTMLUListElement | null>(null)
+  const approachImageRef = useRef<HTMLDivElement | null>(null)
+
 
 
   // Entrance animations on mount
@@ -146,7 +152,62 @@ export default function Home() {
         },
       })
 
-      // No floating element mousemove interactions
+      // Approach section animations
+      if (approachSectionRef.current) {
+        // Text fade-up
+        gsap.fromTo(
+          approachTextRef.current?.children || [],
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: approachTextRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        )
+
+        // List items slide in
+        gsap.fromTo(
+          approachListRef.current?.querySelectorAll("li") || [],
+          { opacity: 0, x: -20 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: approachListRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        )
+
+        // Image card reveal
+        gsap.fromTo(
+          approachImageRef.current,
+          { opacity: 0, y: 28, scale: 0.98 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.9,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: approachImageRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          },
+        )
+      }
 
       return () => {
         // cleanup
@@ -241,13 +302,18 @@ export default function Home() {
       </section>
 
       <section id="stats"><StatsPage/></section>
+        <section id="why-choose-us"><WhyChooseUsPage/></section>
       <section id="about"><AboutPage/></section>
-       <section id="approach" className="py-16 sm:py-24 bg-white">
+       <section
+        id="approach"
+        ref={approachSectionRef as any}
+        className="py-16 sm:py-24 bg-white"
+      >
         <div className="mx-auto w-full max-w-7xl px-6 sm:px-10">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left image, similar to About page but mirrored */}
             <div className="lg:pr-8 self-stretch order-1 lg:order-none">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden h-full">
+              <div ref={approachImageRef} className="bg-white rounded-xl shadow-lg overflow-hidden h-full">
                 <div className="relative w-full aspect-[3/4] lg:h-full">
                   <Image
                     src="/approach.jpg"
@@ -262,7 +328,7 @@ export default function Home() {
             </div>
 
             {/* Right text content */}
-            <div className="max-w-2xl">
+            <div ref={approachTextRef} className="max-w-2xl">
               <span className="inline-block rounded-full bg-[#00c7f1] px-4 py-2 text-sm font-bold text-white mb-2">
                 OUR APPROACH
               </span>
@@ -274,7 +340,7 @@ export default function Home() {
                 gentle and user-friendly.
               </p>
 
-              <ul className="mt-6 list-disc pl-5 space-y-2 text-slate-700">
+              <ul ref={approachListRef} className="mt-6 list-disc pl-5 space-y-2 text-slate-700">
                 <li>We provide clear explanations so that even first-time clients can feel at ease.</li>
                 <li>Even after delivery, we aim to remain someone you can casually reach out to for advice.</li>
                 <li>We offer strong after-support so that we can continue walking alongside you in the long term.</li>
@@ -288,7 +354,6 @@ export default function Home() {
       <section id="portfolio"><Portfolio/></section>
       <section id="testimonials"><Testimonials/></section>
       <section id="successful-projects"><SuccessfulProjectsPage/></section>
-      <section id="why-choose-us"><WhyChooseUsPage/></section>
       {/* Scroll-to-top button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
