@@ -75,10 +75,10 @@ export default function VisionPage() {
   }, [])
 
   return (
-    <div  className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
-      <section  className="relative py-20 px-4 text-center bg-[#134a8b]/90 lg:bg-transparent">
+    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+      <section className="relative py-20 px-4 text-center bg-[#134a8b]/90 lg:bg-transparent">
 
-        <div className="max-w-4xl mx-auto">
+        <div ref={heroRef} className="max-w-4xl mx-auto">
           <div className="">
             <span className="inline-block rounded-full bg-[#00c7f1] px-4 py-2 text-sm font-bold text-white mb-2">OHANA-WEB Vision</span>
           </div>
@@ -97,7 +97,7 @@ export default function VisionPage() {
 
       <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div ref={principlesRef} className="grid md:grid-cols-3 gap-8">
 
             <div className="principle-card bg-white rounded-2xl p-8 shadow-sm border border-blue-100 hover:shadow-md transition-shadow">
              
@@ -129,14 +129,14 @@ export default function VisionPage() {
       </section>
 
       {/* Goal Section */}
-      <section  className="py-20 px-4 text-center bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-12 border border-blue-100">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Our goal is simple:</h2>
-            <blockquote className="text-2xl md:text-3xl font-medium text-[#00c7f1] mb-8 text-balance">
+      <section className="py-20 px-4 text-center bg-white">
+        <div ref={goalRef} className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 sm:p-12 border border-blue-100">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 md:mb-6">Our goal is simple:</h2>
+            <blockquote className="text-xl sm:text-2xl md:text-3xl font-medium text-[#00c7f1] mb-6 md:mb-8 text-balance">
               "Through web development, bring warmth and peace of mind into daily life."
             </blockquote>
-            <p className="text-lg text-slate-600 leading-relaxed text-pretty">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed text-pretty">
               OHANA-WEB will continue to deliver gentle web experiences that naturally blend into people's lives.
             </p>
           </div>

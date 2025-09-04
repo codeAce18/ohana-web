@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -30,14 +30,41 @@ const testimonials = [
 
 export default function TestimonialsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const headerRef = useRef<HTMLDivElement | null>(null)
 
   // Auto-slide functionality
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1))
-    }, 5000) // Change slide every 5 seconds
-
+    }, 5000)
     return () => clearInterval(interval)
+  }, [])
+
+  // Fade-in header when it enters viewport
+  useEffect(() => {
+    const el = headerRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            import("gsap").then(({ gsap }) => {
+              gsap.fromTo(
+                el,
+                { opacity: 0, y: 24 },
+                { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
+              )
+            })
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.25 }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
   const goToPrevious = () => {
@@ -56,9 +83,9 @@ export default function TestimonialsCarousel() {
     <section className="py-16 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="mb-6 text-4xl md:text-5xl font-bold text-[#00c7f1]">Customer testimonials</h2>
-          <p className="text-gray-700 max-w-4xl mx-auto leading-relaxed">
+        <div ref={headerRef} className="text-center mb-10 md:mb-12 px-2">
+          <h2 className="mb-4 md:mb-6 text-3xl md:text-5xl font-bold text-[#00c7f1]">Customer testimonials</h2>
+          <p className="text-gray-700 max-w-4xl mx-auto leading-relaxed text-sm sm:text-base">
             At Ohanaweb Japan, we always strive to continually deliver the best products. These efforts are
             rewarded by the kind words, feedback, and reviews from our customers. Here are some of the kind words we
             have received from our customers:
@@ -87,7 +114,7 @@ export default function TestimonialsCarousel() {
           </Button>
 
           {/* Testimonials */}
-          <div className="overflow-hidden mx-16">
+          <div className="overflow-hidden mx-2 sm:mx-8">
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}

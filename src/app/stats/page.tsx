@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
+import Odometer from "@/components/Odometer"
 
 // Enhanced count-up hook with easing and staggered start
 function useCountUp(target: number, durationMs = 2000, delay = 0, start = false) {
@@ -105,10 +106,7 @@ function StatCard({
           className="w-14 h-14 object-contain"
         />
         <div className="">
-          <div className="text-3xl font-bold text-[#00c7f1] transition-all duration-100">
-            {value}
-            {suffix}
-          </div>
+          <Odometer value={value} suffix={suffix} className="text-3xl font-bold text-[#00c7f1] transition-all duration-100" />
           <div className="text-[#0A2349] font-medium">{label}</div>
         </div>
       </div>

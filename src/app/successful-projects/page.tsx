@@ -84,6 +84,7 @@ const projects = [
 export default function SuccessfulProjectsPage() {
   const [active, setActive] = useState(1) // index of the center/active card
   const containerRef = useRef<HTMLDivElement>(null)
+  const headerRef = useRef<HTMLHeadingElement | null>(null)
 
   // circular helpers
   const leftIndex = useMemo(() => (active + projects.length - 1) % projects.length, [active])
@@ -99,9 +100,33 @@ export default function SuccessfulProjectsPage() {
     setActive((idx) => (idx + projects.length - 1) % projects.length)
   }
 
-  // auto-play; pause on hover
+  // fade-in header when it enters viewport + auto-play; pause on hover
   useEffect(() => {
     const el = containerRef.current
+
+    // header observer
+    const headerEl = headerRef.current
+    let observer: IntersectionObserver | null = null
+    if (headerEl) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              import("gsap").then(({ gsap }) => {
+                gsap.fromTo(
+                  headerEl,
+                  { opacity: 0, y: 20 },
+                  { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
+                )
+              })
+              observer && observer.unobserve(entry.target)
+            }
+          })
+        },
+        { threshold: 0.25 }
+      )
+      observer.observe(headerEl)
+    }
 
     let hovered = false
     const onEnter = () => (hovered = true)
@@ -121,6 +146,7 @@ export default function SuccessfulProjectsPage() {
         el.removeEventListener("mouseenter", onEnter)
         el.removeEventListener("mouseleave", onLeave)
       }
+      if (observer) observer.disconnect()
       clearInterval(id)
     }
   }, [])
@@ -198,7 +224,7 @@ export default function SuccessfulProjectsPage() {
       <div className="max-w-[100vw] mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#00c7f1]">Successful Projects</h1>
+          <h1 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00c7f1]">Successful Projects</h1>
         </div>
 
         {/* Controls */}
