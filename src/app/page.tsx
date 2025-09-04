@@ -260,7 +260,7 @@ export default function Home() {
             className="absolute inset-0 bg-[length:cover] bg-center"
             style={{ backgroundImage: `url('${HERO_BG_URL}')` }}
           />
-          <div ref={cyanOverlayRef} className="absolute inset-0 bg-[#134a8b]/40" />
+         
           <div
             ref={gradientRef}
             className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40 will-change-transform"

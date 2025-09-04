@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 
@@ -283,6 +284,8 @@ const projects = {
   ],
 }
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState(categories[0])
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -290,6 +293,7 @@ export default function Portfolio() {
   const projectsRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const categoriesRef = useRef<HTMLDivElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
 
   const categoriesPerView = 6
   const visibleCategories = categories.slice(categoryStartIndex, categoryStartIndex + categoriesPerView)
@@ -428,18 +432,32 @@ export default function Portfolio() {
   }
 
   useEffect(() => {
-    gsap.fromTo(containerRef.current, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" })
+    // Fade in header on scroll into view
+    if (headerRef.current) {
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: 24 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: { trigger: headerRef.current, start: "top 85%", toggleActions: "play none none reverse" },
+        },
+      )
+    }
 
+    // Animate project cards when the grid is in view
     gsap.fromTo(
       projectsRef.current?.children || [],
       { opacity: 0, y: 30 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.2,
+        duration: 0.5,
         stagger: 0.1,
-        delay: 0.2,
         ease: "power2.out",
+        scrollTrigger: { trigger: projectsRef.current, start: "top 85%", toggleActions: "play none none reverse" },
       },
     )
   }, [])
@@ -458,8 +476,8 @@ export default function Portfolio() {
     >
       <div className="absolute inset-0  z-0"></div>
       <div className="max-w-7xl mx-auto relative z-10">
-        <h2 className="text-5xl font-bold text-white text-center mb-16">Our Portfolio</h2>
-    <div className="flex items-center justify-center mb-8">
+        <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-10 sm:mb-16">Our Portfolio</h2>
+    <div className="flex items-center justify-center mb-6 sm:mb-8">
           <button
             onClick={handleCategoryPrevious}
             disabled={categoryStartIndex === 0}
@@ -523,7 +541,7 @@ export default function Portfolio() {
             <ChevronRight size={24} className="text-[#00c7f1]" />
           </button>
 
-          <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-16">
+          <div ref={projectsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mx-4 sm:mx-8 lg:mx-16">
             {visibleProjects.map((project) => (
               <div
                 key={project.id}
