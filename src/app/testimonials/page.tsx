@@ -7,21 +7,21 @@ import { Button } from "@/components/ui/button"
 const testimonials = [
   {
     id: 1,
-    text: "Newwave Solutions' development team performed admirably to meet the mutually agreed deadlines. Our project was under strict time constraints, but they completed all work on schedule and delivered a superior quality product that exceeded our expectations. The precision and thoroughness of Newwave Solutions' development team at each stage of the project demonstrated their high level of professionalism.",
+    text: "Ohanaweb Solutions' development team performed admirably to meet the mutually agreed deadlines. Our project was under strict time constraints, but they completed all work on schedule and delivered a superior quality product that exceeded our expectations. The precision and thoroughness of Ohanaweb Solutions' development team at each stage of the project demonstrated their high level of professionalism.",
     name: "Andrew Che",
     title: "CEO - Morning Geek Technology Pte. Ltd.",
     avatar: "/userOne.png",
   },
   {
     id: 2,
-    text: "Newwave Solutions' development team performed admirably to meet the mutually agreed deadlines. Our project was under strict time constraints, but they completed all work on schedule and delivered a superior quality product that exceeded our expectations. The precision and thoroughness of Newwave Solutions' development team at each stage of the project demonstrated their high level of professionalism.",
+    text: "Ohanaweb Solutions' development team performed admirably to meet the mutually agreed deadlines. Our project was under strict time constraints, but they completed all work on schedule and delivered a superior quality product that exceeded our expectations. The precision and thoroughness of Ohanaweb Solutions' development team at each stage of the project demonstrated their high level of professionalism.",
     name: "Mr. Tomoyuki Miyamoto",
     title: "CEO - Marui Textile Co., Ltd.",
     avatar: "/UserTwo.png",
   },
   {
     id: 3,
-    text: "They provide support according to peace of mind. Newwave Solutions' work attitude. If there is an opportunity, choosing Newwave Solutions professionally.",
+    text: "They provide support according to peace of mind. Ohanaweb Solutions' work attitude. If there is an opportunity, choosing Ohanaweb Solutions professionally.",
     name: "Mr. Yasuo Sakai",
     title: "CEO - Native Creation",
     avatar: "/UserThree.png",
@@ -57,9 +57,9 @@ export default function TestimonialsCarousel() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-cyan-400 mb-6">Customer testimonials</h2>
+          <h2 className="mb-6 text-4xl md:text-5xl font-bold text-[#00c7f1]">Customer testimonials</h2>
           <p className="text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            At Newwave Solutions Japan, we always strive to continually deliver the best products. These efforts are
+            At Ohanaweb Japan, we always strive to continually deliver the best products. These efforts are
             rewarded by the kind words, feedback, and reviews from our customers. Here are some of the kind words we
             have received from our customers:
           </p>

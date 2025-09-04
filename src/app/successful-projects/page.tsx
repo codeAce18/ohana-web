@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect, useRef } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 // Demo data – replace images/links as needed
 const projects = [
@@ -12,7 +13,7 @@ const projects = [
     client: "TechFlow Solutions",
     description:
       "A complete storefront rebuild with blazing performance and a modern UX across devices.",
-    image: "/gamer.jpg",
+    image: "/akiko.png",
     link: "#"
   },
   {
@@ -21,7 +22,7 @@ const projects = [
     client: "InnovateLab Inc.",
     description:
       "Real-time telemetry visualization and alerting for thousands of connected devices.",
-    image: "/tech.jpg",
+    image: "/ethree.png",
     link: "#"
   },
   {
@@ -30,7 +31,43 @@ const projects = [
     client: "Nippon Express Systems",
     description:
       "Route planning and scheduling solution that reduced delivery latency by 27%.",
-    image: "/trends.jpg",
+    image: "/hamao.png",
+    link: "#"
+  },
+   {
+    id: 3,
+    title: "Logistics Optimization",
+    client: "Nippon Express Systems",
+    description:
+      "Route planning and scheduling solution that reduced delivery latency by 27%.",
+    image: "/select.png",
+    link: "#"
+  },
+   {
+    id: 3,
+    title: "Logistics Optimization",
+    client: "Nippon Express Systems",
+    description:
+      "Route planning and scheduling solution that reduced delivery latency by 27%.",
+    image: "/seigaku.png",
+    link: "#"
+  },
+   {
+    id: 3,
+    title: "Logistics Optimization",
+    client: "Nippon Express Systems",
+    description:
+      "Route planning and scheduling solution that reduced delivery latency by 27%.",
+    image: "/online.png",
+    link: "#"
+  },
+   {
+    id: 3,
+    title: "Logistics Optimization",
+    client: "Nippon Express Systems",
+    description:
+      "Route planning and scheduling solution that reduced delivery latency by 27%.",
+    image: "/ohtake.png",
     link: "#"
   }
 ]
@@ -43,27 +80,38 @@ export default function SuccessfulProjectsPage() {
   const leftIndex = useMemo(() => (active + projects.length - 1) % projects.length, [active])
   const rightIndex = useMemo(() => (active + 1) % projects.length, [active])
 
-  const goNext = () => setActive((idx) => (idx + 1) % projects.length)
-  const goPrev = () => setActive((idx) => (idx + projects.length - 1) % projects.length)
+  const [direction, setDirection] = useState<1 | -1>(1)
+  const goNext = () => {
+    setDirection(1)
+    setActive((idx) => (idx + 1) % projects.length)
+  }
+  const goPrev = () => {
+    setDirection(-1)
+    setActive((idx) => (idx + projects.length - 1) % projects.length)
+  }
 
-  // optional auto-play; pause on hover
+  // auto-play; pause on hover
   useEffect(() => {
     const el = containerRef.current
-    if (!el) return
 
     let hovered = false
     const onEnter = () => (hovered = true)
     const onLeave = () => (hovered = false)
-    el.addEventListener("mouseenter", onEnter)
-    el.addEventListener("mouseleave", onLeave)
+
+    if (el) {
+      el.addEventListener("mouseenter", onEnter)
+      el.addEventListener("mouseleave", onLeave)
+    }
 
     const id = setInterval(() => {
       if (!hovered) goNext()
-    }, 5000)
+    }, 3000)
 
     return () => {
-      el.removeEventListener("mouseenter", onEnter)
-      el.removeEventListener("mouseleave", onLeave)
+      if (el) {
+        el.removeEventListener("mouseenter", onEnter)
+        el.removeEventListener("mouseleave", onLeave)
+      }
       clearInterval(id)
     }
   }, [])
@@ -73,13 +121,13 @@ export default function SuccessfulProjectsPage() {
     const base = "relative rounded-xl overflow-hidden border will-change-transform transition-[transform,opacity,filter] duration-500 ease-out"
     const size =
       emphasis === "center"
-        ? "w-[92vw] sm:w-[520px] md:w-[640px] lg:w-[720px] lg:h-[700px] aspect-[16/10] z-20 scale-100"
-        : "w-[300px] md:w-[360px] lg:w-[420px] aspect-[16/10] z-10 scale-90"
+        ? "w-[92vw] sm:w-[520px] md:w-[640px] lg:w-[820px] lg:h-[550px] aspect-[16/10] z-20 scale-100 cursor-pointer"
+        : "w-[300px] md:w-[360px] lg:w-[520px] aspect-[16/10] z-10"
     const pos =
       emphasis === "left"
-        ? "opacity-90 -translate-x-2 md:-translate-x-4 lg:h-[580px] lg:w-[580px]"
+        ? "opacity-90 -translate-x-2 md:-translate-x-4 "
         : emphasis === "right"
-        ? "opacity-90 translate-x-2 md:translate-x-4 lg:h-[580px] lg:w-[580px]"
+        ? "opacity-90 translate-x-2 md:translate-x-4"
         : "opacity-100 shadow-2xl"
 
     return (
@@ -89,7 +137,12 @@ export default function SuccessfulProjectsPage() {
             src={project.image}
             alt={project.title}
             fill
-            sizes="(min-width:1024px) 720px, (min-width:768px) 640px, 92vw"
+            sizes={
+              emphasis === "center"
+                ? "(min-width:1024px) 720px, (min-width:768px) 640px, 92vw"
+                : "(min-width:1024px) 420px, (min-width:768px) 360px, 300px"
+            }
+            quality={90}
             className="object-cover"
             priority={emphasis === "center"}
           />
@@ -149,28 +202,63 @@ export default function SuccessfulProjectsPage() {
         {/* Carousel (center bigger, sides smaller) */}
         <div className="relative flex items-center justify-center gap-3 md:gap-6 lg:gap-12 px-2 md:px-6 overflow-x-hidden pt-10">
           {/* Left */}
-          <div className="hidden sm:block">
+          <motion.div
+            key={`left-${leftIndex}`}
+            className="hidden sm:block"
+            initial={{ opacity: 0.5, scale: 0.95, y: 10 }}
+            animate={{ opacity: 0.9, scale: 1, y: 0 }}
+            exit={{ opacity: 0.5, scale: 0.95, y: -10 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          >
             <Card project={projects[leftIndex]} emphasis="left" />
-          </div>
+          </motion.div>
 
           {/* Center */}
-          <div>
-            <Card project={projects[active]} emphasis="center" />
+          <div className="relative">
+            <AnimatePresence initial={false} custom={direction} mode="popLayout">
+              <motion.div
+                key={active}
+                custom={direction}
+                variants={{
+                  enter: (dir: 1 | -1) => ({ opacity: 0, x: dir * 60, rotate: dir * 1.5, scale: 0.98 }),
+                  center: { opacity: 1, x: 0, rotate: 0, scale: 1 },
+                  exit: (dir: 1 | -1) => ({ opacity: 0, x: -dir * 60, rotate: -dir * 1.5, scale: 0.98 }),
+                }}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Card project={projects[active]} emphasis="center" />
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Right */}
-          <div className="hidden sm:block">
+          <motion.div
+            key={`right-${rightIndex}`}
+            className="hidden sm:block"
+            initial={{ opacity: 0.5, scale: 0.95, y: -10 }}
+            animate={{ opacity: 0.9, scale: 1, y: 0 }}
+            exit={{ opacity: 0.5, scale: 0.95, y: 10 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          >
             <Card project={projects[rightIndex]} emphasis="right" />
-          </div>
+          </motion.div>
         </div>
 
         {/* Dots */}
         <div className="mt-8 flex items-center justify-center gap-2">
           {projects.map((_, i) => (
-            <button
+            <motion.button
               key={i}
-              onClick={() => setActive(i)}
+              onClick={() => {
+                setDirection(i > active ? 1 : -1)
+                setActive(i)
+              }}
               aria-label={`Go to ${i + 1}`}
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 0.9 }}
               className={`h-2.5 w-2.5 rounded-sm transition-all ${
                 i === active ? "border-2 border-cyan-400 scale-110" : "bg-gray-300 hover:bg-gray-400"
               }`}
