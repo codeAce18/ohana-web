@@ -250,7 +250,7 @@ export default function Home() {
               <div className="bg-white rounded-xl shadow-lg overflow-hidden h-full">
                 <div className="relative w-full aspect-[3/4] lg:h-full">
                   <Image
-                    src="/tech.jpg"
+                    src="/approach.jpg"
                     alt="Our Approach"
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"
@@ -293,7 +293,7 @@ export default function Home() {
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         aria-label="Scroll to top"
-        className="fixed bottom-6 right-6 z-50 rounded-full bg-[#00c7f1] text-white shadow-lg hover:shadow-xl w-12 h-12 flex items-center justify-center transition transform hover:scale-105"
+        className="fixed bottom-6 right-6 z-50 rounded-sm bg-[#00c7f1] text-white shadow-lg hover:shadow-xl w-12 h-12 flex items-center justify-center transition transform hover:scale-105"
       >
         ↑
       </button>

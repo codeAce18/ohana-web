@@ -9,66 +9,75 @@ import { motion, AnimatePresence } from "framer-motion"
 const projects = [
   {
     id: 1,
-    title: "E‑Commerce Revamp",
+    title: "NextLevel",
     client: "TechFlow Solutions",
     description:
       "A complete storefront rebuild with blazing performance and a modern UX across devices.",
-    image: "/akiko.png",
-    link: "#"
+    image: "/nextlevel.png",
+    link: "https://nextlevelholdings.co.jp/"
   },
   {
     id: 2,
-    title: "IoT Analytics Dashboard",
+    title: "Kafuu",
     client: "InnovateLab Inc.",
     description:
       "Real-time telemetry visualization and alerting for thousands of connected devices.",
-    image: "/ethree.png",
-    link: "#"
+    image: "/kafuu.png",
+    link: "https://www.kafuu-okinawa.jp/"
   },
   {
     id: 3,
+    title: "Ohtake",
+    client: "Nippon Express Systems",
+    description:
+      "Route planning and scheduling solution that reduced delivery latency by 27%.",
+    image: "/ohtake.png",
+    link: "https://www.ohtake.ac.jp/"
+  },
+   {
+    id: 4,
+    title: "Noluc",
+    client: "Nippon Express Systems",
+    description:
+      "Route planning and scheduling solution that reduced delivery latency by 27%.",
+    image: "/noluc.png",
+    link: "https://www.noluc.jp/"
+  },
+   {
+    id: 5,
+    title: "Fujioka",
+    client: "Nippon Express Systems",
+    description:
+      "Route planning and scheduling solution that reduced delivery latency by 27%.",
+    image: "/fuji.png",
+    link: "https://fujioka-dental.jp/"
+  },
+   {
+    id: 6,
+    title: "Narikoma",
+    client: "Nippon Express Systems",
+    description:
+      "Route planning and scheduling solution that reduced delivery latency by 27%.",
+    image: "/narikoma.png",
+    link: "https://www.narikoma-group.co.jp/corp/"
+  },
+   {
+    id: 7,
+    title: "Logistics Optimization",
+    client: "Nippon Express Systems",
+    description:
+      "Route planning and scheduling solution that reduced delivery latency by 27%.",
+    image: "/craft.png",
+    link: "https://marimocraft.co.jp/"
+  },
+     {
+    id: 8,
     title: "Logistics Optimization",
     client: "Nippon Express Systems",
     description:
       "Route planning and scheduling solution that reduced delivery latency by 27%.",
     image: "/hamao.png",
-    link: "#"
-  },
-   {
-    id: 3,
-    title: "Logistics Optimization",
-    client: "Nippon Express Systems",
-    description:
-      "Route planning and scheduling solution that reduced delivery latency by 27%.",
-    image: "/select.png",
-    link: "#"
-  },
-   {
-    id: 3,
-    title: "Logistics Optimization",
-    client: "Nippon Express Systems",
-    description:
-      "Route planning and scheduling solution that reduced delivery latency by 27%.",
-    image: "/seigaku.png",
-    link: "#"
-  },
-   {
-    id: 3,
-    title: "Logistics Optimization",
-    client: "Nippon Express Systems",
-    description:
-      "Route planning and scheduling solution that reduced delivery latency by 27%.",
-    image: "/online.png",
-    link: "#"
-  },
-   {
-    id: 3,
-    title: "Logistics Optimization",
-    client: "Nippon Express Systems",
-    description:
-      "Route planning and scheduling solution that reduced delivery latency by 27%.",
-    image: "/ohtake.png",
-    link: "#"
+    link: "https://hamaokamekki.co.jp/"
   }
 ]
 
@@ -131,7 +140,7 @@ export default function SuccessfulProjectsPage() {
         : "opacity-100 shadow-2xl"
 
     return (
-      <div className={`${base} ${size} ${pos} bg-white border-gray-200`}>        
+      <div className={`${base} ${size} ${pos} bg-white border-gray-200 group`}>        
         <div className="absolute inset-0">
           <Image
             src={project.image}
@@ -148,6 +157,22 @@ export default function SuccessfulProjectsPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         </div>
+
+        {/* Hover CTA */}
+        {project.link && (
+          <div className="absolute inset-0 flex items-end justify-end p-4 md:p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <motion.a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 rounded-full bg-[#00c7f1] text-[#0A2349] font-semibold px-4 py-2 shadow-lg hover:shadow-xl ring-2 ring-[#00c7f1]/70"
+            >
+              Visit site
+            </motion.a>
+          </div>
+        )}
 
         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 text-white">
           {/* <h3 className="text-lg md:text-xl font-bold">{project.title}</h3>

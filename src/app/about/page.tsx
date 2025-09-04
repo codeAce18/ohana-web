@@ -70,7 +70,7 @@ export default function AboutPage() {
             <div className="bg-white rounded-xl shadow-lg overflow-hidden h-full">
               <div className="relative w-full aspect-[3/4] lg:h-full">
                 <Image
-                  src="/japan.jpg"
+                  src="/team.jpg"
                   alt="Showcase"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
