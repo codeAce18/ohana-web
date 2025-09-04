@@ -1,13 +1,57 @@
+"use client"
+
+import { useEffect, useRef } from "react"
 import { Monitor, Smartphone, Zap } from "lucide-react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function PerformancePage() {
+  const containerRef = useRef<HTMLElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const rowsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header
+      gsap.fromTo(
+        headerRef.current?.children || [],
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: "power2.out" },
+      )
+
+      // Each comparison row
+      const rows = rowsRef.current?.querySelectorAll(".perf-row") || []
+      gsap.fromTo(
+        rows,
+        { opacity: 0, y: 36 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: rowsRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      )
+    }, containerRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
     <section
+      ref={containerRef}
       className="relative py-16 sm:py-24 bg-cover "
       style={{ backgroundImage: "url('/S5.jpg')" }}
     >
       <div className="mx-auto w-full max-w-6xl px-6 sm:px-10">
-        <div className="text-center mb-16">
+        <div ref={headerRef} className="text-center mb-16">
           <p className="text-blue-200 text-sm font-medium mb-2">PERFORMANCE COMPARISON</p>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Compare old with new</h1>
           <p className="text-blue-100 max-w-3xl mx-auto text-lg">
@@ -17,9 +61,9 @@ export default function PerformancePage() {
         </div>
 
         {/* Comparison blocks */}
-        <div className="space-y-16 md:space-y-28">
+        <div ref={rowsRef} className="space-y-16 md:space-y-28">
           {/* Traditional Website vs Ohanaweb Digital */}
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start md:items-center gap-6 md:gap-8">
+          <div className="perf-row grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start md:items-center gap-6 md:gap-8">
             <div className="flex-1">
               <div className="flex items-start md:items-center gap-4">
                 <div className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-lg flex-shrink-0">
@@ -52,7 +96,7 @@ export default function PerformancePage() {
           </div>
 
           {/* User Responsiveness vs Ohanaweb Digital Responsiveness */}
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start md:items-center gap-6 md:gap-8">
+          <div className="perf-row grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start md:items-center gap-6 md:gap-8">
             <div className="flex-1">
               <div className="flex items-start md:items-center gap-4">
                 <div className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-lg flex-shrink-0">
@@ -87,7 +131,7 @@ export default function PerformancePage() {
           </div>
 
           {/* Native Experience vs Ohanaweb Digital Experience */}
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start md:items-center gap-6 md:gap-8">
+          <div className="perf-row grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start md:items-center gap-6 md:gap-8">
             <div className="flex-1">
               <div className="flex items-start md:items-center gap-4">
                 <div className="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-lg flex-shrink-0">

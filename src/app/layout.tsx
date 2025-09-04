@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ForcedLoader from "@/components/ForcedLoader";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,6 +29,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Forced 5s splash overlay on each refresh */}
+        <ForcedLoader durationMs={5000} />
         {children}
       </body>
     </html>

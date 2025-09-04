@@ -18,6 +18,7 @@ import SuccessfulProjectsPage from "./successful-projects/page"
 import WhyChooseUsPage from "./choose/page"
 import Footer from "./footer/page"
 import Image from "next/image"
+import Loading from "./loading"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -353,8 +354,8 @@ export default function Home() {
       <section id="vision"><VisionPage/></section>
       <section id="portfolio"><Portfolio/></section>
       <section id="testimonials"><Testimonials/></section>
-      <section id="successful-projects"><SuccessfulProjectsPage/></section>
-      {/* Scroll-to-top button */}
+      <section id="successful-projects"><SuccessfulProjectsPage/></section> 
+            {/* Scroll-to-top button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         aria-label="Scroll to top"
