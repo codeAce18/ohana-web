@@ -186,7 +186,7 @@ const projects = {
       id: 27,
       title: "Fitness Tracking App",
       image: "/ethree.png",
-      ul: "https://www.ethree.tokyo/"
+      url: "https://www.ethree.tokyo/"
     },
     {
       id: 28,
@@ -198,22 +198,26 @@ const projects = {
       id: 29,
       title: "Social Media App",
       image: "/select.png",
+      url: "https://u-select-up.com/"
     },
    
     {
       id: 30,
       title: "Social Media App",
       image: "/noluc.png",
+      url: "https://www.noluc.jp/"
     },
     {
       id: 31,
       title: "Social Media App",
       image: "/spa.png",
+      url: "https://bio-spa.jp/"
     },
     {
       id: 32,
       title: "Social Media App",
       image: "/cellabo.png",
+      url: "https://www.celllabo.jp/"
     },
   ],
   "Medical-related": [
@@ -221,26 +225,31 @@ const projects = {
       id: 33,
       title: "Task Management System",
       image: "/futa.png",
+      url: "https://futamatagawa-dental.com/"
     },
     {
       id: 34,
       title: "Internal communication system",
       image: "/seed.png",
+      url: "https://www.seed-recruit.com/"
     },
     {
       id: 35,
       title: "Project Management Tool",
       image: "/nakayama.png",
+      url: "https://nakayama-kyousei.com/"
     },
     {
       id: 36,
       title: "Project Management Tool",
       image: "/fuji.png",
+      url: "https://fujioka-dental.jp/"
     },
     {
       id: 37,
       title: "Project Management Tool",
       image: "/marina.png",
+      url: "https://www.marina-dc.com/"
     },
   ],
   "Food-related": [
@@ -248,21 +257,25 @@ const projects = {
       id: 38,
       title: "CRM System",
       image: "/shok.png",
+      url: "https://www.shokubun.co.jp/"
     },
     {
       id: 39,
       title: "Inventory Management",
       image: "/narikoma.png",
+      url: "https://www.narikoma-group.co.jp/corp/"
     },
     {
       id: 40,
       title: "Analytics Dashboard",
       image: "/heart.png",
+      url: "https://www.heart-bread.com/"
     },
     {
       id: 41,
       title: "Analytics Dashboard",
       image: "/peko.png",
+      url: "https://www.fujiya-peko.co.jp"
     },
 
   ],
@@ -271,16 +284,19 @@ const projects = {
       id: 42,
       title: "Machine Learning Platform",
       image: "/craft.png",
+      url: "https://marimocraft.co.jp/"
     },
     {
       id: 43,
       title: "AI Chatbot System",
       image: "/rise.png",
+      url: "https://www.rise.sc/"
     },
     {
       id: 44,
       title: "Predictive Analytics Tool",
       image: "/franc.png",
+      url: "https://francfranc.com/"
     },
   ],
   "Others (Pets, Animation)": [
@@ -288,26 +304,31 @@ const projects = {
       id: 45,
       title: "Machine Learning Platform",
       image: "/ripuca.png",
+      url: "https://ripuca.co.jp/lp-instagram/"
     },
     {
       id: 46,
       title: "AI Chatbot System",
       image: "/hamao.png",
+      url: "https://hamaokamekki.co.jp/"
     },
     {
       id: 47,
       title: "Predictive Analytics Tool",
       image: "/dog.png",
+      url: "https://doghuggy.com/"
     },
     {
       id: 48,
       title: "Predictive Analytics Tool",
       image: "/wanpass.png",
+      url: "https://wanpass.me/"
     },
     {
       id: 49,
       title: "Predictive Analytics Tool",
       image: "/odakyu.png",
+      url: "https://www.odakyu.jp/group/brand/topic/"
     },
   ],
 }
@@ -594,7 +615,7 @@ export default function Portfolio() {
                     }}
                     disabled={!project.url}
                     className={`mt-3 inline-flex items-center justify-center rounded-sm px-4 py-2 text-sm font-medium transition-colors duration-200 ${
-                      project.url ? "bg-white/30 text-white/70" : "bg-white/30 text-white/70 cursor-not-allowed"
+                      project.url ? "bg-white/30 text-white/70 hover:bg-[#00c7f1] hover:text-white" : "bg-white/30 text-white/70 cursor-not-allowed"
                     }`}
                     aria-label={`Visit ${project.title} website`}
                   >
