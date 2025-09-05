@@ -17,6 +17,7 @@ import Testimonials from "./testimonials/page"
 import SuccessfulProjectsPage from "./successful-projects/page"
 import WhyChooseUsPage from "./choose/page"
 import Footer from "./footer/page"
+import InquiryPage from "./inquiry/page"
 import Image from "next/image"
 import Loading from "./loading"
 
@@ -355,7 +356,7 @@ export default function Home() {
       <section id="portfolio"><Portfolio/></section>
       <section id="testimonials"><Testimonials/></section>
       <section id="successful-projects"><SuccessfulProjectsPage/></section> 
-            {/* Scroll-to-top button */}
+      <section id="inquiry"><InquiryPage/></section>
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         aria-label="Scroll to top"
