@@ -228,7 +228,7 @@ export default function SuccessfulProjectsPage() {
         </div>
 
         {/* Controls */}
-        {/* <div className="flex items-center justify-between mb-6 px-2 md:px-6">
+        <div className="flex items-center justify-between mb-6 px-2 md:px-6">
           <button
             onClick={goPrev}
             aria-label="Previous"
@@ -248,7 +248,7 @@ export default function SuccessfulProjectsPage() {
           >
             <ChevronRight size={20} />
           </button>
-        </div> */}
+        </div>
 
         {/* Carousel (center bigger, sides smaller) */}
         <div className="relative flex items-center justify-center gap-3 md:gap-6 lg:gap-12 px-2 md:px-6 overflow-x-hidden pt-10">

@@ -4,6 +4,36 @@ import { useState, useEffect } from "react"
 import { gsap } from "gsap"
 import emailjs from "@emailjs/browser"
 
+function Toast({ type, text, onClose }: { type: 'success' | 'error'; text: string; onClose: () => void }) {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 10);
+    const auto = setTimeout(() => onClose(), 4000);
+    return () => { clearTimeout(t); clearTimeout(auto); };
+  }, [onClose]);
+  return (
+    <div
+      className={`fixed bottom-24 right-6 z-50 rounded-sm px-4 py-3 shadow-lg border transition transform duration-300 ${
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+      } ${type === 'success' ? 'bg-[#00c7f1] border-cyan-300 text-white' : 'bg-red-500 border-red-300 text-white'}`}
+      role="status"
+      aria-live="polite"
+    >
+      <div className="flex items-start gap-3">
+        <span className="font-semibold">{type === 'success' ? 'Success' : 'Error'}</span>
+        <span className="opacity-95">{text}</span>
+        <button
+          aria-label="Close notification"
+          onClick={onClose}
+          className="ml-2 text-white/90 hover:text-white"
+        >
+          ×
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export default function InquiryPage() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -11,6 +41,7 @@ export default function InquiryPage() {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [toast, setToast] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
   // Read EmailJS config from public env vars
   const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
@@ -32,6 +63,7 @@ export default function InquiryPage() {
 
     if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
       setError("Email service is not configured. Please set your EmailJS env variables.")
+      setToast({ type: 'error', text: 'Email service not configured. Please try again later.' })
       return
     }
 
@@ -43,8 +75,8 @@ export default function InquiryPage() {
     try {
       // Params must match your EmailJS template variables
       const params = {
-        from_name: name,
-        from_email: email,
+        name: name,
+        email: email,
         message,
         reply_to: email,
       }
@@ -52,12 +84,14 @@ export default function InquiryPage() {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, params)
 
       setSubmitted(true)
+      setToast({ type: 'success', text: 'Your message has been sent. We will get back to you soon.' })
       setName("")
       setEmail("")
       setMessage("")
     } catch (err) {
       console.error(err)
       setError("Failed to send message. Please try again later.")
+      setToast({ type: 'error', text: 'Failed to send. Please try again later.' })
     } finally {
       setSubmitting(false)
     }
@@ -130,7 +164,6 @@ export default function InquiryPage() {
             />
           </div>
 
-          {/* Submit button pinned bottom-right inside the form */}
           <div className="flex justify-end">
             <button
               id="submitBtn"
@@ -152,6 +185,14 @@ export default function InquiryPage() {
           )}
         </form>
       </div>
+
+      {/* {toast && (
+        <Toast
+          type={toast.type}
+          text={toast.text}
+          onClose={() => setToast(null)}
+        />
+      )} */}
     </section>
   )
 }
