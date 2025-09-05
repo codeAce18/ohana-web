@@ -37,7 +37,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <div className="h-12 md:h-20 flex items-center">
                 <Image
-                  src="/logo/OhanaBlack.png"
+                  src="/logo/Ohana Blue.png"
                   alt="Ohanaweb"
                   width={140}
                   height={80}

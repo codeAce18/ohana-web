@@ -19,7 +19,7 @@ export default function ForcedLoader({ durationMs = 3000 }: { durationMs?: numbe
       <div className="flex flex-col items-center justify-end">
         {/* Logo bouncing like a ball */}
         <Image
-          src="/logo/OhanaBlack.png"
+          src="/logo/Ohana Blue.png"
           alt="Ohana logo"
           width={96}
           height={96}
