@@ -25,7 +25,7 @@ export default function ForcedLoader({ durationMs = 3000 }: { durationMs?: numbe
           priority
           className="animate-bounce-ball select-none"
         />
-      <div className="mt-1 w-20 h-2 rounded-full bg-black/40 blur-[3px] animate-shadow" />
+      <div className="mt-1 w-12 h-2 rounded-full bg-black/40 blur-[3px] animate-shadow" />
       </div>
 
       <style>{`

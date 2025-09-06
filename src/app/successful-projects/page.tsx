@@ -232,7 +232,7 @@ export default function SuccessfulProjectsPage() {
           <button
             onClick={goPrev}
             aria-label="Previous"
-            className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#0A2349] text-white hover:bg-[#15407a] transition active:scale-95"
+            className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-sm bg-[#00c7f1] text-white hover:bg-[#15407a] transition active:scale-95"
           >
             <ChevronLeft size={20} />
           </button>
@@ -244,7 +244,7 @@ export default function SuccessfulProjectsPage() {
           <button
             onClick={goNext}
             aria-label="Next"
-            className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#0A2349] text-white hover:bg-[#15407a] transition active:scale-95"
+            className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-sm bg-[#00c7f1] text-white hover:bg-[#15407a] transition active:scale-95"
           >
             <ChevronRight size={20} />
           </button>

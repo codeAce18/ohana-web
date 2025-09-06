@@ -20,6 +20,8 @@ import Footer from "./footer/page"
 import InquiryPage from "./inquiry/page"
 import Image from "next/image"
 import Loading from "./loading"
+import SeoSemPage from "./seo-sem/page"
+import AnalyticsPage from "./analytics/page"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -352,6 +354,8 @@ export default function Home() {
         </div>
       </section>
       <section id="performance"><PerformancePage/></section>
+      <section id="seo-sem"><SeoSemPage/></section>
+      <section id="analytics"><AnalyticsPage/></section>
       <section id="vision"><VisionPage/></section>
       <section id="portfolio"><Portfolio/></section>
       <section id="testimonials"><Testimonials/></section>

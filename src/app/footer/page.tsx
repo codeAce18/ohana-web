@@ -10,9 +10,11 @@ export default function Footer() {
     { href: "#about", label: "About" },
     { href: "#approach", label: "Approach" },
     { href: "#performance", label: "Performance" },
+    { href: "#seo-sem", label: "SEO/SEM" },
+    { href: "#analytics", label: "Analytics" },
     { href: "#vision", label: "Vision" },
     { href: "#portfolio", label: "Portfolio" },
-    // { href: "#testimonials", label: "Testimonials" },
+    { href: "#testimonials", label: "Testimonials" },
     { href: "#successful-projects", label: "Successful Projects" },
     { href: "#why-choose-us", label: "Why Choose Us" },
   ]
@@ -94,7 +96,7 @@ export default function Footer() {
             <div className="col-span-2 sm:col-span-1">
               <h3 className="text-sm font-semibold tracking-wide ">Contact</h3>
               <ul className="mt-4 space-y-3 text-sm">
-                <li>Email: info@ohanaweb.com</li>
+                <li>Email: cbnbc08@gmail.com</li>
                 <li>Hours: Mon–Fri, 9:00–18:00 JST</li>
               </ul>
             </div>

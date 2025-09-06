@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Image from "next/image"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -182,8 +183,8 @@ export default function WhyChooseUsPage() {
                 {/* Logo container */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-white/20 rounded-lg mb-4 mx-auto flex items-center justify-center backdrop-blur-sm">
-                      <div className="w-8 h-8 bg-white rounded-sm"></div>
+                    <div className="w-16 h-16 bg-white rounded-lg mb-4 mx-auto flex items-center justify-center backdrop-blur-sm">
+                     <Image src="/logo/Ohana Blue.png" alt="Logo" width={64} height={64} />
                     </div>
                     <div className="text-white">
                       <div className="text-2xl font-bold">OHANA WEB</div>
