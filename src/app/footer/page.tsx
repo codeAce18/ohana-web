@@ -10,9 +10,11 @@ export default function Footer() {
     { href: "#about", label: "About" },
     { href: "#approach", label: "Approach" },
     { href: "#performance", label: "Performance" },
+    { href: "#seo-sem", label: "SEO/SEM" },
+    { href: "#analytics", label: "Analytics" },
     { href: "#vision", label: "Vision" },
     { href: "#portfolio", label: "Portfolio" },
-    // { href: "#testimonials", label: "Testimonials" },
+    { href: "#testimonials", label: "Testimonials" },
     { href: "#successful-projects", label: "Successful Projects" },
     { href: "#why-choose-us", label: "Why Choose Us" },
   ]
