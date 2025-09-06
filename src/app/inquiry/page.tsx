@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { gsap } from "gsap"
-import emailjs from "@emailjs/browser"
 
 function Toast({ type, text, onClose }: { type: 'success' | 'error'; text: string; onClose: () => void }) {
   const [visible, setVisible] = useState(false);
@@ -43,17 +42,7 @@ export default function InquiryPage() {
   const [error, setError] = useState<string | null>(null)
   const [toast, setToast] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
-  // Read EmailJS config from public env vars
-  const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-  const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
-  const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
 
-  useEffect(() => {
-    // Optional init (not required if passing publicKey in send options)
-    if (PUBLIC_KEY) {
-      emailjs.init({ publicKey: PUBLIC_KEY })
-    }
-  }, [PUBLIC_KEY])
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -61,11 +50,7 @@ export default function InquiryPage() {
 
     if (!name || !email || !message) return
 
-    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      setError("Email service is not configured. Please set your EmailJS env variables.")
-      setToast({ type: 'error', text: 'Email service not configured. Please try again later.' })
-      return
-    }
+
 
     setSubmitting(true)
 
@@ -73,15 +58,17 @@ export default function InquiryPage() {
     gsap.to("#submitBtn", { scale: 0.96, duration: 0.1, yoyo: true, repeat: 1 })
 
     try {
-      // Params must match your EmailJS template variables
-      const params = {
-        name: name,
-        email: email,
-        message,
-        reply_to: email,
-      }
+      // Send to our server route using Nodemailer
+      const res = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
 
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, params)
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.error || 'Request failed');
+      }
 
       setSubmitted(true)
       setToast({ type: 'success', text: 'Your message has been sent. We will get back to you soon.' })
@@ -179,20 +166,20 @@ export default function InquiryPage() {
             </button>
           </div>
 
-          {error && <p className="text-red-300 text-sm">{error}</p>}
+          {/* {error && <p className="text-red-300 text-sm">{error}</p>}
           {submitted && !error && (
             <p className="text-white/90 text-sm">Thanks! Your message has been sent.</p>
-          )}
+          )} */}
         </form>
       </div>
 
-      {/* {toast && (
+      {toast && (
         <Toast
           type={toast.type}
           text={toast.text}
           onClose={() => setToast(null)}
         />
-      )} */}
+      )}
     </section>
   )
 }

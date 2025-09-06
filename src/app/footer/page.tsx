@@ -94,7 +94,7 @@ export default function Footer() {
             <div className="col-span-2 sm:col-span-1">
               <h3 className="text-sm font-semibold tracking-wide ">Contact</h3>
               <ul className="mt-4 space-y-3 text-sm">
-                <li>Email: info@ohanaweb.com</li>
+                <li>Email: cbnbc08@gmail.com</li>
                 <li>Hours: Mon–Fri, 9:00–18:00 JST</li>
               </ul>
             </div>
