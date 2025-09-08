@@ -32,7 +32,6 @@ export default function TestimonialsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const headerRef = useRef<HTMLDivElement | null>(null)
 
-  // Auto-slide functionality
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1))
@@ -40,7 +39,6 @@ export default function TestimonialsCarousel() {
     return () => clearInterval(interval)
   }, [])
 
-  // Fade-in header when it enters viewport
   useEffect(() => {
     const el = headerRef.current
     if (!el) return
@@ -82,7 +80,6 @@ export default function TestimonialsCarousel() {
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <div ref={headerRef} className="text-center mb-10 md:mb-12 px-2">
           <h2 className="mb-4 md:mb-6 text-3xl md:text-5xl font-bold text-[#00c7f1]">Customer testimonials</h2>
           <p className="text-gray-700 max-w-4xl mx-auto leading-relaxed text-sm sm:text-base">
@@ -92,9 +89,7 @@ export default function TestimonialsCarousel() {
           </p>
         </div>
 
-        {/* Carousel Container */}
         <div className="relative">
-          {/* Navigation Arrows */}
           <Button
             variant="ghost"
             size="icon"
@@ -112,8 +107,6 @@ export default function TestimonialsCarousel() {
           >
             <ChevronRight className="h-6 w-6 text-gray-600" />
           </Button>
-
-          {/* Testimonials */}
           <div className="overflow-hidden mx-2 sm:mx-8">
             <div
               className="flex transition-transform duration-500 ease-in-out"
@@ -140,8 +133,6 @@ export default function TestimonialsCarousel() {
               ))}
             </div>
           </div>
-
-          {/* Dot Indicators */}
           <div className="flex justify-center gap-2 mt-8">
             {testimonials.map((_, index) => (
               <button

@@ -15,14 +15,11 @@ export default function VisionPage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero section animation
       gsap.fromTo(
         heroRef.current?.children || [],
         { opacity: 0, y: 50 },
         { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power2.out" },
       )
-
-      // Principles cards animation
       gsap.fromTo(
         principlesRef.current?.querySelectorAll(".principle-card") || [],
         { opacity: 0, y: 60, scale: 0.9 },
@@ -41,8 +38,6 @@ export default function VisionPage() {
           },
         },
       )
-
-      // Goal section animation
       gsap.fromTo(
         goalRef.current?.children || [],
         { opacity: 0, y: 40 },
@@ -59,8 +54,6 @@ export default function VisionPage() {
           },
         },
       )
-
-      // Floating animation for decorative elements
       gsap.to(".floating-element", {
         y: -10,
         duration: 2,
@@ -127,8 +120,6 @@ export default function VisionPage() {
           </div>
         </div>
       </section>
-
-      {/* Goal Section */}
       <section className="py-20 px-4 text-center bg-white">
         <div ref={goalRef} className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 sm:p-12 border border-blue-100">

@@ -137,14 +137,12 @@ export default function Home() {
         scrub: 1,
         onUpdate: (self) => {
           const progress = self.progress
-
-          // Parallax background + move gradient together to avoid top gap
           gsap.set(bgImageRef.current, {
-            yPercent: progress * 30,
-            scale: 1.15 - progress * 0.1,
+            yPercent: progress * 8,
+            scale: 1.06 - progress * 0.03,
           })
           gsap.set(gradientRef.current, {
-            yPercent: progress * 30,
+            yPercent: progress * 8,
           })
 
           // Parallax overlay
@@ -254,19 +252,16 @@ export default function Home() {
           style={{ clipPath: "polygon(0 0, 100% 0, calc(100% - 6vw) 100%, 0 100%)" }}
         />
         <div aria-hidden className="absolute inset-0 bg-[#134a8b]/90 z-0 xl:hidden" />
-
-
-
         <div aria-hidden className="absolute inset-0 -z-10">
           <div
             ref={bgImageRef}
-            className="absolute inset-0 bg-[length:cover] bg-center"
+            className="absolute left-0 right-0 -top-[20%] -bottom-[20%] bg-[length:cover] bg-center will-change-transform transform-gpu"
             style={{ backgroundImage: `url('${HERO_BG_URL}')` }}
           />
          
           <div
             ref={gradientRef}
-            className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40 will-change-transform"
+            className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-transparent will-change-transform"
           />
         </div>
 
@@ -293,12 +288,17 @@ export default function Home() {
 
             <div ref={ctasRef} className="mt-8 flex flex-col sm:flex-row gap-3">
               <a
-                href="#"
+                href="#inquiry"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('inquiry');
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
                 className="inline-flex items-center justify-center rounded-sm bg-[#1abddd] px-5 py-4 text-sm sm:text-base font-semibold text-white shadow-md hover:bg-[#15aecb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1abddd] transition-colors"
                 onMouseEnter={handleCTAHover}
                 onMouseLeave={handleCTALeave}
               >
-                Get Started Today
+                Reservations
               </a>
             </div>
           </div>
@@ -315,7 +315,6 @@ export default function Home() {
       >
         <div className="mx-auto w-full max-w-7xl px-6 sm:px-10">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Left image, similar to About page but mirrored */}
             <div className="lg:pr-8 self-stretch order-1 lg:order-none">
               <div ref={approachImageRef} className="bg-white rounded-xl shadow-lg overflow-hidden h-full">
                 <div className="relative w-full aspect-[3/4] lg:h-full">
@@ -331,7 +330,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right text content */}
             <div ref={approachTextRef} className="max-w-2xl">
               <span className="inline-block rounded-full bg-[#00c7f1] px-4 py-2 text-sm font-bold text-white mb-2">
                 OUR APPROACH

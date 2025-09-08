@@ -30,7 +30,15 @@ const Navbar: React.FC = () => {
         <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <div className="flex items-center gap-2 select-none">
-              <div className="h-10 sm:h-12 md:h-14 lg:h-20 flex items-center">
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('home');
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className="h-10 sm:h-12 md:h-14 lg:h-20 flex items-center focus:outline-none"
+                aria-label="Go to top"
+              >
                 <Image
                   src="/logo/Ohana Blue.svg"
                   alt="Ohanaweb"
@@ -39,15 +47,12 @@ const Navbar: React.FC = () => {
                   className="h-full w-auto object-contain"
                   priority
                 />
-              </div>
+              </button>
             </div>
 
             <ul className="hidden lg:flex items-center gap-6 text-sm font-medium">
               {[
-                { href: "#home", label: "Home" },
-                { href: "#stats", label: "Stats" },
                 { href: "#about", label: "About" },
-                { href: "#approach", label: "Approach" },
                 { href: "#performance", label: "Performance" },
                 // { href: "#seo-sem", label: "SEO/SEM" },
                 // { href: "#analytics", label: "Analytics" },
@@ -76,7 +81,12 @@ const Navbar: React.FC = () => {
 
             <div className="flex items-center gap-3">
               <a
-                href="#"
+                href="#inquiry"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('inquiry');
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
                 className="hidden sm:inline-flex items-center justify-center py-3 px-7 rounded-xs text-white  bg-[#00c7f1] to-[#00a8d1] transition-all duration-300 font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 glow-animation"
               >
                 Reservations
@@ -130,10 +140,7 @@ const Navbar: React.FC = () => {
           >
             <div className="px-2 pt-2 pb-6 space-y-1 bg-white border-t border-gray-100">
               {[
-                { href: "#home", label: "Home" },
-                { href: "#stats", label: "Stats" },
                 { href: "#about", label: "About" },
-                { href: "#approach", label: "Approach" },
                 { href: "#performance", label: "Performance" },
                 // { href: "#seo-sem", label: "SEO/SEM" },
                 // { href: "#analytics", label: "Analytics" },

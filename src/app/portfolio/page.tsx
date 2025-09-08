@@ -33,55 +33,55 @@ const projects = {
     },
     {
       id: 3,
-      title: "Web Interface Design",
+      title: "funaisoken",
       image: "/funai.png",
       url: "https://www.funaisoken.co.jp/"
     },
       {
       id: 4,
-      title: "Web Interface Design",
+      title: "nextlevelholdings",
       image: "/nextlevel.png",
       url: "https://nextlevelholdings.co.jp/"
     },
       {
       id: 5,
-      title: "Web Interface Design",
+      title: "rewrite",
       image: "/rewrite.png",
       url: "https://www.rewrite.co.jp/"
     },
       {
       id: 6,
-      title: "Web Interface Design",
+      title: "Msols",
       image: "/msol.png",
       url: "https://www.msols.com/"
     },
       {
       id: 7,
-      title: "Web Interface Design",
+      title: "Keywordmap",
       image: "/keyword.png",
       url: "https://keywordmap.jp/"
     },
       {
       id: 8,
-      title: "Web Interface Design",
+      title: "Freelocation",
       image: "/freelocation.png",
       url: "https://freelocation.co.jp/"
     },
       {
       id: 9,
-      title: "Web Interface Design",
+      title: "Recruit",
       image: "/recruit.png",
       url: "https://www.recruit-ms.co.jp/"
     },
       {
       id: 10,
-      title: "Web Interface Design",
+      title: "Famione",
       image: "/famione.png",
       url: "https://famione.com/benefit/"
     },
       {
       id: 11,
-      title: "Web Interface Design",
+      title: "Pro-D-Use",
       image: "/pro.png",
       url: "https://pro-d-use.jp/"
     },
@@ -89,43 +89,43 @@ const projects = {
   "Real estate-related": [
     {
       id: 12,
-      title: "PoC blockchain app",
+      title: "Odakyu Group",
       image: "/odakyu.png",
       url: "https://www.odakyu.jp/group/brand/topic/"
     },
     {
       id: 13,
-      title: "Digital Wallet App",
+      title: "Kafuu Okinawa",
       image: "/kafuu.png",
       url: "https://www.kafuu-okinawa.jp/"
     },
     {
       id: 14,
-      title: "Crypto Trading Platform",
+      title: "N-Story",
       image: "/n-story.png",
       url: "https://www.n-story.net/　"
     },
     {
       id: 15,
-      title: "Crypto Trading Platform",
+      title: "Temairazu",
       image: "/tema.png",
       url: "https://www.temairazu.com/"
     },
     {
       id: 16,
-      title: "Crypto Trading Platform",
+      title: "Asahii Housing",
       image: "/asahii.png",
       url: "https://www.asahi-housing.co.jp/"
     },
     {
       id: 17,
-      title: "Crypto Trading Platform",
+      title: "Open House",
       image: "/openhouse.png",
       url: "https://openhouse-group.com/"
     },
     {
       id: 18,
-      title: "Crypto Trading Platform",
+      title: "Tap",
       image: "/tap.png",
       url: "https://www.tap-ic.co.jp/"
     },
@@ -133,44 +133,44 @@ const projects = {
   "Education-related": [
     {
       id: 19,
-      title: "E-commerce Website",
+      title: "Andrew",
       image: "/andrew.png",
       url: "https://www.andrew.ac.jp"
     },
     {
       id: 20,
-      title: "Corporate Website",
+      title: "Online",
       image: "/online.png",
       url: "https://to-z.net/online/"
     },
     {
       id: 21,
-      title: "Portfolio Website",
+      title: "School",
       image: "/school.png",
       url: "https://school.js88.com/"
     },
 
      {
       id:22,
-      title: "Portfolio Website",
+      title: "Ohtake",
       image: "/ohtake.png",
       url: "https://www.ohtake.ac.jp/"
     },
      {
       id: 23,
-      title: "Portfolio Website",
+      title: "Seisa",
       image: "/seisa.png",
       url: "https://seisa.ac.jp/"
     },
      {
       id: 24,
-      title: "Portfolio Website",
+      title: "Tanaka Soroban",
       image: "/tanaka.png",
       url: "https://tanakasorobanjuku.com/"
     },
      {
       id: 25,
-      title: "Portfolio Website",
+      title: "Seigaku",
       image: "/seigaku.png",
       url: "https://seigaku.jp/kase/"
     },
@@ -178,44 +178,44 @@ const projects = {
   "Beauty-related": [
     {
       id: 26,
-      title: "Food Delivery App",
+      title: "Akiko",
       image: "/akiko.png",
       url: "https://e-akiko.com/lp/"
     },
     {
       id: 27,
-      title: "Fitness Tracking App",
+      title: "Ethree",
       image: "/yo.jpg",
       url: "https://www.ethree.tokyo/" // This isnt the correct URL
     },
     {
       id: 28,
-      title: "Social Media App",
+      title: "Top Class N",
       image: "/yosecondd.jpg",
       url: "https://topclass-n.net" // This isnt the correct URL
     },
     {
       id: 29,
-      title: "Social Media App",
+      title: "Select",
       image: "/select.png",
       url: "https://u-select-up.com/"
     },
    
     {
       id: 30,
-      title: "Social Media App",
+      title: "Noluc",
       image: "/yotwo.jpg",
       url: "https://www.noluc.jp/" // This isnt the correct URL
     },
     {
       id: 31,
-      title: "Social Media App",
+      title: "Bio Spa",
       image: "/spa.png",
       url: "https://bio-spa.jp/"
     },
     {
       id: 32,
-      title: "Social Media App",
+      title: "Cellabo",
       image: "/cellabo.png",
       url: "https://www.celllabo.jp/"
     },
@@ -223,31 +223,31 @@ const projects = {
   "Medical-related": [
     {
       id: 33,
-      title: "Task Management System",
+      title: "Futamatagawa Dental",
       image: "/futa.png",
       url: "https://futamatagawa-dental.com/"
     },
     {
       id: 34,
-      title: "Internal communication system",
+      title: "Seed Recruit",
       image: "/seed.png",
       url: "https://www.seed-recruit.com/"
     },
     {
       id: 35,
-      title: "Project Management Tool",
+      title: "Nakayama Kyousei",
       image: "/nakayama.png",
       url: "https://nakayama-kyousei.com/"
     },
     {
       id: 36,
-      title: "Project Management Tool",
+      title: "Fujioka Dental",
       image: "/fuji.png",
       url: "https://fujioka-dental.jp/"
     },
     {
       id: 37,
-      title: "Project Management Tool",
+      title: "Marina ",
       image: "/marina.png",
       url: "https://www.marina-dc.com/"
     },
@@ -255,25 +255,25 @@ const projects = {
   "Food-related": [
     {
       id: 38,
-      title: "CRM System",
+      title: "Shokubun",
       image: "/shok.png",
       url: "https://www.shokubun.co.jp/"
     },
     {
       id: 39,
-      title: "Inventory Management",
+      title: "Narikoma Group",
       image: "/narikoma.png",
       url: "https://www.narikoma-group.co.jp/corp/"
     },
     {
       id: 40,
-      title: "Analytics Dashboard",
+      title: "Heart Bread",
       image: "/heart.png",
       url: "https://www.heart-bread.com/"
     },
     {
       id: 41,
-      title: "Analytics Dashboard",
+      title: "Fujiya",
       image: "/peko.png",
       url: "https://www.fujiya-peko.co.jp"
     },
@@ -282,19 +282,19 @@ const projects = {
   "E-commerce-related": [
     {
       id: 42,
-      title: "Machine Learning Platform",
+      title: "Marimo Craft",
       image: "/craft.png",
       url: "https://marimocraft.co.jp/"
     },
     {
       id: 43,
-      title: "AI Chatbot System",
+      title: "Rise",
       image: "/rise.png",
       url: "https://www.rise.sc/"
     },
     {
       id: 44,
-      title: "Predictive Analytics Tool",
+      title: "Francfranc",
       image: "/franc.png",
       url: "https://francfranc.com/"
     },
@@ -302,31 +302,31 @@ const projects = {
   "Others (Pets, Animation)": [
     {
       id: 45,
-      title: "Machine Learning Platform",
+      title: "Ripuca",
       image: "/ripuca.png",
       url: "https://ripuca.co.jp/lp-instagram/"
     },
     {
       id: 46,
-      title: "AI Chatbot System",
+      title: "Hamaoka",  
       image: "/hamao.png",
       url: "https://hamaokamekki.co.jp/"
     },
     {
       id: 47,
-      title: "Predictive Analytics Tool",
+      title: "DogHuggy",
       image: "/dog.png",
       url: "https://doghuggy.com/"
     },
     {
       id: 48,
-      title: "Predictive Analytics Tool",
+      title: "Wanpass",
       image: "/wanpass.png",
       url: "https://wanpass.me/"
     },
     {
       id: 49,
-      title: "Predictive Analytics Tool",
+      title: "Odakyu Group",
       image: "/odakyu.png",
       url: "https://www.odakyu.jp/group/brand/topic/"
     },

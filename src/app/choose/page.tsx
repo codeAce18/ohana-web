@@ -184,7 +184,7 @@ export default function WhyChooseUsPage() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white rounded-lg mb-4 mx-auto flex items-center justify-center backdrop-blur-sm">
-                     <Image src="/logo/Ohana Blue.png" alt="Logo" width={64} height={64} />
+                     <Image src="/logo/Ohana Blue.svg" alt="Logo" width={64} height={64} />
                     </div>
                     <div className="text-white">
                       <div className="text-2xl font-bold">OHANA WEB</div>
@@ -213,7 +213,6 @@ export default function WhyChooseUsPage() {
               </div>
             </div>
 
-            {/* 100% NDA protection */}
             <div className="feature-right">
               <div>
                 <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
@@ -226,8 +225,6 @@ export default function WhyChooseUsPage() {
                 </p>
               </div>
             </div>
-
-            {/* Project Status Updates */}
             <div className="feature-right">
               <div>
                 <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">

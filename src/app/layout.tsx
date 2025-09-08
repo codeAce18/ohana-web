@@ -29,7 +29,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* Forced 5s splash overlay on each refresh */}
         <ForcedLoader durationMs={5000} />
         {children}
       </body>
