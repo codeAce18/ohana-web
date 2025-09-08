@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
                   const el = document.getElementById('home');
                   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }}
-                className="h-10 sm:h-12 md:h-14 lg:h-20 flex items-center focus:outline-none"
+                className="h-14 sm:h-14 md:h-20 lg:h-20 flex items-center focus:outline-none"
                 aria-label="トップへ移動"
               >
                 <Image
