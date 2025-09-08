@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react"
 import Image from "next/image"
 
 const categories = [
@@ -186,13 +186,13 @@ const projects = {
       id: 27,
       title: "Fitness Tracking App",
       image: "/yo.jpg",
-      url: "https://www.ethree.tokyo/"
+      url: "https://www.ethree.tokyo/" // This isnt the correct URL
     },
     {
       id: 28,
       title: "Social Media App",
       image: "/yosecondd.jpg",
-      url: "https://topclass-n.net"
+      url: "https://topclass-n.net" // This isnt the correct URL
     },
     {
       id: 29,
@@ -205,7 +205,7 @@ const projects = {
       id: 30,
       title: "Social Media App",
       image: "/yotwo.jpg",
-      url: "https://www.noluc.jp/"
+      url: "https://www.noluc.jp/" // This isnt the correct URL
     },
     {
       id: 31,
@@ -343,8 +343,23 @@ export default function Portfolio() {
   const containerRef = useRef<HTMLDivElement>(null)
   const categoriesRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
+  const [isMobileCatOpen, setIsMobileCatOpen] = useState(false)
 
-  const categoriesPerView = 6
+  const [categoriesPerView, setCategoriesPerView] = useState(6)
+  useEffect(() => {
+    const updateCategoriesPerView = () => {
+      const w = window.innerWidth
+      const next = w <= 360 ? 1 : w <= 640 ? 3 : 6
+      setCategoriesPerView(next)
+      setCategoryStartIndex((prev) => {
+        const maxStart = Math.max(0, categories.length - next)
+        return Math.min(prev, maxStart)
+      })
+    }
+    updateCategoriesPerView()
+    window.addEventListener('resize', updateCategoriesPerView)
+    return () => window.removeEventListener('resize', updateCategoriesPerView)
+  }, [])
   const visibleCategories = categories.slice(categoryStartIndex, categoryStartIndex + categoriesPerView)
 
   const currentProjects = (projects[activeCategory as keyof typeof projects] || []) as { id: number; title: string; image: string; url?: string }[]
@@ -526,7 +541,38 @@ export default function Portfolio() {
       <div className="absolute inset-0  z-0"></div>
       <div className="max mx-auto relative z-10">
         <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-10 sm:mb-16">Our Portfolio</h2>
-    <div className="flex items-center justify-center mb-6 sm:mb-8">
+    {/* Mobile category dropdown */}
+        <div className="sm:hidden mb-6 px-2">
+          <div className="relative max-w-md mx-auto">
+            <button
+              type="button"
+              onClick={() => setIsMobileCatOpen((v) => !v)}
+              className="w-full flex items-center justify-between rounded-sm bg-[#345b95] text-white px-4 py-3 border border-white/20"
+            >
+              <span className="truncate">{activeCategory}</span>
+              <ChevronDown size={18} className={`transition-transform ${isMobileCatOpen ? "rotate-180" : ""}`} />
+            </button>
+            {isMobileCatOpen && (
+              <div className="absolute mt-1 w-full max-h-64 overflow-auto rounded-sm bg-blue-700/90 backdrop-blur-sm border border-white/20 shadow-lg z-20">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => {
+                      setIsMobileCatOpen(false)
+                      handleCategoryChange(category)
+                    }}
+                    className={`w-full text-left px-4 py-3 text-white hover:bg-[#00c7f1] ${activeCategory === category ? "bg-[#00c7f1]" : ""}`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Desktop category scroller */}
+        <div className="hidden sm:flex items-center justify-center mb-6 sm:mb-8">
           <button
             onClick={handleCategoryPrevious}
             disabled={categoryStartIndex === 0}
@@ -538,20 +584,20 @@ export default function Portfolio() {
           >
             <ChevronLeft size={24} className="text-[#00c7f1]" />
           </button>
-          <div ref={categoriesRef} className="flex bg-blue-700/30 w-[700px] rounded-sm overflow-hidden backdrop-blur-sm border border-white/20">
+          <div ref={categoriesRef} className="flex bg-blue-700/30 max-w-full sm:w-[700px] rounded-sm overflow-hidden backdrop-blur-sm border border-white/20">
             {visibleCategories.map((category, index) => (
-              <div className="">
+              <div className="w-full">
                 <button
-                key={category}
-                onClick={() => handleCategoryChange(category)}
-                className={`px-8 py-10 font-medium transition-all duration-300 whitespace-nowrap ${
-                  activeCategory === category
-                    ? "bg-[#00c7f1] text-white"
-                    : "text-white hover:bg-[#00c7f1] bg-[#345b95]"
-                } ${index !== visibleCategories.length - 1 ? "border-r border-[#013878]" : ""}`}
-              >
-                {category}
-              </button>
+                  key={category}
+                  onClick={() => handleCategoryChange(category)}
+                  className={`w-full text-center px-4 sm:px-8 py-6 sm:py-10 text-sm sm:text-base font-medium transition-all duration-300 whitespace-nowrap ${
+                    activeCategory === category
+                      ? "bg-[#00c7f1] text-white"
+                      : "text-white hover:bg-[#00c7f1] bg-[#345b95]"
+                  } ${index !== visibleCategories.length - 1 ? "border-r border-[#013878]" : ""}`}
+                >
+                  {category}
+                </button>
               </div>
             ))}
           </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { gsap } from "gsap"
+import emailjs from "@emailjs/browser"
 
 function Toast({ type, text, onClose }: { type: 'success' | 'error'; text: string; onClose: () => void }) {
   const [visible, setVisible] = useState(false);
@@ -42,7 +43,10 @@ export default function InquiryPage() {
   const [error, setError] = useState<string | null>(null)
   const [toast, setToast] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
-
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
+  const toEmail = process.env.NEXT_PUBLIC_EMAILJS_TO_EMAIL as string | undefined
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -50,24 +54,27 @@ export default function InquiryPage() {
 
     if (!name || !email || !message) return
 
-
-
     setSubmitting(true)
-
-    // Button tap animation
     gsap.to("#submitBtn", { scale: 0.96, duration: 0.1, yoyo: true, repeat: 1 })
 
     try {
-      // Send to our server route using Nodemailer
-      const res = await fetch('/api/inquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
-      });
+      // Initialize and send via EmailJS
+      const params = {
+        from_name: name,
+        reply_to: email,
+        message,
+        to_email: toEmail, // optional if your template uses it
+      }
 
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data?.error || 'Request failed');
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        params,
+        { publicKey }
+      )
+
+      if (result.status !== 200) {
+        throw new Error("EmailJS send failed")
       }
 
       setSubmitted(true)
@@ -165,11 +172,6 @@ export default function InquiryPage() {
               {submitting ? "Sending..." : "Send Message"}
             </button>
           </div>
-
-          {/* {error && <p className="text-red-300 text-sm">{error}</p>}
-          {submitted && !error && (
-            <p className="text-white/90 text-sm">Thanks! Your message has been sent.</p>
-          )} */}
         </form>
       </div>
 
