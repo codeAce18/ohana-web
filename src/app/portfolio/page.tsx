@@ -344,6 +344,7 @@ export default function Portfolio() {
   const categoriesRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const [isMobileCatOpen, setIsMobileCatOpen] = useState(false)
+  const mobileCatRef = useRef<HTMLDivElement>(null)
 
   const [categoriesPerView, setCategoriesPerView] = useState(6)
   useEffect(() => {
@@ -360,6 +361,19 @@ export default function Portfolio() {
     window.addEventListener('resize', updateCategoriesPerView)
     return () => window.removeEventListener('resize', updateCategoriesPerView)
   }, [])
+
+  // Close mobile dropdown on outside click
+  useEffect(() => {
+    if (!isMobileCatOpen) return
+    const onClick = (e: MouseEvent) => {
+      if (mobileCatRef.current && !mobileCatRef.current.contains(e.target as Node)) {
+        setIsMobileCatOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', onClick)
+    return () => document.removeEventListener('mousedown', onClick)
+  }, [isMobileCatOpen])
+
   const visibleCategories = categories.slice(categoryStartIndex, categoryStartIndex + categoriesPerView)
 
   const currentProjects = (projects[activeCategory as keyof typeof projects] || []) as { id: number; title: string; image: string; url?: string }[]
@@ -542,8 +556,8 @@ export default function Portfolio() {
       <div className="max mx-auto relative z-10">
         <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-10 sm:mb-16">Our Portfolio</h2>
     {/* Mobile category dropdown */}
-        <div className="sm:hidden mb-6 px-2">
-          <div className="relative max-w-md mx-auto">
+        <div className="xl:hidden mb-6 px-2">
+          <div ref={mobileCatRef} className="relative max-w-md mx-auto">
             <button
               type="button"
               onClick={() => setIsMobileCatOpen((v) => !v)}
@@ -572,7 +586,7 @@ export default function Portfolio() {
         </div>
 
         {/* Desktop category scroller */}
-        <div className="hidden sm:flex items-center justify-center mb-6 sm:mb-8">
+        <div className="hidden xl:flex items-center justify-center mb-6 sm:mb-8 ">
           <button
             onClick={handleCategoryPrevious}
             disabled={categoryStartIndex === 0}
@@ -584,7 +598,7 @@ export default function Portfolio() {
           >
             <ChevronLeft size={24} className="text-[#00c7f1]" />
           </button>
-          <div ref={categoriesRef} className="flex bg-blue-700/30 max-w-full sm:w-[700px] rounded-sm overflow-hidden backdrop-blur-sm border border-white/20">
+          <div ref={categoriesRef} className="flex bg-blue-700/30 max-w-full xl:w-[1200px] rounded-sm overflow-hidden backdrop-blur-sm border border-white/20">
             {visibleCategories.map((category, index) => (
               <div className="w-full">
                 <button
