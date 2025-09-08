@@ -224,7 +224,7 @@ export default function SuccessfulProjectsPage() {
       <div className="max-w-[100vw] mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00c7f1]">Successful Projects</h1>
+          <h1 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00c7f1]">成功事例</h1>
         </div>
 
         {/* Controls */}

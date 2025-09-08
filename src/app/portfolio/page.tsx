@@ -7,18 +7,18 @@ import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react"
 import Image from "next/image"
 
 const categories = [
-  "Corporate-related",
-  "Real estate-related",
-  "Education-related",
-  "Beauty-related",
-  "Medical-related",
-  "Food-related",
-  "E-commerce-related",
-  "Others (Pets, Animation)"
+  "企業関連",
+  "不動産関連",
+  "教育関連",
+  "美容関連",
+  "医療関連",
+  "食品関連",
+  "EC関連",
+  "その他（ペット・アニメ）"
 ]
 
 const projects = {
-  "Corporate-related": [
+  "企業関連": [
     {
       id: 1,
       title: "Career Scouting",
@@ -86,7 +86,7 @@ const projects = {
       url: "https://pro-d-use.jp/"
     },
   ],
-  "Real estate-related": [
+  "不動産関連": [
     {
       id: 12,
       title: "Odakyu Group",
@@ -130,7 +130,7 @@ const projects = {
       url: "https://www.tap-ic.co.jp/"
     },
   ],
-  "Education-related": [
+  "教育関連": [
     {
       id: 19,
       title: "Andrew",
@@ -175,7 +175,7 @@ const projects = {
       url: "https://seigaku.jp/kase/"
     },
   ],
-  "Beauty-related": [
+  "美容関連": [
     {
       id: 26,
       title: "Akiko",
@@ -220,7 +220,7 @@ const projects = {
       url: "https://www.celllabo.jp/"
     },
   ],
-  "Medical-related": [
+  "医療関連": [
     {
       id: 33,
       title: "Futamatagawa Dental",
@@ -252,7 +252,7 @@ const projects = {
       url: "https://www.marina-dc.com/"
     },
   ],
-  "Food-related": [
+  "食品関連": [
     {
       id: 38,
       title: "Shokubun",
@@ -279,7 +279,7 @@ const projects = {
     },
 
   ],
-  "E-commerce-related": [
+  "EC関連": [
     {
       id: 42,
       title: "Marimo Craft",
@@ -299,7 +299,7 @@ const projects = {
       url: "https://francfranc.com/"
     },
   ],
-  "Others (Pets, Animation)": [
+  "その他（ペット・アニメ）": [
     {
       id: 45,
       title: "Ripuca",
@@ -554,7 +554,7 @@ export default function Portfolio() {
     >
       <div className="absolute inset-0  z-0"></div>
       <div className="max mx-auto relative z-10">
-        <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-10 sm:mb-16">Our Portfolio</h2>
+        <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl font-bold text白 text-center mb-10 sm:mb-16">制作実績</h2>
     {/* Mobile category dropdown */}
         <div className="xl:hidden mb-6 px-2">
           <div ref={mobileCatRef} className="relative max-w-md mx-auto">
@@ -681,7 +681,7 @@ export default function Portfolio() {
                     }`}
                     aria-label={`Visit ${project.title} website`}
                   >
-                    Visit site
+                   サイトを見る
                   </button>
                 </div>
               </div>

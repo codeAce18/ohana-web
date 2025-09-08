@@ -15,14 +15,12 @@ export default function SeoSemPage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero reveal
       gsap.fromTo(
         heroRef.current?.children || [],
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: "power2.out" },
       )
 
-      // Text block on scroll
       gsap.fromTo(
         textBlockRef.current,
         { opacity: 0, y: 24 },
@@ -39,7 +37,6 @@ export default function SeoSemPage() {
         },
       )
 
-      // Image card on scroll
       gsap.fromTo(
         imageRef.current,
         { opacity: 0, y: 28, scale: 0.98 },
@@ -67,24 +64,24 @@ export default function SeoSemPage() {
         {/* Hero */}
         <div ref={heroRef} className="text-center mb-10">
           <span className="inline-block rounded-full bg-[#00c7f1] px-4 py-2 text-sm font-bold text-white mb-2">
-            ABOUT SEO/SEM
+            SEO/SEM について
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Grow traffic with smart SEO & SEM</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">賢いSEOとSEMでトラフィックを伸ばす</h2>
         </div>
 
-        {/* Content grid similar to About */}
+        {/* Content grid */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left: Text */}
           <div>
             <div ref={textBlockRef} className="border-2 border-blue-200 rounded-lg p-6 bg-white/80 backdrop-blur">
               <p className="text-slate-700 mb-4 text-pretty">
-                Analyzing a website is a key part of SEO. It helps you understand where your visitors are coming from, the keywords they use to find your site, and which pages capture their attention the most. With these insights, you can optimize your site to attract even more traffic. More visitors ultimately lead to better rankings in search results.
+                ウェブサイトを分析することはSEOにおいて重要なステップです。訪問者がどこから来ているのか、どのキーワードでサイトを見つけたのか、どのページに注目しているのかを理解することができます。これらの情報を活用してサイトを最適化すれば、より多くのトラフィックを呼び込むことができ、検索結果での順位向上にもつながります。
               </p>
               <p className="text-slate-700 mb-4 text-pretty">
-               Beyond organic growth, you can also bring in additional traffic through SEM (Search Engine Marketing). SEM uses paid advertising on search engines to promote your website, ensuring it appears prominently to potential customers searching for relevant terms.
+                オーガニックな成長だけでなく、SEM（検索エンジンマーケティング）によって追加のトラフィックを獲得することも可能です。SEMは検索エンジンでの有料広告を利用し、関連する検索語句を使う潜在顧客に確実にリーチする方法です。
               </p>
               <p className="text-slate-700 text-pretty">
-                However, both SEO and SEM require consistent effort and can quickly become time-consuming. Spending too much time on them might take your focus away from your core business, while neglecting them altogether could mean missed opportunities. That’s where our team comes in — we have dedicated specialists who can manage these strategies on your behalf, helping you achieve measurable results more efficiently.
+                しかし、SEOとSEMの両方は継続的な努力が必要であり、すぐに時間がかかってしまいます。これに多くの時間を費やすと本来のビジネスに集中できなくなる一方、放置してしまうと大きな機会損失につながります。そこで私たちのチームがサポートします。専任の専門家がこれらの戦略を代行し、効率的かつ効果的に成果を実現します。
               </p>
             </div>
           </div>
@@ -95,7 +92,7 @@ export default function SeoSemPage() {
               <div className="relative w-full aspect-[3/4] lg:h-full">
                 <Image
                   src="/SEO.jpg"
-                  alt="SEO & SEM"
+                  alt="SEOとSEM"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"

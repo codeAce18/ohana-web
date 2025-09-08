@@ -271,19 +271,18 @@ export default function Home() {
               ref={badgeRef}
               className="inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-medium uppercase tracking-wider text-white/90 backdrop-blur"
             >
-              Launch in Days
+              数日で公開
             </span>
 
             <h1
               ref={titleRef}
               className="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white drop-shadow"
             >
-              Professional Websites in Days, Not Months
+              数ヶ月ではなく、数日でプロフェッショナルなWebサイトを
             </h1>
 
             <p ref={paragraphRef} className="mt-4 sm:mt-6 text-base sm:text-lg text-white/90 max-w-prose">
-              While other agencies are still scheduling discovery calls, we're building your website. No forms, no
-              meetings, no waiting around.
+              他社がまだ打ち合わせの日程調整をしている間に、私たちはあなたのサイトを作り始めます。フォームなし、会議なし、待ち時間なし。
             </p>
 
             <div ref={ctasRef} className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -298,7 +297,7 @@ export default function Home() {
                 onMouseEnter={handleCTAHover}
                 onMouseLeave={handleCTALeave}
               >
-                Reservations
+                お問い合わせ
               </a>
             </div>
           </div>
@@ -320,7 +319,7 @@ export default function Home() {
                 <div className="relative w-full aspect-[3/4] lg:h-full">
                   <Image
                     src="/approach.jpg"
-                    alt="Our Approach"
+                    alt="私たちの取り組み"
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     className="object-cover"
@@ -332,20 +331,18 @@ export default function Home() {
 
             <div ref={approachTextRef} className="max-w-2xl">
               <span className="inline-block rounded-full bg-[#00c7f1] px-4 py-2 text-sm font-bold text-white mb-2">
-                OUR APPROACH
+                私たちの取り組み
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Our Approach</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">私たちの取り組み</h2>
 
               <p className="mt-4 text-slate-700">
-                Creating a website is not just about making designs. It’s about asking: “Who do we want to reach?” and
-                “Who do we want to connect with?” We value these client perspectives, and we propose web designs that are
-                gentle and user-friendly.
+                Webサイト制作は単にデザインを作ることではありません。「誰に届けたいのか？」「誰とつながりたいのか？」を考えることが大切です。私たちはお客様の視点を大切にし、やさしく、使いやすいWebデザインをご提案します。
               </p>
 
               <ul ref={approachListRef} className="mt-6 list-disc pl-5 space-y-2 text-slate-700">
-                <li>We provide clear explanations so that even first-time clients can feel at ease.</li>
-                <li>Even after delivery, we aim to remain someone you can casually reach out to for advice.</li>
-                <li>We offer strong after-support so that we can continue walking alongside you in the long term.</li>
+                <li>はじめての方でも安心できるよう、分かりやすく丁寧にご説明します。</li>
+                <li>納品後も気軽に相談できる、身近なパートナーであり続けます。</li>
+                <li>長く伴走できるよう、充実したアフターサポートをご提供します。</li>
               </ul>
             </div>
           </div>

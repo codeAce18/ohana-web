@@ -5,18 +5,18 @@ import { Button } from "@/components/ui/button"
 
 export default function Footer() {
   const links = [
-    { href: "#home", label: "Home" },
-    { href: "#stats", label: "Stats" },
-    { href: "#about", label: "About" },
-    { href: "#approach", label: "Approach" },
-    { href: "#performance", label: "Performance" },
+    { href: "#home", label: "ホーム" },
+    { href: "#stats", label: "実績" },
+    { href: "#about", label: "私たちについて" },
+    { href: "#approach", label: "アプローチ" },
+    { href: "#performance", label: "パフォーマンス" },
     { href: "#seo-sem", label: "SEO/SEM" },
-    { href: "#analytics", label: "Analytics" },
-    { href: "#vision", label: "Vision" },
-    { href: "#portfolio", label: "Portfolio" },
-    { href: "#testimonials", label: "Testimonials" },
-    { href: "#successful-projects", label: "Successful Projects" },
-    { href: "#why-choose-us", label: "Why Choose Us" },
+    { href: "#analytics", label: "アナリティクス" },
+    { href: "#vision", label: "ビジョン" },
+    { href: "#portfolio", label: "ポートフォリオ" },
+    { href: "#testimonials", label: "お客様の声" },
+    { href: "#successful-projects", label: "成功事例" },
+    { href: "#why-choose-us", label: "選ばれる理由" },
   ]
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -49,12 +49,11 @@ export default function Footer() {
               </div>
             </div>
             <p className="mt-4  text-sm leading-relaxed max-w-sm">
-              We build professional, user‑friendly websites in days — not months. Friendly support, clear communication,
-              and a focus on what really matters: your users.
+              数ヶ月ではなく、数日でプロフェッショナルで使いやすいWebサイトを構築します。親切なサポート、明確なコミュニケーション、そして本当に大切な「ユーザー」に焦点を当てます。
             </p>
             <div className="mt-6">
               <a href="#home" onClick={(e) => handleSmoothScroll(e, '#home')}>
-                <Button size="lg" className="bg-[#00c7f1] hover:bg-[#15aecb] text-white">Get Started</Button>
+                <Button size="lg" className="bg-[#00c7f1] hover:bg-[#15aecb] text-white">今すぐ始める</Button>
               </a>
             </div>
           </div>
@@ -62,7 +61,7 @@ export default function Footer() {
           {/* Quick Links (split into two columns on md) */}
           <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-6">
             <div>
-              <h3 className="text-sm font-semibold tracking-wide ">Navigation</h3>
+              <h3 className="text-sm font-semibold tracking-wide ">ナビゲーション</h3>
               <ul className="mt-4 space-y-3">
                 {links.slice(0, Math.ceil(links.length / 2)).map((l) => (
                   <li key={l.href}>
@@ -78,7 +77,7 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold tracking-wide ">More</h3>
+              <h3 className="text-sm font-semibold tracking-wide ">その他</h3>
               <ul className="mt-4 space-y-3">
                 {links.slice(Math.ceil(links.length / 2)).map((l) => (
                   <li key={l.href}>
@@ -94,10 +93,10 @@ export default function Footer() {
               </ul>
             </div>
             <div className="col-span-2 sm:col-span-1">
-              <h3 className="text-sm font-semibold tracking-wide ">Contact</h3>
+              <h3 className="text-sm font-semibold tracking-wide ">お問い合わせ</h3>
               <ul className="mt-4 space-y-3 text-sm">
-                <li>Email: cbnbc08@gmail.com</li>
-                <li>Hours: Mon–Fri, 9:00–18:00 JST</li>
+                <li>メール: cbnbc08@gmail.com</li>
+                <li>営業時間: 月〜金 9:00–18:00（JST）</li>
               </ul>
             </div>
           </div>
@@ -105,8 +104,8 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/60 text-sm">© {new Date().getFullYear()} Ohanaweb. All rights reserved.</p>
-          <p className="text-white/60 text-sm">Made with care by OHANA‑WEB</p>
+          <p className="text-white/60 text-sm">© {new Date().getFullYear()} Ohanaweb. 無断複写・転載を禁じます。</p>
+          <p className="text-white/60 text-sm">OHANA‑WEBが心を込めて制作しました</p>
         </div>
       </div>
     </footer>
