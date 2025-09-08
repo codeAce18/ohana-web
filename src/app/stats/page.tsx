@@ -79,10 +79,10 @@ export default function StatsPage() {
     <section ref={sectionRef} className="bg-white py-16 sm:py-24">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <StatCard label="Yearly performance" value={years} suffix="+" image="/portfolio.png" />
-          <StatCard label="Project successes" value={projects} suffix="+" image="/rocket.png" />
-          <StatCard label="Active Customers" value={customers} suffix="+" image="/scan.png" />
-          <StatCard label="professional teams" value={teams} suffix="+" image="/tv.png" />
+          <StatCard label="年間実績" value={years} suffix="+" image="/portfolio.png" />
+          <StatCard label="プロジェクト成功数" value={projects} suffix="+" image="/rocket.png" />
+          <StatCard label="アクティブ顧客" value={customers} suffix="+" image="/scan.png" />
+          <StatCard label="プロフェッショナルチーム" value={teams} suffix="+" image="/tv.png" />
         </div>
       </div>
     </section>

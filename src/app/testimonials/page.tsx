@@ -7,21 +7,21 @@ import { Button } from "@/components/ui/button"
 const testimonials = [
   {
     id: 1,
-    text: "Ohanaweb Solutions' development team performed admirably to meet the mutually agreed deadlines. Our project was under strict time constraints, but they completed all work on schedule and delivered a superior quality product that exceeded our expectations. The precision and thoroughness of Ohanaweb Solutions' development team at each stage of the project demonstrated their high level of professionalism.",
+    text: "Ohanaweb Solutions の開発チームは、合意した納期を守るために見事に対応してくれました。プロジェクトは厳しい時間的制約がありましたが、すべての作業を予定通りに完了し、期待を超える高品質な製品を納品してくれました。プロジェクトの各段階における Ohanaweb Solutions の開発チームの正確さと徹底ぶりは、高いプロ意識を示していました。",
     name: "Andrew Che",
     title: "CEO - Morning Geek Technology Pte. Ltd.",
     avatar: "/userOne.png",
   },
   {
     id: 2,
-    text: "Ohanaweb Solutions' development team performed admirably to meet the mutually agreed deadlines. Our project was under strict time constraints, but they completed all work on schedule and delivered a superior quality product that exceeded our expectations. The precision and thoroughness of Ohanaweb Solutions' development team at each stage of the project demonstrated their high level of professionalism.",
+    text: "Ohanaweb Solutions の開発チームは、合意した納期を守るために見事に対応してくれました。プロジェクトは厳しい時間的制約がありましたが、すべての作業を予定通りに完了し、期待を超える高品質な製品を納品してくれました。プロジェクトの各段階における Ohanaweb Solutions の開発チームの正確さと徹底ぶりは、高いプロ意識を示していました。",
     name: "Mr. Tomoyuki Miyamoto",
     title: "CEO - Marui Textile Co., Ltd.",
     avatar: "/UserTwo.png",
   },
   {
     id: 3,
-    text: "They provide support according to peace of mind. Ohanaweb Solutions' work attitude. If there is an opportunity, choosing Ohanaweb Solutions professionally.",
+    text: "安心感のあるサポートを提供してくれます。Ohanaweb Solutions の仕事に対する姿勢は非常に誠実です。機会があれば、ぜひプロフェッショナルとして Ohanaweb Solutions を選びたいと思います。",
     name: "Mr. Yasuo Sakai",
     title: "CEO - Native Creation",
     avatar: "/UserThree.png",
@@ -81,11 +81,9 @@ export default function TestimonialsCarousel() {
     <section className="py-16 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div ref={headerRef} className="text-center mb-10 md:mb-12 px-2">
-          <h2 className="mb-4 md:mb-6 text-3xl md:text-5xl font-bold text-[#00c7f1]">Customer testimonials</h2>
+          <h2 className="mb-4 md:mb-6 text-3xl md:text-5xl font-bold text-[#00c7f1]">お客様の声</h2>
           <p className="text-gray-700 max-w-4xl mx-auto leading-relaxed text-sm sm:text-base">
-            At Ohanaweb Japan, we always strive to continually deliver the best products. These efforts are
-            rewarded by the kind words, feedback, and reviews from our customers. Here are some of the kind words we
-            have received from our customers:
+            Ohanaweb Japan は常に最高のプロダクトを提供するために努力しています。日々の取り組みは、お客様からの温かい言葉やフィードバックという形で返ってきます。こちらはその一部のご紹介です。
           </p>
         </div>
 

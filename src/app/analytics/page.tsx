@@ -61,23 +61,20 @@ export default function AnalyticsPage() {
   return (
     <section ref={containerRef} className="py-16 sm:py-20 bg-white">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-10">
-        {/* Hero */}
         <div ref={heroRef} className="text-center mb-10">
           <span className="inline-block rounded-full bg-[#00c7f1] px-4 py-2 text-sm font-bold text-white mb-2">
-            ANALYSIS BY GOOGLE ANALYTICS
+            Google アナリティクスによる分析
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Turn insights into growth</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">インサイトを成長につなげる</h2>
         </div>
 
-        {/* Content grid similar to Our Approach (image left, text right) */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left: Image */}
           <div className="lg:pr-8 self-stretch order-1 lg:order-none">
             <div ref={imageRef} className="bg-white rounded-xl shadow-lg overflow-hidden h-full">
               <div className="relative w-full aspect-[3/4] lg:h-full">
                 <Image
                   src="/Analytics.jpg"
-                  alt="Google Analytics"
+                  alt="Google アナリティクス"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
@@ -87,25 +84,22 @@ export default function AnalyticsPage() {
             </div>
           </div>
 
-          {/* Right: Text */}
           <div>
             <div ref={textBlockRef} className="border-2 border-blue-200 rounded-lg p-6 bg-white/80 backdrop-blur">
               <p className="text-slate-700 mb-4 text-pretty">
-                By studying visitor trends, we can uncover what your audience truly wants, identify which pages perform well (and which don’t), and make improvements that enhance both user satisfaction and overall traffic growth.
+                訪問者の傾向を分析することで、ユーザーが本当に求めているものを明らかにし、効果的なページやそうでないページを特定し、ユーザー満足度とトラフィックの成長を高める改善を行うことができます。
               </p>
               <p className="text-slate-700 mb-4 text-pretty">
-                In practice, this means analyzing the keywords most likely to drive sales, understanding where visitors are coming from and at what times, and tracking seasonal shifts in demand for your products or services.
+                実際には、売上につながりやすいキーワードを分析し、訪問者がどこから来ているのか、どの時間帯が多いのか、製品やサービスの需要が季節によってどう変化するのかを把握します。
               </p>
               <p className="text-slate-700 mb-4 text-pretty">
-                Think of it like running a physical store: by observing shoppers, you can see how products are arranged, which ones sell best, and the demographics of your customers. Without that insight, it’s difficult to know what changes will boost sales. The same principle applies online — without proper website analysis, you can’t know how to optimize effectively.
+                これは実店舗の運営に似ています。お客様の動きを観察することで、商品の配置、よく売れる商品、顧客層を理解できます。この情報がなければ、売上を伸ばすために何を変えればよいのか分かりません。同じことがオンラインにも当てはまります。適切なウェブサイト分析がなければ、最適化はできません。
               </p>
               <p className="text-slate-700 text-pretty">
-               That’s why we perform regular weekly analyses and implement improvements to keep your website performing at its best.
+                そのため、私たちは毎週定期的に分析を行い、改善を実施して、常にウェブサイトのパフォーマンスを最適に保っています。
               </p>
             </div>
           </div>
-
-        
         </div>
       </div>
     </section>

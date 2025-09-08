@@ -20,10 +20,10 @@ function Toast({ type, text, onClose }: { type: 'success' | 'error'; text: strin
       aria-live="polite"
     >
       <div className="flex items-start gap-3">
-        <span className="font-semibold">{type === 'success' ? 'Success' : 'Error'}</span>
+        <span className="font-semibold">{type === 'success' ? '成功' : 'エラー'}</span>
         <span className="opacity-95">{text}</span>
         <button
-          aria-label="Close notification"
+          aria-label="通知を閉じる"
           onClick={onClose}
           className="ml-2 text-white/90 hover:text-white"
         >
@@ -58,12 +58,11 @@ export default function InquiryPage() {
     gsap.to("#submitBtn", { scale: 0.96, duration: 0.1, yoyo: true, repeat: 1 })
 
     try {
-      // Initialize and send via EmailJS
       const params = {
         from_name: name,
         reply_to: email,
         message,
-        to_email: toEmail, // optional if your template uses it
+        to_email: toEmail,
       }
 
       const result = await emailjs.send(
@@ -78,14 +77,14 @@ export default function InquiryPage() {
       }
 
       setSubmitted(true)
-      setToast({ type: 'success', text: 'Your message has been sent. We will get back to you soon.' })
+      setToast({ type: 'success', text: 'メッセージが送信されました。折り返しご連絡いたします。' })
       setName("")
       setEmail("")
       setMessage("")
     } catch (err) {
       console.error(err)
-      setError("Failed to send message. Please try again later.")
-      setToast({ type: 'error', text: 'Failed to send. Please try again later.' })
+      setError("送信に失敗しました。もう一度お試しください。")
+      setToast({ type: 'error', text: '送信に失敗しました。後でもう一度お試しください。' })
     } finally {
       setSubmitting(false)
     }
@@ -106,7 +105,7 @@ export default function InquiryPage() {
 
       <div className="max-w-3xl mx-auto relative z-10">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-10 sm:mb-16">
-          Contact Us
+          お問い合わせ
         </h1>
 
         <form
@@ -115,14 +114,14 @@ export default function InquiryPage() {
         >
           <div>
             <label htmlFor="name" className="block text-white mb-2 font-medium">
-              Name
+              お名前
             </label>
             <input
               id="name"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Your name"
+              placeholder="お名前を入力してください"
               className="w-full rounded-sm bg-[#345b95] text-white placeholder-white/70 border border-white/20 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#00c7f1]"
               required
             />
@@ -130,7 +129,7 @@ export default function InquiryPage() {
 
           <div>
             <label htmlFor="email" className="block text-white mb-2 font-medium">
-              Email
+              メールアドレス
             </label>
             <input
               id="email"
@@ -145,13 +144,13 @@ export default function InquiryPage() {
 
           <div>
             <label htmlFor="message" className="block text-white mb-2 font-medium">
-              Message
+              メッセージ
             </label>
             <textarea
               id="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="How can we help you?"
+              placeholder="ご用件をご記入ください"
               rows={6}
               className="w-full rounded-sm bg-[#345b95] text-white placeholder-white/70 border border-white/20 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#00c7f1]"
               required
@@ -169,7 +168,7 @@ export default function InquiryPage() {
                   : "bg-[#00c7f1] text-white hover:bg-[#00b5dc]"
               }`}
             >
-              {submitting ? "Sending..." : "Send Message"}
+              {submitting ? "送信中..." : "送信する"}
             </button>
           </div>
         </form>

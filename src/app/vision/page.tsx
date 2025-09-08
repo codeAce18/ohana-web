@@ -73,17 +73,15 @@ export default function VisionPage() {
 
         <div ref={heroRef} className="max-w-4xl mx-auto">
           <div className="">
-            <span className="inline-block rounded-full bg-[#00c7f1] px-4 py-2 text-sm font-bold text-white mb-2">OHANA-WEB Vision</span>
+            <span className="inline-block rounded-full bg-[#00c7f1] px-4 py-2 text-sm font-bold text-white mb-2">OHANA-WEB ビジョン</span>
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold text-[#00c7f1] mb-6 text-balance">
-            A human-friendly web for everyone.
-     
+            誰にでも人に優しいウェブを。
           </h1>
 
           <p className="text-xl text-slate-100 lg:text-slate-600 max-w-3xl mx-auto leading-relaxed text-pretty">
-            Just like ohana = family in Hawaiian, we want to continue being a reassuring presence that stays close to
-            each individual client.
+            ハワイ語で「ohana = 家族」という意味のように、私たちは一人ひとりのクライアントに寄り添う安心できる存在であり続けたいと考えています。
           </p>
         </div>
       </section>
@@ -93,42 +91,38 @@ export default function VisionPage() {
           <div ref={principlesRef} className="grid md:grid-cols-3 gap-8">
 
             <div className="principle-card bg-white rounded-2xl p-8 shadow-sm border border-blue-100 hover:shadow-md transition-shadow">
-             
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Friendliness</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">親しみやすさ</h3>
               <p className="text-slate-700 leading-relaxed">
-                We avoid technical jargon as much as possible and explain things in a way that's easy for anyone to
-                understand.
+                専門用語はできるだけ避け、誰にでも分かりやすく説明することを心がけています。
               </p>
             </div>
 
             <div className="principle-card bg-white rounded-2xl p-8 shadow-sm border border-blue-100 hover:shadow-md transition-shadow">
-             
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Trust and Reassurance</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">信頼と安心</h3>
               <p className="text-slate-700 leading-relaxed">
-                Our relationship doesn't end at delivery—we support you as a long-term partner.
+                納品して終わりではなく、長期的なパートナーとしてサポートを続けます。
               </p>
             </div>
 
-
             <div className="principle-card bg-white rounded-2xl p-8 shadow-sm border border-blue-100 hover:shadow-md transition-shadow">
-             
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">Human-friendly Design</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">人に優しいデザイン</h3>
               <p className="text-slate-700 leading-relaxed">
-                We prioritize the user's perspective, creating simple, clear, and easy-to-use websites.
+                ユーザーの視点を第一に考え、シンプルで分かりやすく、使いやすいウェブサイトを制作します。
               </p>
             </div>
           </div>
         </div>
       </section>
+
       <section className="py-20 px-4 text-center bg-white">
         <div ref={goalRef} className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 sm:p-12 border border-blue-100">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 md:mb-6">Our goal is simple:</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 md:mb-6">私たちの目標はシンプルです:</h2>
             <blockquote className="text-xl sm:text-2xl md:text-3xl font-medium text-[#00c7f1] mb-6 md:mb-8 text-balance">
-              "Through web development, bring warmth and peace of mind into daily life."
+              「ウェブ開発を通じて、日常に温もりと安心を届けること。」
             </blockquote>
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed text-pretty">
-              OHANA-WEB will continue to deliver gentle web experiences that naturally blend into people's lives.
+              OHANA-WEB は、人々の生活に自然に溶け込む優しいウェブ体験をこれからも提供し続けます。
             </p>
           </div>
         </div>
@@ -140,7 +134,7 @@ export default function VisionPage() {
             <div className="w-12 h-0.5 bg-blue-600" />
             <div className="w-12 h-0.5 bg-blue-600" />
           </div>
-          <p className="text-slate-600 italic">Creating connections, one website at a time.</p>
+          <p className="text-slate-600 italic">ひとつひとつのウェブサイトで、つながりを生み出す。</p>
         </div>
       </section>
     </div>

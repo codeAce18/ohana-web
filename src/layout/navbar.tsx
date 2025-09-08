@@ -37,11 +37,11 @@ const Navbar: React.FC = () => {
                   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }}
                 className="h-10 sm:h-12 md:h-14 lg:h-20 flex items-center focus:outline-none"
-                aria-label="Go to top"
+                aria-label="トップへ移動"
               >
                 <Image
                   src="/logo/Ohana Blue.svg"
-                  alt="Ohanaweb"
+                  alt="Ohanaweb ロゴ"
                   width={120}
                   height={70}
                   className="h-full w-auto object-contain"
@@ -52,15 +52,15 @@ const Navbar: React.FC = () => {
 
             <ul className="hidden lg:flex items-center gap-6 text-sm font-medium">
               {[
-                { href: "#about", label: "About" },
-                { href: "#performance", label: "Performance" },
+                { href: "#about", label: "私たちについて" },
+                { href: "#performance", label: "パフォーマンス" },
                 // { href: "#seo-sem", label: "SEO/SEM" },
-                // { href: "#analytics", label: "Analytics" },
-                { href: "#vision", label: "Vision" },
-                { href: "#portfolio", label: "Portfolio" },
-                { href: "#testimonials", label: "Testimonials" },
-                { href: "#successful-projects", label: "Successful Projects" },
-                { href: "#why-choose-us", label: "Why Choose Us" },
+                // { href: "#analytics", label: "アナリティクス" },
+                { href: "#vision", label: "ビジョン" },
+                { href: "#portfolio", label: "実績" },
+                { href: "#testimonials", label: "お客様の声" },
+                { href: "#successful-projects", label: "成功事例" },
+                { href: "#why-choose-us", label: "選ばれる理由" },
               ].map((item) => (
                 <li key={item.href}>
                   <a
@@ -89,13 +89,13 @@ const Navbar: React.FC = () => {
                 }}
                 className="hidden sm:inline-flex items-center justify-center py-3 px-7 rounded-xs text-white  bg-[#00c7f1] to-[#00a8d1] transition-all duration-300 font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 glow-animation"
               >
-                Reservations
+                お問い合わせ
               </a>
               
               <div className="w-8 h-8  bg-[#00c4f8] to-[#00a8d1] rounded-full flex items-center justify-center cursor-pointer hover:shadow-lg transition-all duration-300 transform hover:scale-110">
                 <Image
                   src="/ja.png"
-                  alt="Language"
+                  alt="日本語"
                   width={18}
                   height={18}
                   
@@ -107,9 +107,9 @@ const Navbar: React.FC = () => {
                 onClick={toggleMobileMenu}
                 className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-[#00c7f1] hover:bg-gray-50 transition-all duration-300"
                 aria-expanded="false"
-                aria-label="Toggle navigation menu"
+                aria-label="ナビゲーションメニューの切り替え"
               >
-                <span className="sr-only">Open main menu</span>
+                <span className="sr-only">メインメニューを開く</span>
                 <div className="relative w-6 h-6">
                   <span
                     className={`absolute block h-0.5 w-6 bg-current transform transition-all duration-300 ${
@@ -140,15 +140,15 @@ const Navbar: React.FC = () => {
           >
             <div className="px-2 pt-2 pb-6 space-y-1 bg-white border-t border-gray-100">
               {[
-                { href: "#about", label: "About" },
-                { href: "#performance", label: "Performance" },
+                { href: "#about", label: "私たちについて" },
+                { href: "#performance", label: "パフォーマンス" },
                 // { href: "#seo-sem", label: "SEO/SEM" },
-                // { href: "#analytics", label: "Analytics" },
-                { href: "#vision", label: "Vision" },
-                { href: "#portfolio", label: "Portfolio" },
-                { href: "#testimonials", label: "Testimonials" },
-                { href: "#successful-projects", label: "Successful Projects" },
-                { href: "#why-choose-us", label: "Why Choose Us" },
+                // { href: "#analytics", label: "アナリティクス" },
+                { href: "#vision", label: "ビジョン" },
+                { href: "#portfolio", label: "実績" },
+                { href: "#testimonials", label: "お客様の声" },
+                { href: "#successful-projects", label: "成功事例" },
+                { href: "#why-choose-us", label: "選ばれる理由" },
               ].map((item) => (
                 <a
                   key={item.href}
@@ -171,7 +171,7 @@ const Navbar: React.FC = () => {
                   className="block w-full text-center py-3 px-6 rounded-lg text-white bg-gradient-to-r from-[#00c7f1] to-[#00a8d1] hover:from-[#043e7e] hover:to-[#032d5a] transition-all duration-300 font-semibold shadow-lg glow-animation"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Get Started
+                  今すぐ始める
                 </a>
               </div>
             </div>

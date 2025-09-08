@@ -16,14 +16,12 @@ export default function WhyChooseUsPage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Intro heading
       gsap.fromTo(
         headingRef.current,
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 0.9, ease: "power2.out" },
       )
 
-      // Left column items
       gsap.fromTo(
         leftColRef.current?.querySelectorAll(".feature-left") || [],
         { opacity: 0, x: -24 },
@@ -41,7 +39,6 @@ export default function WhyChooseUsPage() {
         },
       )
 
-      // Center orb reveal and gentle float
       gsap.fromTo(
         centerOrbRef.current,
         { opacity: 0, scale: 0.92, y: 20 },
@@ -66,7 +63,6 @@ export default function WhyChooseUsPage() {
         repeat: -1,
       })
 
-      // Right column items
       gsap.fromTo(
         rightColRef.current?.querySelectorAll(".feature-right") || [],
         { opacity: 0, x: 24 },
@@ -99,10 +95,8 @@ export default function WhyChooseUsPage() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Dark overlay over background image */}
       <div className="absolute inset-0 bg-black/20" aria-hidden="true"></div>
 
-      {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-32 h-32 border border-blue-300 rounded-full"></div>
         <div className="absolute bottom-40 right-32 w-24 h-24 border border-blue-300 rounded-full"></div>
@@ -110,23 +104,20 @@ export default function WhyChooseUsPage() {
       </div>
 
       <div className="container mx-auto px-4 py-16 relative z-10">
-        {/* Main heading */}
         <h1 ref={headingRef} className="text-4xl md:text-6xl font-bold text-white text-center mb-16 text-balance">
-          Why choose us?
+          なぜ私たちを選ぶのか？
         </h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-7xl mx-auto">
-          {/* Left column */}
           <div ref={leftColRef} className="space-y-8">
-            {/* 14-day risk-free trial */}
             <div className="feature-left">
               <div className="text-left">
                 <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
-                  14-day risk-free trial
-                  <img src="/Component-86.png" alt="rocket icon" className="w-10 h-10" />
+                  14日間リスクなしトライアル
+                  <img src="/Component-86.png" alt="ロケットアイコン" className="w-10 h-10" />
                 </h3>
                 <p className="text-blue-100 text-sm leading-relaxed">
-                  You can experience our services without any financial risk before signing any formal contract.
+                  契約を結ぶ前に、金銭的なリスクなしでサービスを体験できます。
                 </p>
               </div>
             </div>
@@ -134,36 +125,31 @@ export default function WhyChooseUsPage() {
             <div className="feature-left">
               <div className="text-left">
                 <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
-                  Flexible Recruitment Models
-                  <img src="/box.png" alt="box icon" className="w-10 h-10" />
+                  柔軟な採用モデル
+                  <img src="/box.png" alt="ボックスアイコン" className="w-10 h-10" />
                 </h3>
                 <p className="text-blue-100 text-sm leading-relaxed">
-                  You can choose the model that best suits your business from flat rate, extended fee, or time and
-                  materials.
+                  定額制、延長料金制、またはタイム＆マテリアル制など、ビジネスに最適なモデルを選択できます。
                 </p>
               </div>
             </div>
 
-            {/* Start your trial within 2 business days */}
             <div className="feature-left">
               <div className="text-left">
                 <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
-                  Start your trial within 2 business days
-                  <img src="/dollar.png" alt="dollar icon" className="w-10 h-10" />
+                  2営業日以内にトライアル開始
+                  <img src="/dollar.png" alt="ドルアイコン" className="w-10 h-10" />
                 </h3>
                 <p className="text-blue-100 text-sm leading-relaxed">
-                  Not only does this save you a lot of opportunity cost, it also eliminates unnecessary waiting time.
+                  多くの機会損失を防ぐだけでなく、不要な待ち時間も解消されます。
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Center - Logo/Brand */}
           <div ref={centerOrbRef} className="flex justify-center items-center">
             <div className="relative">
-              {/* Glowing orb effect */}
               <div className="w-80 h-80 rounded-full bg-gradient-to-br from-cyan-400 via-blue-500 to-blue-600 relative overflow-hidden shadow-2xl shadow-blue-500/50">
-                {/* Circuit pattern overlay */}
                 <div className="absolute inset-0 opacity-30">
                   <svg className="w-full h-full" viewBox="0 0 200 200">
                     <defs>
@@ -180,59 +166,57 @@ export default function WhyChooseUsPage() {
                   </svg>
                 </div>
 
-                {/* Logo container */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white rounded-lg mb-4 mx-auto flex items-center justify-center backdrop-blur-sm">
-                     <Image src="/logo/Ohana Blue.svg" alt="Logo" width={64} height={64} />
+                      <Image src="/logo/Ohana Blue.svg" alt="ロゴ" width={64} height={64} />
                     </div>
                     <div className="text-white">
                       <div className="text-2xl font-bold">OHANA WEB</div>
-                      <div className="text-lg font-light">Solutions</div>
+                      <div className="text-lg font-light">ソリューション</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Animated glow rings */}
                 <div className="absolute -inset-4 rounded-full border border-cyan-300/30 animate-pulse"></div>
-                <div className="absolute -inset-8 rounded-full border border-blue-300/20 animate-pulse" style={{ animationDelay: "1s" }}></div>
+                <div
+                  className="absolute -inset-8 rounded-full border border-blue-300/20 animate-pulse"
+                  style={{ animationDelay: "1s" }}
+                ></div>
               </div>
             </div>
           </div>
 
-          {/* Right column */}
           <div ref={rightColRef} className="space-y-8">
-            {/* 480-hour warranty */}
             <div className="feature-right">
               <div>
                 <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
-                  <img src="/graph.png" alt="graph icon" className="w-10 h-10" />
-                  480-hour warranty
+                  <img src="/graph.png" alt="グラフアイコン" className="w-10 h-10" />
+                  480時間保証
                 </h3>
-                <p className="text-blue-100 text-sm leading-relaxed">We ensure the success of your product even after the project is over.</p>
+                <p className="text-blue-100 text-sm leading-relaxed">プロジェクト終了後も、製品の成功を保証します。</p>
               </div>
             </div>
 
             <div className="feature-right">
               <div>
                 <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
-                  <img src="/puzzle.png" alt="puzzle icon" className="w-10 h-10" />
-                  100% NDA protection
+                  <img src="/puzzle.png" alt="パズルアイコン" className="w-10 h-10" />
+                  100% NDA保護
                 </h3>
                 <p className="text-blue-100 text-sm leading-relaxed">
-                  Before starting your ISMS - ISO 27001:2013 certification project, we will sign an NDA to keep all your
-                  information confidential.
+                  ISMS - ISO 27001:2013 認証プロジェクトを開始する前に、すべての情報を機密に保つためにNDAを締結します。
                 </p>
               </div>
             </div>
             <div className="feature-right">
               <div>
                 <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
-                  <img src="/handtake.png" alt="handshake icon" className="w-10 h-10" />
-                  Project Status Updates
+                  <img src="/handtake.png" alt="握手アイコン" className="w-10 h-10" />
+                  プロジェクト進捗更新
                 </h3>
                 <p className="text-blue-100 text-sm leading-relaxed">
-                  We provide project progress reports in the form of daily, weekly, monthly reports, or whenever requested by the client.
+                  日次・週次・月次、またはクライアントの要望に応じて、プロジェクト進捗報告を提供します。
                 </p>
               </div>
             </div>
