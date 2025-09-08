@@ -18,7 +18,7 @@ export default function ForcedLoader({ durationMs = 3000 }: { durationMs?: numbe
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white">
       <div className="flex flex-col items-center justify-end">
         <Image
-          src="/logo/Ohana Blue.png"
+          src="/logo/Ohana Blue.svg"
           alt="Ohana logo"
           width={80}
           height={80}

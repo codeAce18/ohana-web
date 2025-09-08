@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
             <div className="flex items-center gap-2 select-none">
               <div className="h-10 sm:h-12 md:h-14 lg:h-20 flex items-center">
                 <Image
-                  src="/logo/Ohana Blue.png"
+                  src="/logo/Ohana Blue.svg"
                   alt="Ohanaweb"
                   width={120}
                   height={70}
