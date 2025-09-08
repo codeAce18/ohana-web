@@ -4,7 +4,6 @@ export default function Loading() {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-white">
       <div className="flex flex-col items-center justify-end">
-        {/* Logo bouncing like a ball */}
         <Image
           src="/logo/OhanaBlack.png"
           alt="Ohana logo"
@@ -13,7 +12,6 @@ export default function Loading() {
           priority
           className="animate-bounce-ball select-none"
         />
-        {/* Soft shadow under the logo */}
         <div className="mt-2 w-20 h-2 rounded-full bg-black/40 blur-[3px] animate-shadow" />
       </div>
 

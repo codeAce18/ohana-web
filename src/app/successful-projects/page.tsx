@@ -250,9 +250,7 @@ export default function SuccessfulProjectsPage() {
           </button>
         </div>
 
-        {/* Carousel (center bigger, sides smaller) */}
         <div className="relative flex items-center justify-center gap-3 md:gap-6 lg:gap-12 px-2 md:px-6 overflow-x-hidden pt-10">
-          {/* Left */}
           <motion.div
             key={`left-${leftIndex}`}
             className="hidden sm:block"
@@ -263,8 +261,6 @@ export default function SuccessfulProjectsPage() {
           >
             <Card project={projects[leftIndex]} emphasis="left" />
           </motion.div>
-
-          {/* Center */}
           <div className="relative">
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <motion.div
