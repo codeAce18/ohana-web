@@ -185,13 +185,13 @@ const projects = {
     {
       id: 27,
       title: "Fitness Tracking App",
-      image: "/ethree.png",
+      image: "/yo.jpg",
       url: "https://www.ethree.tokyo/"
     },
     {
       id: 28,
       title: "Social Media App",
-      image: "/hanamoyako.png",
+      image: "/yosecondd.jpg",
       url: "https://topclass-n.net"
     },
     {
@@ -204,7 +204,7 @@ const projects = {
     {
       id: 30,
       title: "Social Media App",
-      image: "/noluc.png",
+      image: "/yotwo.jpg",
       url: "https://www.noluc.jp/"
     },
     {
@@ -538,9 +538,10 @@ export default function Portfolio() {
           >
             <ChevronLeft size={24} className="text-[#00c7f1]" />
           </button>
-          <div ref={categoriesRef} className="flex bg-blue-700/30 rounded-sm overflow-hidden backdrop-blur-sm border border-white/20">
+          <div ref={categoriesRef} className="flex bg-blue-700/30 w-[700px] rounded-sm overflow-hidden backdrop-blur-sm border border-white/20">
             {visibleCategories.map((category, index) => (
-              <button
+              <div className="">
+                <button
                 key={category}
                 onClick={() => handleCategoryChange(category)}
                 className={`px-8 py-10 font-medium transition-all duration-300 whitespace-nowrap ${
@@ -551,6 +552,7 @@ export default function Portfolio() {
               >
                 {category}
               </button>
+              </div>
             ))}
           </div>
           <button

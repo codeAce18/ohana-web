@@ -79,7 +79,7 @@ const Navbar: React.FC = () => {
                 href="#"
                 className="hidden sm:inline-flex items-center justify-center py-3 px-7 rounded-xs text-white  bg-[#00c7f1] to-[#00a8d1] transition-all duration-300 font-semibold text-sm shadow-lg hover:shadow-xl transform hover:scale-105 glow-animation"
               >
-                Get Started
+                Reservations
               </a>
               
               <div className="w-8 h-8  bg-[#00c4f8] to-[#00a8d1] rounded-full flex items-center justify-center cursor-pointer hover:shadow-lg transition-all duration-300 transform hover:scale-110">
