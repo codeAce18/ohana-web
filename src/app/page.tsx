@@ -27,8 +27,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
   const HERO_BG_URL = "/japan.jpg"
-
-  // Refs for animation targets
   const sectionRef = useRef<HTMLElement | null>(null)
   const slantRef = useRef<HTMLDivElement | null>(null)
   const bgImageRef = useRef<HTMLDivElement | null>(null)
@@ -39,20 +37,14 @@ export default function Home() {
   const titleRef = useRef<HTMLHeadingElement | null>(null)
   const paragraphRef = useRef<HTMLParagraphElement | null>(null)
   const ctasRef = useRef<HTMLDivElement | null>(null)
-
-  // Approach section refs
   const approachSectionRef = useRef<HTMLElement | null>(null)
   const approachTextRef = useRef<HTMLDivElement | null>(null)
   const approachListRef = useRef<HTMLUListElement | null>(null)
   const approachImageRef = useRef<HTMLDivElement | null>(null)
 
-
-
-  // Entrance animations on mount
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
-      // Slow down entire sequence
       tl.timeScale(0.6)
 
       tl.from(
@@ -144,8 +136,6 @@ export default function Home() {
           gsap.set(gradientRef.current, {
             yPercent: progress * 8,
           })
-
-          // Parallax overlay
           gsap.set(cyanOverlayRef.current, {
             yPercent: progress * 20,
           })
@@ -153,10 +143,7 @@ export default function Home() {
 
         },
       })
-
-      // Approach section animations
       if (approachSectionRef.current) {
-        // Text fade-up
         gsap.fromTo(
           approachTextRef.current?.children || [],
           { opacity: 0, y: 24 },
@@ -173,8 +160,6 @@ export default function Home() {
             },
           },
         )
-
-        // List items slide in
         gsap.fromTo(
           approachListRef.current?.querySelectorAll("li") || [],
           { opacity: 0, x: -20 },
@@ -191,8 +176,6 @@ export default function Home() {
             },
           },
         )
-
-        // Image card reveal
         gsap.fromTo(
           approachImageRef.current,
           { opacity: 0, y: 28, scale: 0.98 },
@@ -212,7 +195,6 @@ export default function Home() {
       }
 
       return () => {
-        // cleanup
       }
     }, sectionRef)
 
