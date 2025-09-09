@@ -32,9 +32,7 @@ export default function Footer() {
 
     >
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-10 py-12 relative z-10">
-        {/* Top section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-          {/* Brand */}
           <div>
             <div className="flex items-center gap-3">
               <div className="h-12 md:h-20 flex items-center">
@@ -58,7 +56,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links (split into two columns on md) */}
           <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-6">
             <div>
               <h3 className="text-sm font-semibold tracking-wide ">ナビゲーション</h3>
@@ -102,7 +99,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/60 text-sm">© {new Date().getFullYear()} Ohanaweb. 無断複写・転載を禁じます。</p>
           <p className="text-white/60 text-sm">OHANA‑WEBが心を込めて制作しました</p>
