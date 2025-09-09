@@ -362,7 +362,6 @@ export default function Portfolio() {
     return () => window.removeEventListener('resize', updateCategoriesPerView)
   }, [])
 
-  // Close mobile dropdown on outside click
   useEffect(() => {
     if (!isMobileCatOpen) return
     const onClick = (e: MouseEvent) => {
@@ -432,7 +431,6 @@ export default function Portfolio() {
   const handleCategoryChange = (category: string) => {
     if (category === activeCategory) return
 
-    // Slide out current projects
     gsap.to(projectsRef.current?.children || [], {
       x: -100,
       opacity: 0,
@@ -443,7 +441,6 @@ export default function Portfolio() {
         setActiveCategory(category)
         setCurrentIndex(0)
 
-        // Slide in new projects
         gsap.fromTo(
           projectsRef.current?.children || [],
           { x: 100, opacity: 0 },
@@ -510,7 +507,6 @@ export default function Portfolio() {
   }
 
   useEffect(() => {
-    // Fade in header on scroll into view
     if (headerRef.current) {
       gsap.fromTo(
         headerRef.current,
@@ -525,7 +521,6 @@ export default function Portfolio() {
       )
     }
 
-    // Animate project cards when the grid is in view
     gsap.fromTo(
       projectsRef.current?.children || [],
       { opacity: 0, y: 30 },
@@ -555,7 +550,6 @@ export default function Portfolio() {
       <div className="absolute inset-0  z-0"></div>
       <div className="max mx-auto relative z-10">
         <h2 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl font-bold text白 text-center mb-10 sm:mb-16">制作実績</h2>
-    {/* Mobile category dropdown */}
         <div className="xl:hidden mb-6 px-2">
           <div ref={mobileCatRef} className="relative max-w-md mx-auto">
             <button
@@ -585,7 +579,6 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Desktop category scroller */}
         <div className="hidden xl:flex items-center justify-center mb-6 sm:mb-8 ">
           <button
             onClick={handleCategoryPrevious}
@@ -629,7 +622,6 @@ export default function Portfolio() {
         </div>
 
         <div className="relative">
-          {/* Carousel navigation buttons */}
           <button
             onClick={handlePrevious}
             disabled={currentIndex === 0}
@@ -688,7 +680,6 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Pagination dots */}
           <div className="flex justify-center mt-8 gap-2">
             {Array.from({ length: Math.ceil(currentProjects.length / 6) }).map((_, index) => (
               <button

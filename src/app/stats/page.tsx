@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import Odometer from "@/components/Odometer"
 
-// Enhanced count-up hook with easing and staggered start
 function useCountUp(target: number, durationMs = 2000, delay = 0, start = false) {
   const [value, setValue] = useState(0)
 
@@ -58,7 +57,6 @@ export default function StatsPage() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setInView(true)
-            // Optionally unobserve after first trigger to avoid re-animating on scroll back
             obs.unobserve(entry.target)
           }
         })

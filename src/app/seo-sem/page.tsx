@@ -69,9 +69,7 @@ export default function SeoSemPage() {
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">賢いSEOとSEMでトラフィックを伸ばす</h2>
         </div>
 
-        {/* Content grid */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left: Text */}
           <div>
             <div ref={textBlockRef} className="border-2 border-blue-200 rounded-lg p-6 bg-white/80 backdrop-blur">
               <p className="text-slate-700 mb-4 text-pretty">
@@ -86,7 +84,6 @@ export default function SeoSemPage() {
             </div>
           </div>
 
-          {/* Right: Image */}
           <div className="lg:pl-8 self-stretch">
             <div ref={imageRef} className="bg-white rounded-xl shadow-lg overflow-hidden h-full">
               <div className="relative w-full aspect-[3/4] lg:h-full">
