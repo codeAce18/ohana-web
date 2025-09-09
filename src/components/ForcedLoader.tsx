@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 
-// Shows a full-screen overlay for a fixed duration on initial load/refresh
+
 export default function ForcedLoader({ durationMs = 3000 }: { durationMs?: number }) {
   const [visible, setVisible] = useState(true)
 
