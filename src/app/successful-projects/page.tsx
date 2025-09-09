@@ -5,7 +5,6 @@ import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
-// Demo data – replace images/links as needed
 const projects = [
   {
     id: 1,
@@ -86,7 +85,6 @@ export default function SuccessfulProjectsPage() {
   const containerRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLHeadingElement | null>(null)
 
-  // circular helpers
   const leftIndex = useMemo(() => (active + projects.length - 1) % projects.length, [active])
   const rightIndex = useMemo(() => (active + 1) % projects.length, [active])
 
@@ -100,11 +98,9 @@ export default function SuccessfulProjectsPage() {
     setActive((idx) => (idx + projects.length - 1) % projects.length)
   }
 
-  // fade-in header when it enters viewport + auto-play; pause on hover
   useEffect(() => {
     const el = containerRef.current
 
-    // header observer
     const headerEl = headerRef.current
     let observer: IntersectionObserver | null = null
     if (headerEl) {
@@ -151,7 +147,6 @@ export default function SuccessfulProjectsPage() {
     }
   }, [])
 
-  // Card component for reuse
   const Card = ({ project, emphasis }: { project: typeof projects[number]; emphasis: "left" | "center" | "right" }) => {
     const base = "relative rounded-xl overflow-hidden border will-change-transform transition-[transform,opacity,filter] duration-500 ease-out"
     const size =
@@ -184,7 +179,6 @@ export default function SuccessfulProjectsPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         </div>
 
-        {/* Hover CTA */}
         {project.link && (
           <div className="absolute inset-0 flex items-end justify-end p-4 md:p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <motion.a
@@ -222,12 +216,10 @@ export default function SuccessfulProjectsPage() {
   return (
     <section className="min-h-screen bg-[#fff] py-16 px-0 overflow-x-hidden" ref={containerRef}>
       <div className="max-w-[100vw] mx-auto">
-        {/* Header */}
         <div className="text-center mb-10">
           <h1 ref={headerRef} className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#00c7f1]">成功事例</h1>
         </div>
 
-        {/* Controls */}
         <div className="flex items-center justify-between mb-6 px-2 md:px-6">
           <button
             onClick={goPrev}
@@ -281,7 +273,6 @@ export default function SuccessfulProjectsPage() {
             </AnimatePresence>
           </div>
 
-          {/* Right */}
           <motion.div
             key={`right-${rightIndex}`}
             className="hidden sm:block"
@@ -294,7 +285,6 @@ export default function SuccessfulProjectsPage() {
           </motion.div>
         </div>
 
-        {/* Dots */}
         <div className="mt-8 flex items-center justify-center gap-2">
           {projects.map((_, i) => (
             <motion.button

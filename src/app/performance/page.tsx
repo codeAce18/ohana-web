@@ -14,14 +14,12 @@ export default function PerformancePage() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // ヘッダー
       gsap.fromTo(
         headerRef.current?.children || [],
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: "power2.out" },
       )
 
-      // 各比較行
       const rows = rowsRef.current?.querySelectorAll(".perf-row") || []
       gsap.fromTo(
         rows,
@@ -60,9 +58,7 @@ export default function PerformancePage() {
           </p>
         </div>
 
-        {/* 比較ブロック */}
         <div ref={rowsRef} className="space-y-16 md:space-y-28">
-          {/* 従来のウェブサイト vs Ohanaweb Digital */}
           <div className="perf-row grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start md:items-center gap-6 md:gap-8">
             <div className="flex-1">
               <div className="flex items-start md:items-center gap-4">
@@ -97,7 +93,6 @@ export default function PerformancePage() {
             </div>
           </div>
 
-          {/* ユーザーの応答性 vs Ohanaweb Digitalの応答性 */}
           <div className="perf-row grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start md:items-center gap-6 md:gap-8">
             <div className="flex-1">
               <div className="flex items-start md:items-center gap-4">
@@ -132,7 +127,6 @@ export default function PerformancePage() {
             </div>
           </div>
 
-          {/* ネイティブ体験 vs Ohanaweb Digitalの体験 */}
           <div className="perf-row grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-start md:items-center gap-6 md:gap-8">
             <div className="flex-1">
               <div className="flex items-start md:items-center gap-4">
