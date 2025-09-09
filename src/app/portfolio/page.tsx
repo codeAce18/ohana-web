@@ -212,13 +212,13 @@ const projects = {
       title: "Bio Spa",
       image: "/spa.png",
       url: "https://bio-spa.jp/"
-    },
-    {
-      id: 32,
-      title: "Cellabo",
-      image: "/cellabo.png",
-      url: "https://www.celllabo.jp/"
-    },
+    }
+    // {
+    //   id: 32,
+    //   title: "Cellabo",
+    //   image: "/cellabo.png",
+    //   url: "https://www.celllabo.jp/"
+    // },
   ],
   "医療関連": [
     {

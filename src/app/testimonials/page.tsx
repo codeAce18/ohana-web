@@ -17,14 +17,14 @@ const testimonials = [
     text: "Ohanaweb Solutions の開発チームは、合意した納期を守るために見事に対応してくれました。プロジェクトは厳しい時間的制約がありましたが、すべての作業を予定通りに完了し、期待を超える高品質な製品を納品してくれました。プロジェクトの各段階における Ohanaweb Solutions の開発チームの正確さと徹底ぶりは、高いプロ意識を示していました。",
     name: "Mr. Tomoyuki Miyamoto",
     title: "CEO - Marui Textile Co., Ltd.",
-    avatar: "/UserTwo.png",
+    avatar: "/userTwo.png",
   },
   {
     id: 3,
     text: "安心感のあるサポートを提供してくれます。Ohanaweb Solutions の仕事に対する姿勢は非常に誠実です。機会があれば、ぜひプロフェッショナルとして Ohanaweb Solutions を選びたいと思います。",
     name: "Mr. Yasuo Sakai",
     title: "CEO - Native Creation",
-    avatar: "/UserThree.png",
+    avatar: "/userThree.png",
   },
 ]
 
